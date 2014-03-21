@@ -14,3 +14,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+webrat.log
+.idea/*
+coverage/*
+doc/coverage/*
+*DS_Store
+.rspec
+config/database.yml
