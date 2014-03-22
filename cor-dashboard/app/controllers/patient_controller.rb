@@ -1,4 +1,6 @@
 class PatientController < ApplicationController
+
+  respond_to :html
   def index
     #Fetch the correct Patient by patient_id    
 
@@ -6,9 +8,15 @@ class PatientController < ApplicationController
 
   def metrics
     #Fetch summary data by patient_id 
-    @bloodOxygen = BloodOxygenReading.last_week
-
+    @patient = Patient.find(1)
+    #@bloodOxygen = @patient.BloodOxygenReading.last_week
+    #bloodOxygenReadings = @patient.blood_oxygen_readings.select("bo_perc, reading_time").where(:reading_time, 1.week.ago .. Time.now)
+    #bloodOxygenThreshold = @patient.threshold_values.bo_perc
+    @result = {}
+    @result[:threshold] = @patient.threshold_values.bo_perc
+    @result[:data] = @patient.blood_oxygen_readings.select("bo_perc, reading_time").where(:reading_time, 1.week.ago .. Time.now)
   
+
     #redirect to metrics
 
   end
