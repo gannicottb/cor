@@ -1,11 +1,16 @@
 class PatientController < ApplicationController
   def index
     #Fetch the correct Patient by patient_id    
+
   end
 
   def metrics
-    #Fetch summary data by patient_id    
+    #Fetch summary data by patient_id 
+    @bloodOxygen = BloodOxygenReading.last_week
+
+  
     #redirect to metrics
+
   end
 
   def alerts
