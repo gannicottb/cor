@@ -14,7 +14,7 @@ namespace :db do
     BloodOxygenReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :bo_perc => 97.5, :reading_time => Time.now - 5.days)
     BloodOxygenReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :bo_perc => 50.6, :reading_time => Time.now - 6.days)
 
-    ThresholdValues.create(:patient_id =>1, :bo_perc => 90)
+    ThresholdValues.create(:patient_id =>patient.id, :bo_perc => 90)
     #Patient.populate 20 do |category|
     #  category.name = Populator.words(1..3).titleize
     #  Product.populate 10..100 do |product|
