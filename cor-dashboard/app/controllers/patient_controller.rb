@@ -8,24 +8,14 @@ class PatientController < ApplicationController
 
   def metrics
     #Fetch summary data by patient_id 
+    #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
     @patient = Patient.find(2)
-    #@bloodOxygen = @patient.BloodOxygenReading.last_week
-    #bloodOxygenReadings = @patient.blood_oxygen_readings.select("bo_perc, reading_time").where(:reading_time, 1.week.ago .. Time.now)
-    #bloodOxygenThreshold = @patient.threshold_values.bo_perc
-    @threshold = @patient.threshold_values.bo_perc   
-    #@timestamps = []
-    #@data = @patient.blood_oxygen_readings.select("bo_perc").where(:reading_time, 1.week.ago .. Time.now)
-    @values = []
-    @dates = []
+    @threshold = @patient.threshold_values.bo_perc      
+    @values = []    
     readings = @patient.blood_oxygen_readings
     readings.each do |reading|
-      @values << reading.bo_perc
-      @dates << reading.reading_time.utc.to_i*1000
-    end
-    #@timestamps = @patient.blood_oxygen_readings..select("reading_time").where(:reading_time, 1.week.ago .. Time.now)
-    #@result[:threshold] = @patient.threshold_values.bo_perc
-    #@result[:data] = @patient.blood_oxygen_readings.select("bo_perc, reading_time").where(:reading_time, 1.week.ago .. Time.now)
-    
+      @values << [reading.reading_time.utc.to_i*1000, reading.bo_perc]     
+    end   
 
     #redirect to metrics
 

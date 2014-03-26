@@ -3,15 +3,12 @@
 
 <!-- Because there is no other way to convert Datetime from Rails to JS, we package it here -->
 <%= javascript_tag do %>	
-	var values = <%= values%>;
-	var dates = <%= dates%>;
+	var values = <%= values%>;	
 	var threshold = <%= threshold %>;	
-	var numReadings = <%= values.length %>;
 	var data = new Array();
-	for (var i=0;i<numReadings;i++)
+	for (var i=0;i<values.length; i++)
 	{ 
-		data[i]= [new Date(dates[i]),values[i]];
-		console.log(data[i])
+		data[i]= [new Date(values[i][0]),values[i][1]];
 	}
 <% end %>
 
