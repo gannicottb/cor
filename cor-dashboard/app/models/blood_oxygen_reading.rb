@@ -7,23 +7,6 @@ class BloodOxygenReading < ActiveRecord::Base
 		#return most current reading
 
 	end
-
-	def self.last_week		#return an array of readings from past 7 days
-		bloodOxygenReadings = current_user.patient.blood_oxygen_readings.last_week
-		bloodOxygenThreshold = current_user.patient.threshold_values.bo_perc
-		result = {}
-		result[:threshold] = bloodOxygenThreshold
-		result[:data] = bloodOxygenReadings
-
-		return result
-		
-
-		#MySQL Query: select from bo_perc, reading_time where reading_time is in range blah\
-		#{
-		#:threshold -> 90
-		#:data -> [[timestamp, reading],[timestamp, reading]..]
-	  #}
-	end
-
 	scope :last_week, -> {where(:reading_time, 1.week.ago .. Time.now)}
+	
 end

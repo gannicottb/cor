@@ -12,14 +12,15 @@ class PatientController < ApplicationController
     #@bloodOxygen = @patient.BloodOxygenReading.last_week
     #bloodOxygenReadings = @patient.blood_oxygen_readings.select("bo_perc, reading_time").where(:reading_time, 1.week.ago .. Time.now)
     #bloodOxygenThreshold = @patient.threshold_values.bo_perc
-    @threshold = @patient.threshold_values.bo_perc
-
-    @data = []
+    @threshold = @patient.threshold_values.bo_perc   
     #@timestamps = []
     #@data = @patient.blood_oxygen_readings.select("bo_perc").where(:reading_time, 1.week.ago .. Time.now)
+    @values = []
+    @dates = []
     readings = @patient.blood_oxygen_readings
     readings.each do |reading|
-      @data << [reading.reading_time, reading.bo_perc]
+      @values << reading.bo_perc
+      @dates << reading.reading_time.utc.to_i*1000
     end
     #@timestamps = @patient.blood_oxygen_readings..select("reading_time").where(:reading_time, 1.week.ago .. Time.now)
     #@result[:threshold] = @patient.threshold_values.bo_perc

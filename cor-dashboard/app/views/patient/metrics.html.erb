@@ -1,11 +1,3 @@
 <h1>Patient#metrics</h1>
 
-<p>Threshold: <%=@threshold%><p>
-
-<p><%= @data %><p>
-
-<% @data.each do |item| %>
-<p><%= item%><p>
-<%end%>	
-
-<%-# render :partial => 'patient/blood_oxygen', :locals => {:threshold => @threshold, :data => @data} -%>
+<%= render :partial => 'patient/blood_oxygen', :locals => {:threshold => @threshold, :values => @values, :dates => @dates}%>

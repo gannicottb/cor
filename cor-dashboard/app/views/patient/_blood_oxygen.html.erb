@@ -1,11 +1,19 @@
-<!-- @threshold, @data, @timestamps-->
-<p>Partial!</p>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
-<%= javascript_tag do %>
-	console.log("javascript tag")
-	var data = '<%= j data %>';
-	var threshold = '<%= j threshold %>';
+
+<!-- Because there is no other way to convert Datetime from Rails to JS, we package it here -->
+<%= javascript_tag do %>	
+	var values = <%= values%>;
+	var dates = <%= dates%>;
+	var threshold = <%= threshold %>;	
+	var numReadings = <%= values.length %>;
+	var data = new Array();
+	for (var i=0;i<numReadings;i++)
+	{ 
+		data[i]= [new Date(dates[i]),values[i]];
+		console.log(data[i])
+	}
 <% end %>
+
 <div id="blood_oxygen_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-<script src="assets/javascripts/blood_oxygen.js" />
+<% javascript_include_tag "blood_oxygen"%>
