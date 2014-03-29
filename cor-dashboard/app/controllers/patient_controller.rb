@@ -9,7 +9,7 @@ class PatientController < ApplicationController
   def metrics
     #Fetch summary data by patient_id 
     #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
-    @patient = Patient.find(2)
+    @patient = Patient.find(3)
     @threshold = @patient.threshold_values.bo_perc      
     @values = []    
     readings = @patient.blood_oxygen_readings
