@@ -1,0 +1,2 @@
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby extconf.rb 
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby: invalid option -D  (-h will show valid options) (RuntimeError)

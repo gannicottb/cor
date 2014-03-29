@@ -1,4 +1,6 @@
 <h1>Patient#metrics</h1>
-
 <%= render :partial => 'patient/blood_oxygen', 
 						:locals => {:threshold => @threshold, :values => @values}%>
+<%= render :partial => 'patient/weight', 
+						:locals => {:threshold => @threshold, :values => @values}%>
+
