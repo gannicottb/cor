@@ -35,6 +35,18 @@ class PatientController < ApplicationController
 
   end
 
+  def sodium
+  end
+
+  def blood_pressure
+  end
+
+  def medication
+  end
+
+  def cough
+  end
+
   def alerts
     #Fetch alert data by patient_id    
     #redirect to alerts
