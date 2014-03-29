@@ -7,7 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class = "container-fluid">
+	<div class= "row">
+		<div class="center col-md-1"></div>
+		<div class= "center col-md-2">
+			<a href="">Metrics</a>
+		</div>
+		<div class= "center col-md-2">
+			<a href="">Alerts</a>
+		</div>
+		<div class= "center col-md-2">
+			<a href="">Patient Plan</a>
+		</div>
+		<div class= "center col-md-2">
+			Activity Log
+		</div>
+		<div class= "center col-md-2">
+			Settings
+		</div>
+		<div class="center col-md-1">
+		</div>
+	</div>
+	<div class= "row">
+		<div class="col-md-1">gutter</div>
+		<div class="col-md-8">main content
+			<div class="col-md-2">
+			summary<br>
+			metrics
+			</div>
+			<div class= "col-md-10"> graph</div>
+		</div>
+	</div>
+</div>
 <%= yield %>
 
 </body>
