@@ -4,8 +4,8 @@
 <!-- Because there is no other way to convert Datetime from Rails to JS, we package it here -->
 <%= javascript_tag do %>	
 	var values = <%= values%>;	
-	var weight_threshold = <%= threshold[0] %>;	
-	var days_threshold = <%= threshold[1] %>;
+	var weightThreshold = <%= threshold[0] %>;	
+	var timeThreshold = <%= threshold[1] %>;
 	var data = new Array();
 	for (var i=0;i<values.length; i++)
 	{ 
