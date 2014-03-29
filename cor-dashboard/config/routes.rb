@@ -6,6 +6,9 @@ CorDashboard::Application.routes.draw do
   get "patient/patient_plan"
   get "patient/activity_log"
   get "patient/settings"
+  
+  get "patient/weight"
+  get "patient/blood_oxygen"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

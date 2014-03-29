@@ -9,15 +9,36 @@ class PatientController < ApplicationController
   def metrics
     #Fetch summary data by patient_id 
     #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
+    # @patient = Patient.find(2)
+    # @threshold = @patient.threshold_values.bo_perc      
+    # @values = []    
+    # readings = @patient.blood_oxygen_readings
+    # readings.each do |reading|
+    #   @values << [reading.reading_time.utc.to_i*1000, reading.bo_perc]     
+    # end   
+
+    #redirect to metrics
+
+  end
+
+  def blood_oxygen
     @patient = Patient.find(2)
-    @threshold = @patient.threshold_values.bo_perc      
+    @threshold = @patient.threshold_values.bo_perc  
     @values = []    
     readings = @patient.blood_oxygen_readings
     readings.each do |reading|
       @values << [reading.reading_time.utc.to_i*1000, reading.bo_perc]     
     end   
+  end
 
-    #redirect to metrics
+  def weight
+    @patient = Patient.find(2)
+    @threshold = @patient.threshold_values.weight  
+    @values = []
+    readings = @patient.weight_readings
+    readings.each do |reading|
+      @values << [reading.reading_time.utc.to_i*1000, reading.weight]     
+    end    
 
   end
 
