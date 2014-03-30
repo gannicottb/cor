@@ -10,7 +10,6 @@ class PatientController < ApplicationController
     #Fetch summary data by patient_id 
     #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
     #redirect to metrics
-
   end
 
   def blood_oxygen
