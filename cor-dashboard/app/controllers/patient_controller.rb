@@ -35,6 +35,33 @@ class PatientController < ApplicationController
 
   end
 
+  def sodium
+    @patient = Patient.take
+    @threshold = @patient.threshold_values.sodium
+    @values = []
+    readings = @patient.emas
+    readings.each do |reading|
+      @values << [reading.reading_time.utc.to_i*1000, reading.sodium]     
+    end  
+
+  end
+
+  def blood_pressure
+    @patient = Patient.take
+    @threshold = [@patient.threshold_values.systolic_bp, @patient.threshold_values.diastolic_bp]
+    @values = []
+    readings = @patient.blood_pressure_readings
+    readings.each do |reading|
+      @values << [reading.reading_time.utc.to_i*1000, reading.systolic_bp, reading.diastolic_bp]     
+    end 
+  end
+
+  def medication    
+  end
+
+  def cough
+  end
+
   def alerts
     #Fetch alert data by patient_id    
     #redirect to alerts
