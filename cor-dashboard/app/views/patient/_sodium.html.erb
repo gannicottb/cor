@@ -3,11 +3,10 @@
 
 <!-- Because there is no other way to convert Datetime from Rails to JS, we package it here -->
 <%= javascript_tag do %>	
-	var data = <%= values%>;	
-	var weightThreshold = <%= threshold[0] %>;	
-	var timeThreshold = <%= threshold[1] %>;	
+	var data = <%= values %>;	
+	var threshold = <%= threshold %>;		
 	data.sort
 <% end %>
 
-<div id="weight_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-<% javascript_include_tag "weight"%>
+<div id="sodium_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<% javascript_include_tag "sodium"%>

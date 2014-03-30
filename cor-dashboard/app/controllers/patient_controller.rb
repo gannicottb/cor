@@ -9,13 +9,18 @@ class PatientController < ApplicationController
   def metrics
     #Fetch summary data by patient_id 
     #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
+    #redirect to metrics
+
+  end
+
+  def blood_oxygen
     @patient = Patient.take
-    @threshold = @patient.threshold_values.bo_perc      
+    @threshold = @patient.threshold_values.bo_perc
     @values = []    
     readings = @patient.blood_oxygen_readings
     readings.each do |reading|
       @values << [reading.reading_time.utc.to_i*1000, reading.bo_perc]     
-    end   
+    end
   end
     #redirect to metrics
 
@@ -29,6 +34,44 @@ class PatientController < ApplicationController
      readings.each do |reading|
        @values << [reading.reading_time.utc.to_i*1000, reading.heart_rate]
      end
+  end
+
+  def weight
+    @patient = Patient.take   
+    @threshold = [@patient.threshold_values.weight, 7]  #hard coded number of days for now      
+    @values = []
+    readings = @patient.weight_readings
+    readings.each do |reading|
+      @values << [reading.reading_time.utc.to_i*1000, reading.weight]     
+    end    
+
+  end
+
+  def sodium
+    @patient = Patient.take
+    @threshold = @patient.threshold_values.sodium
+    @values = []
+    readings = @patient.emas
+    readings.each do |reading|
+      @values << [reading.reading_time.utc.to_i*1000, reading.sodium]     
+    end  
+
+  end
+
+  def blood_pressure
+    @patient = Patient.take
+    @threshold = [@patient.threshold_values.systolic_bp, @patient.threshold_values.diastolic_bp]
+    @values = []
+    readings = @patient.blood_pressure_readings
+    readings.each do |reading|
+      @values << [reading.reading_time.utc.to_i*1000, reading.systolic_bp, reading.diastolic_bp]     
+    end 
+  end
+
+  def medication    
+  end
+
+  def cough
   end
 
   def alerts
