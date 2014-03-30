@@ -2,3 +2,8 @@
 <div>
 <%= render :partial => 'patient/blood_oxygen', 
 						:locals => {:threshold => @threshold, :values => @values}%>
+</div>
+<div>
+  <%= render :partial => 'patient/weight',
+             :locals => {:threshold => @threshold, :values => @values}%>
+</div>

@@ -2,15 +2,15 @@
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <!-- Because there is no other way to convert Datetime from Rails to JS, we package it here -->
 <%= javascript_tag do %>
-    var data = <%= values%>;
+    var data = <%= values %>;
     var weightThreshold = <%= threshold[0] %>;
     var timeThreshold = <%= threshold[1] %>;
-    <!--for (var i=0;i<values.length; i++)-->
-    <!--{-->
-        <!--data[i]= [values[i][0],values[i][1]];-->
-    <!--}-->
+
     data.sort();
 <% end %>
 
 <div id="weight_container"></div>
-<% javascript_include_tag "weight_oxygen"%>
+<script>
+  $(populate_weight_container());
+</script>
+<% javascript_include_tag "weight"%>
