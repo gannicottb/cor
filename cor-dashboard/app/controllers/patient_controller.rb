@@ -37,7 +37,7 @@ class PatientController < ApplicationController
   end
 
   def weight
-    @patient = Patient.take   
+    @patient = Patient.take  
     @threshold = [@patient.threshold_values.weight, 7]  #hard coded number of days for now      
     @values = []
     readings = @patient.weight_readings
