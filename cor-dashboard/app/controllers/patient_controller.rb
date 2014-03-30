@@ -14,7 +14,7 @@ class PatientController < ApplicationController
   end
 
   def blood_oxygen
-    @patient = Patient.find(2)
+    @patient = Patient.take
     @threshold = @patient.threshold_values.bo_perc  
     @values = []    
     readings = @patient.blood_oxygen_readings
@@ -25,7 +25,7 @@ class PatientController < ApplicationController
   end
 
   def weight
-    @patient = Patient.find(2)    
+    @patient = Patient.take   
     @threshold = [@patient.threshold_values.weight, 7]  #hard coded number of days for now      
     @values = []
     readings = @patient.weight_readings
@@ -36,12 +36,27 @@ class PatientController < ApplicationController
   end
 
   def sodium
+    @patient = Patient.take
+    @threshold = @patient.threshold_values.sodium
+    @values = []
+    readings = @patient.emas
+    readings.each do |reading|
+      @values << [reading.reading_time.utc.to_i*1000, reading.sodium]     
+    end  
+
   end
 
   def blood_pressure
+    @patient = Patient.take
+    @threshold = [@patient.threshold_values.systolic_bp, @patient.threshold_values.diastolic_bp]
+    @values = []
+    readings = @patient.blood_pressure_readings
+    readings.each do |reading|
+      @values << [reading.reading_time.utc.to_i*1000, reading.systolic_bp, reading.diastolic_bp]     
+    end 
   end
 
-  def medication
+  def medication    
   end
 
   def cough

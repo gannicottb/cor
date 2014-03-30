@@ -3,13 +3,8 @@
 
 <!-- Because there is no other way to convert Datetime from Rails to JS, we package it here -->
 <%= javascript_tag do %>	
-	var values = <%= values%>;	
+	var data = <%= values%>;	
 	var threshold = <%= threshold %>;	
-	var data = new Array();
-	for (var i=0;i<values.length; i++)
-	{ 
-		data[i]= [values[i][0], values[i][1]];
-	}
 	data.sort();
 <% end %>
 
