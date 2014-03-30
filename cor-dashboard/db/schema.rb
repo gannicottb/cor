@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140322204907) do
+ActiveRecord::Schema.define(version: 20140329233241) do
 
   create_table "blood_oxygen_readings", force: true do |t|
     t.datetime "created_at"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20140322204907) do
     t.integer  "bo_sensor_id"
     t.float    "bo_perc"
     t.datetime "reading_time"
+  end
+
+  create_table "heart_rate_readings", force: true do |t|
+    t.integer  "patient_id"
+    t.integer  "hr_sensor_id"
+    t.float    "heart_rate"
+    t.float    "heart_rate_variability"
+    t.datetime "reading_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "patients", force: true do |t|
