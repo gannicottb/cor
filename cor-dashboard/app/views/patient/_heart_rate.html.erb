@@ -1,0 +1,17 @@
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<!-- Because there is no other way to convert Datetime from Rails to JS, we package it here -->
+<%= javascript_tag do %>
+    var values = <%= values%>;
+    var threshold = <%= threshold %>;
+    var data = new Array();
+    for (var i=0;i<values.length; i++)
+    {
+    data[i]= [values[i][0],values[i][1]];
+    }
+    data.sort();
+
+<% end %>
+
+<div id="heart_rate_container"></div>
+<% javascript_include_tag "heart_rate"%>
