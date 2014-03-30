@@ -14,7 +14,7 @@ class PatientController < ApplicationController
   end
 
   def blood_oxygen
-    @patient = Patient.find(2)
+    @patient = Patient.take
     @threshold = @patient.threshold_values.bo_perc  
     @values = []    
     readings = @patient.blood_oxygen_readings
@@ -25,7 +25,7 @@ class PatientController < ApplicationController
   end
 
   def weight
-    @patient = Patient.find(2)    
+    @patient = Patient.take  
     @threshold = [@patient.threshold_values.weight, 7]  #hard coded number of days for now      
     @values = []
     readings = @patient.weight_readings
