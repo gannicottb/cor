@@ -23,7 +23,7 @@ class PatientController < ApplicationController
   end
     #redirect to metrics
 
-  def heart_rate
+  def doctor_heart_rate
      #Fetch summary data by patient_id
      #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
      @patient = Patient.take
