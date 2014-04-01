@@ -8,6 +8,7 @@ class PatientController < ApplicationController
 
   def metrics
     #Fetch summary data by patient_id 
+    @patient = Patient.take
     #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
     #redirect to metrics
   end
@@ -19,6 +20,10 @@ class PatientController < ApplicationController
     readings = @patient.blood_oxygen_readings
     readings.each do |reading|
       @values << [reading.reading_time.utc.to_i*1000, reading.bo_perc]     
+    end
+
+    respond_to do |format|
+      format.js
     end
   end
     #redirect to metrics
