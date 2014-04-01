@@ -1,11 +1,7 @@
 class PatientController < ApplicationController
 
   respond_to :html, :js
-  def index
-    #Fetch the correct Patient by patient_id    
-
-  end
-
+  
   def metrics
     #Fetch summary data by patient_id 
     @patient = Patient.take
