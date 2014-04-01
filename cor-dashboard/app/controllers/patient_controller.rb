@@ -49,6 +49,9 @@ class PatientController < ApplicationController
       @values << [reading.reading_time.utc.to_i*1000, reading.weight]     
     end    
 
+    respond_to do |format|
+      format.js
+    end
   end
 
   def sodium
