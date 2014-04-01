@@ -1,6 +1,6 @@
 class PatientController < ApplicationController
 
-  respond_to :html
+  respond_to :html, :js
   def index
     #Fetch the correct Patient by patient_id    
 
@@ -20,10 +20,6 @@ class PatientController < ApplicationController
     readings = @patient.blood_oxygen_readings
     readings.each do |reading|
       @values << [reading.reading_time.utc.to_i*1000, reading.bo_perc]     
-    end
-
-    respond_to do |format|
-      format.js
     end
   end
     #redirect to metrics
@@ -47,11 +43,7 @@ class PatientController < ApplicationController
     readings = @patient.weight_readings
     readings.each do |reading|
       @values << [reading.reading_time.utc.to_i*1000, reading.weight]     
-    end    
-
-    respond_to do |format|
-      format.js
-    end
+    end 
   end
 
   def sodium
