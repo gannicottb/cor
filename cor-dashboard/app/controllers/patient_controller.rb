@@ -39,7 +39,7 @@ class PatientController < ApplicationController
     readings = @patient.weight_readings
     readings.each do |reading|
       @values << [reading.reading_time.utc.to_i*1000, reading.weight]     
-    end 
+    end
   end
 
   def sodium
