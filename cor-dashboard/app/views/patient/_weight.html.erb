@@ -1,7 +1,7 @@
 <%= javascript_tag do %>
   var data = <%= values %>;
-  var weightThreshold = <%= threshold[0] %>;
-  var timeThreshold = <%= threshold[1] %>;
+  var weightThreshold = <%= threshold[:weight] %>;
+  var timeThreshold = <%= threshold[:time] %>;
   data.sort();
 <% end %>
 

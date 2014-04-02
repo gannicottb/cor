@@ -34,7 +34,7 @@ class PatientController < ApplicationController
 
   def weight
     @patient = Patient.take  
-    @threshold = [@patient.threshold_values.weight, 7]  #hard coded number of days for now      
+    @threshold = {weight: @patient.threshold_values.weight, time: 7}  #hard coded number of days for now      
     @values = []
     readings = @patient.weight_readings
     readings.each do |reading|
@@ -55,7 +55,8 @@ class PatientController < ApplicationController
 
   def blood_pressure
     @patient = Patient.take
-    @threshold = [@patient.threshold_values.systolic_bp, @patient.threshold_values.diastolic_bp]
+    @threshold = {:systolic => {high: @patients.threshold_values.systolic_bp, low: 90}, 
+                  :diastolic =>{high: @patient.threshold_values.diastolic_bp, low: 60}}
     @values = []
     readings = @patient.blood_pressure_readings
     readings.each do |reading|

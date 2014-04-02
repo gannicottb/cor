@@ -1,7 +1,9 @@
 <%= javascript_tag do %>	
 	var data = <%= values%>;	
-	var systolicThreshold = <%= threshold[0] %>;		
-	var diastolicThreshold = <%= threshold[1] %>;
+	var systolicHigh = <%= threshold[:systolic][:high] %>;
+	var systolicLow = <%= threshold[:systolic][:low] %>;		
+	var diastolicHigh = <%= threshold[:diastolic][:high] %>;
+	var diastolicLow = <%= threshold[:diastolic][:low] %>;
 	data.sort();
 <% end %>
 
