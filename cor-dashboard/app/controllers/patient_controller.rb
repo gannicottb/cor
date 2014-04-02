@@ -13,7 +13,7 @@ class PatientController < ApplicationController
     @patient = Patient.take
     @threshold = @patient.threshold_values.bo_perc
     @values = []    
-    readings = @patient.blood_oxygen_readings
+    readings = @patient.blood_oxygen_readings.last_week
     readings.each do |reading|
       @values << [reading.reading_time.utc.to_i*1000, reading.bo_perc]     
     end
@@ -21,22 +21,22 @@ class PatientController < ApplicationController
     #redirect to metrics
 
   def heart_rate
-     #Fetch summary data by patient_id
-     #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
-     @patient = Patient.take
-     @threshold = @patient.threshold_values.heart_rate
-     @values = []
-     readings = @patient.heart_rate_readings
-     readings.each do |reading|
-       @values << [reading.reading_time.utc.to_i*1000, reading.heart_rate]
-     end
+    #Fetch summary data by patient_id
+    #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
+    @patient = Patient.take
+    @threshold = @patient.threshold_values.heart_rate
+    @values = []
+    readings = @patient.heart_rate_readings
+    readings.each do |reading|
+      @values << [reading.reading_time.utc.to_i*1000, reading.heart_rate]
+    end
   end
 
   def weight
     @patient = Patient.take  
-    @threshold = [@patient.threshold_values.weight, 7]  #hard coded number of days for now      
+    @threshold = {weight: @patient.threshold_values.weight, time: 4}  #hard coded number of days for now      
     @values = []
-    readings = @patient.weight_readings
+    readings = @patient.weight_readings.last_2_weeks
     readings.each do |reading|
       @values << [reading.reading_time.utc.to_i*1000, reading.weight]     
     end
@@ -55,12 +55,11 @@ class PatientController < ApplicationController
 
   def blood_pressure
     @patient = Patient.take
-    @threshold = [@patient.threshold_values.systolic_bp, @patient.threshold_values.diastolic_bp]
-    @values = []
-    readings = @patient.blood_pressure_readings
-    readings.each do |reading|
-      @values << [reading.reading_time.utc.to_i*1000, reading.systolic_bp, reading.diastolic_bp]     
-    end 
+    @threshold = {:systolic => {high: @patient.threshold_values.systolic_bp, low: 90}, 
+                  :diastolic =>{high: @patient.threshold_values.diastolic_bp, low: 60}}
+    #Low thresholds hard coded until we add them to ThresholdValues
+    reading = @patient.blood_pressure_readings.first
+    @values = [reading.reading_time.utc.to_i*1000, reading.systolic_bp, reading.diastolic_bp]     
   end
 
   def medication    

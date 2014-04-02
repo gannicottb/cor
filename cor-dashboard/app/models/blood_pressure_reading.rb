@@ -6,4 +6,8 @@ class BloodPressureReading < ActiveRecord::Base
     self.table_name = "blood_pressure_raw"
   end
 
+	def current
+		BloodPressureReading.take
+	end
+
 end
