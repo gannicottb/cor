@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SimpleDashboard</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar=default" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<%= link_to "Metrics", patient_metrics_path, :class => "btn btn-default btn-lg"%>
+			<%= link_to "Alerts", patient_alerts_path, :class => "btn btn-default btn-lg"%>
+			<%= link_to "Patient Plan", patient_patient_plan_path, :class => "btn btn-default btn-lg"%>
+			<%= link_to "Activity Log", patient_activity_log_path, :class => "btn btn-default btn-lg"%>
+			<%= link_to "Settings", patient_settings_path, :class => "btn btn-default btn-lg"%>
+		</div>
+	</div>
+</nav>
+<%= yield %>
+
+</body>
+</html>

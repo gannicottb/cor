@@ -1,2 +1,16 @@
-<h1>Patient#metrics</h1>
-<!-- Buttons go here in a stack -->
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<div class="col-md-4">
+	<div class="btn-group-vertical btn-group-lg">
+		<button type="button" class="btn btn-default">Summary</button>
+		<%= link_to "Weight", patient_weight_path, :class => "btn btn-default", :remote => true %>
+		<button type="button" class="btn btn-default">Blood Pressure</button>
+		<button type="button" class="btn btn-default">Heart Rate and Variability</button>
+		<%= link_to "Blood Oxygen", patient_blood_oxygen_path, :class => "btn btn-default", :remote => true %>		
+	</div>	
+</div>
+<div class="col-md-8">
+	<div id="graph">
+		<h2>Beautiful graphs go here</h2>
+	</div>
+</div>
