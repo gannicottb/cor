@@ -55,14 +55,11 @@ class PatientController < ApplicationController
 
   def blood_pressure
     @patient = Patient.take
-    @threshold = {:systolic => {high: @patients.threshold_values.systolic_bp, low: 90}, 
+    @threshold = {:systolic => {high: @patient.threshold_values.systolic_bp, low: 90}, 
                   :diastolic =>{high: @patient.threshold_values.diastolic_bp, low: 60}}
     #Low thresholds hard coded until we add them to ThresholdValues
-    @values = []
-    readings = @patient.blood_pressure_readings
-    readings.each do |reading|
-      @values << [reading.reading_time.utc.to_i*1000, reading.systolic_bp, reading.diastolic_bp]     
-    end 
+    reading = @patient.blood_pressure_readings.first
+    @values = [reading.reading_time.utc.to_i*1000, reading.systolic_bp, reading.diastolic_bp]     
   end
 
   def medication    

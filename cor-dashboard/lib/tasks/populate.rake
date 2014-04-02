@@ -13,6 +13,9 @@ namespace :db do
     BloodOxygenReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :bo_perc => 97.5, :reading_time => Time.now - 5.days)
     BloodOxygenReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :bo_perc => 50.6, :reading_time => Time.now - 6.days)
 
+    BloodPressureReading.create(:patient_id => patient.id, :bp_sensor_id => 123456789, :systolic_bp => 100, :diastolic_bp => 80, :reading_time => Time.now)
+    BloodPressureReading.create(:patient_id => patient.id, :bp_sensor_id => 123456789, :systolic_bp => 120, :diastolic_bp => 70, :reading_time => Time.now - 1.day)
+
     HeartRateReading.create(:patient_id => patient.id, :hr_sensor_id => 123456789, :heart_rate => 120, :heart_rate_variability => 0.1, :reading_time => Time.now)
     HeartRateReading.create(:patient_id => patient.id, :hr_sensor_id => 123456789, :heart_rate => 105, :heart_rate_variability => 0.3, :reading_time => Time.now - 1.day)
     HeartRateReading.create(:patient_id => patient.id, :hr_sensor_id => 123456789, :heart_rate => 110, :heart_rate_variability => 0.2, :reading_time => Time.now - 2.days)
@@ -41,7 +44,8 @@ namespace :db do
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 144, :reading_time => Time.now - 17.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 146, :reading_time => Time.now - 18.days)
 
-    ThresholdValues.create(:patient_id =>patient.id, :bo_perc => 90, :weight => 5, :heart_rate => 140, :heart_rate_variability => 0.5)
+    ThresholdValues.create(:patient_id =>patient.id, :bo_perc => 90, :weight => 5, :heart_rate => 140, :heart_rate_variability => 0.5,
+        :systolic_bp => 150, :diastolic_bp => 90)
     
   end
 end
