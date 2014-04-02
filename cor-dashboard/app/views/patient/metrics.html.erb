@@ -1,5 +1,16 @@
-<h1>Patient#metrics</h1>
-<div>
-<%= render :partial => 'patient/blood_oxygen', 
-						:locals => {:threshold => @threshold, :values => @values}%>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<div class="col-md-4">
+	<div class="btn-group-vertical btn-group-lg">
+		<button type="button" class="btn btn-default">Summary</button>
+		<%= link_to "Weight", patient_weight_path, :class => "btn btn-default", :remote => true %>
+		<%= link_to "Blood Pressure", patient_blood_pressure_path, :class => "btn btn-default", :remote => true %>
+        <%= link_to "Heart Rate", patient_heart_rate_path, :class => "btn btn-default", :remote => true %>
+		<%= link_to "Blood Oxygen", patient_blood_oxygen_path, :class => "btn btn-default", :remote => true %>		
+	</div>	
+</div>
+<div class="col-md-8">
+	<div id="graph">
+		<h2>Beautiful graphs go here</h2>
+	</div>
 </div>
