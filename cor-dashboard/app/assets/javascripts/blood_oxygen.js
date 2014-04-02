@@ -27,7 +27,7 @@ function populate_blood_oxygen_container() {
                 to: threshold,
                 color: 'rgba(255, 0, 0, .6)',
                 label: {
-                    text: 'Normal',
+                    text: 'Below Normal',
                     style: {
                         color: '#606060'
                     }
@@ -37,7 +37,7 @@ function populate_blood_oxygen_container() {
                 to: 100,
                 color: 'rgba(0, 255, 0, .3)',
                 label: {
-                    text: 'Below normal',
+                    text: 'Normal',
                     style: {
                         color: '#606060'
                     }

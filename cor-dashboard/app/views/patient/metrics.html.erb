@@ -4,8 +4,8 @@
 	<div class="btn-group-vertical btn-group-lg">
 		<button type="button" class="btn btn-default">Summary</button>
 		<%= link_to "Weight", patient_weight_path, :class => "btn btn-default", :remote => true %>
-		<button type="button" class="btn btn-default">Blood Pressure</button>
-		<button type="button" class="btn btn-default">Heart Rate and Variability</button>
+		<%= link_to "Blood Pressure", patient_blood_pressure_path, :class => "btn btn-default", :remote => true %>
+        <%= link_to "Heart Rate", patient_heart_rate_path, :class => "btn btn-default", :remote => true %>
 		<%= link_to "Blood Oxygen", patient_blood_oxygen_path, :class => "btn btn-default", :remote => true %>		
 	</div>	
 </div>

@@ -8,7 +8,7 @@ CorDashboard::Application.routes.draw do
   
   get "patient/weight"
   get "patient/blood_oxygen"
-  get "patient/doctor_heart_rate"
+  get "patient/heart_rate"
   get "patient/sodium"
   get "patient/blood_pressure"
   get "patient/medication"
