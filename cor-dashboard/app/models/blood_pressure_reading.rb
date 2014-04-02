@@ -4,6 +4,8 @@ class BloodPressureReading < ActiveRecord::Base
 
   if Rails.env.production?
     self.table_name = "blood_pressure_raw"
+    alias_attribute :systolic_bp, :systolic
+    alias_attribute :diastolic_bp, :diastolic
   end
 
 	def current
