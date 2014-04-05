@@ -14,7 +14,15 @@ CorDashboard::Application.routes.draw do
   get "patient/medication"
   get "patient/cough"
 
-  resources :physicians
+  get 'physician/roster'
+  get 'physician/critical_patients'
+  get 'physician/alerts'
+  get 'physician/patients'
+  get 'physician/settings'
+  get 'physician/summary'
+  get 'physician/detail'
+
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
