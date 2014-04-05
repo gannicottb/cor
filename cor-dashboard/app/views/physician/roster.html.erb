@@ -1,1 +1,4 @@
 <h1>Roster</h1>
+<% @patients.each do |patient| %>
+<%= render :partial => 'patient/patient', :locals => {:patient => patient} %>
+<% end %>

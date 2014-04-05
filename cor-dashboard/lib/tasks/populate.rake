@@ -2,7 +2,7 @@ namespace :db do
   desc "Erase and fill database"
   task :populate => :environment do
 
-    [Patient, BloodOxygenReading, HeartRateReading, WeightReading, ThresholdValues].each(&:delete_all)
+    [Physician, Patient, BloodOxygenReading, HeartRateReading, WeightReading, ThresholdValues].each(&:delete_all)
 
     physician = Physician.create(:name => "Dr. Smith")
     patient = Patient.create(:physician_id => physician.id)

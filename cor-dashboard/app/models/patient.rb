@@ -1,4 +1,7 @@
 class Patient < ActiveRecord::Base
+
+    attr_accessible :physician_id
+    
 		belongs_to :physician
 
     has_many :blood_oxygen_readings
