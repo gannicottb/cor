@@ -5,55 +5,42 @@ class PatientController < ApplicationController
   def metrics
     #Fetch summary data by patient_id 
     @patient = Patient.take
-    #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
-    #redirect to metrics
+    #THE PATIENT ID IS HARD CODED FOR NOW
   end
 
   def blood_oxygen
     patient = Patient.take  
-    bundle = patient.get_blood_oxygen
+    bundle = patient.blood_oxygen
     @threshold = bundle[:threshold]
     @values = bundle[:values]
   end
-    #redirect to metrics
 
-  def heart_rate
-    #Fetch summary data by patient_id
-    #THE PATIENT ID IS HARD CODED FOR NOW, CHANGE TO WHATEVER PATIENT YOU HAVE LOCALLY
+  def heart_rate   
     patient = Patient.take        
-    bundle = patient.get_heart_rate
+    bundle = patient.heart_rate
     @threshold = bundle[:threshold]
     @values = bundle[:values]
   end
 
   def weight
-    @patient = Patient.take  
-    @threshold = {weight: @patient.threshold_values.weight, time: 4}  #hard coded number of days for now      
-    @values = []
-    readings = @patient.weight_readings.last_2_weeks
-    readings.each do |reading|
-      @values << [reading.reading_time.utc.to_i*1000, reading.weight]     
-    end
+    patient = Patient.take      
+    bundle = patient.weight
+    @threshold = bundle[:threshold]
+    @values = bundle[:values]
   end
 
   def sodium
-    @patient = Patient.take
-    @threshold = @patient.threshold_values.sodium
-    @values = []
-    readings = @patient.emas
-    readings.each do |reading|
-      @values << [reading.reading_time.utc.to_i*1000, reading.sodium]     
-    end  
-
+    patient = Patient.take 
+    bundle = patient.sodium
+    @threshold = bundle[:threshold]
+    @values = bundle[:values]
   end
 
   def blood_pressure
-    @patient = Patient.take
-    @threshold = {:systolic => {high: @patient.threshold_values.systolic_bp, low: 90}, 
-                  :diastolic =>{high: @patient.threshold_values.diastolic_bp, low: 60}}
-    #Low thresholds hard coded until we add them to ThresholdValues
-    reading = @patient.blood_pressure_readings.first
-    @values = [reading.reading_time.utc.to_i*1000, reading.systolic_bp, reading.diastolic_bp]     
+    patient = Patient.take         
+    bundle = patient.blood_pressure
+    @threshold = bundle[:threshold]
+    @values = bundle[:values]
   end
 
   def medication    
