@@ -4,7 +4,10 @@ namespace :db do
 
     [Patient, BloodOxygenReading, HeartRateReading, WeightReading, ThresholdValues].each(&:delete_all)
 
-    patient = Patient.create()
+    physician = Physician.create()
+    patient = Patient.create(:physician_id => physician.id)
+    
+
     BloodOxygenReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :bo_perc => 96.8, :reading_time => Time.now)
     BloodOxygenReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :bo_perc => 90.4, :reading_time => Time.now - 1.day)
     BloodOxygenReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :bo_perc => 89.9, :reading_time => Time.now - 2.days)
