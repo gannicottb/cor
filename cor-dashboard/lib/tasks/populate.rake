@@ -4,7 +4,7 @@ namespace :db do
 
     [Patient, BloodOxygenReading, HeartRateReading, WeightReading, ThresholdValues].each(&:delete_all)
 
-    physician = Physician.create()
+    physician = Physician.create(:name => "Dr. Smith")
     patient = Patient.create(:physician_id => physician.id)
     
 

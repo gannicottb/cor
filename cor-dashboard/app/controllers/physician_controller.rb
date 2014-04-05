@@ -3,8 +3,9 @@ class PhysicianController < ApplicationController
 	respond_to :html, :js
 
 	def roster	
-		@physician = Physician.take
-		@patients = @physician.patients
+		physician = Physician.take
+		patients = @physician.patients
+		
 	end 
 
 	def critical_patients
