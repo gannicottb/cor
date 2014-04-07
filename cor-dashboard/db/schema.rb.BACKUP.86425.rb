@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20140322204907) do
+=======
 ActiveRecord::Schema.define(version: 20140330000546) do
+>>>>>>> 3c68642960b7b87925849f0df158bf4a79e501c9
 
   create_table "blood_oxygen_readings", force: true do |t|
     t.datetime "created_at"
@@ -22,6 +26,8 @@ ActiveRecord::Schema.define(version: 20140330000546) do
     t.datetime "reading_time"
   end
 
+<<<<<<< HEAD
+=======
   create_table "blood_pressure_readings", force: true do |t|
     t.integer  "patient_id"
     t.integer  "bp_sensor_id"
@@ -54,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140330000546) do
     t.datetime "updated_at"
   end
 
+>>>>>>> 3c68642960b7b87925849f0df158bf4a79e501c9
   create_table "patients", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -77,6 +84,8 @@ ActiveRecord::Schema.define(version: 20140330000546) do
     t.float    "hydration"
   end
 
+<<<<<<< HEAD
+=======
   create_table "weight_readings", force: true do |t|
     t.integer  "patient_id"
     t.float    "weight"
@@ -88,4 +97,5 @@ ActiveRecord::Schema.define(version: 20140330000546) do
     t.datetime "updated_at"
   end
 
+>>>>>>> 3c68642960b7b87925849f0df158bf4a79e501c9
 end
