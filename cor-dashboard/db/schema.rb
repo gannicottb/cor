@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330000546) do
+ActiveRecord::Schema.define(version: 20140405182621) do
 
   create_table "blood_oxygen_readings", force: true do |t|
     t.datetime "created_at"
@@ -57,11 +57,13 @@ ActiveRecord::Schema.define(version: 20140330000546) do
   create_table "patients", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "physician_id"
   end
 
   create_table "physicians", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "threshold_values", force: true do |t|
