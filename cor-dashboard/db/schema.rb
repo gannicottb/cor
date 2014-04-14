@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405182621) do
+ActiveRecord::Schema.define(version: 20140414190929) do
+
+  create_table "alerts", force: true do |t|
+    t.boolean  "resolved"
+    t.string   "text"
+    t.integer  "reading_id"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "blood_oxygen_readings", force: true do |t|
     t.datetime "created_at"

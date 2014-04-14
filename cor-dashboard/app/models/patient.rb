@@ -9,6 +9,7 @@ class Patient < ActiveRecord::Base
     has_many :weight_readings
     has_many :blood_pressure_readings   
     has_many :emas
+    has_many :alerts
     has_one :threshold_values
 
     if Rails.env.production?
@@ -42,4 +43,20 @@ class Patient < ActiveRecord::Base
                   			:diastolic =>{high: threshold_values.diastolic_bp, low: 60}} ,
     				values: [r.reading_time.utc.to_i*1000, r.systolic_bp, r.diastolic_bp] }
 	end
+
+  def scanForAlerts
+    #Check all recent readings with threshold values and create Alerts
+    #for each blood oxygen reading, compare with threshold
+ 
+    blood_oxygen_readings.each do |r|
+      if !alerts.exists?(reading_id: r.id)
+        if r.bo_perc < threshold_values.bo_perc
+          #create a new alert for this patient
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Oxygen is under threshold")
+        end  
+      end
+    end
+    return alerts
+  end
+
 end

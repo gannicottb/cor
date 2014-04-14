@@ -1,2 +1,9 @@
-<h1>Patient#alerts</h1>
-<p>You've been healthy for 5 days! YAYYY<p>
+<div class="col-md-12">
+	<ul>
+		<% @alerts.each do |a| %>
+			<li> 			
+				<%= render :partial => 'patient/alert', :locals => {alert: a} %>		
+			</li>
+		<% end %>
+	</ul>
+</div>

@@ -1,5 +1,6 @@
 CorDashboard::Application.routes.draw do
   
+  get "patient/", to: "patient#alerts"
   get "patient/metrics"
   get "patient/alerts"
   get "patient/patient_plan"
