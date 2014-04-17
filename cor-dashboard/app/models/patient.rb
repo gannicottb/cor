@@ -70,12 +70,27 @@ class Patient < ActiveRecord::Base
       end
     end
 
-    blood_oxygen_readings.each do |r|
+    thresholdSystolic = eval(threshold_values.systolic_bp)
+    thresholdDiastolic = eval(threshold_values.diastolic_bp)
+
+    blood_pressure_readings.each do |r|
       if !alerts.exists?(reading_id: r.id)
-        if r.bo_perc < threshold_values.bo_perc
+        if r.systolic_bp >= thresholdSystolic[:high]
           #create a new alert for this patient
-          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Oxygen is under threshold")
-        end  
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Systolic) is HIGH")
+        end
+        if r.systolic_bp <= thresholdSystolic[:low]
+          #create a new alert for this patient
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Systolic) is LOW")
+        end
+        if r.diastolic_bp >= thresholdDiastolic[:high]
+          #create a new alert for this patient
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Diastolic) is HIGH")
+        end
+        if r.diastolic_bp <= thresholdDiastolic[:low]
+          #create a new alert for this patient
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Diastolic) is LOW")
+        end    
       end
     end
     return alerts
