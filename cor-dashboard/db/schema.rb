@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414190929) do
+ActiveRecord::Schema.define(version: 20140417224247) do
 
   create_table "alerts", force: true do |t|
     t.boolean  "resolved"
@@ -80,11 +80,11 @@ ActiveRecord::Schema.define(version: 20140414190929) do
     t.datetime "updated_at"
     t.integer  "patient_id"
     t.float    "bo_perc"
-    t.integer  "systolic_bp"
-    t.integer  "diastolic_bp"
-    t.float    "heart_rate"
+    t.string   "systolic_bp"
+    t.string   "diastolic_bp"
+    t.string   "heart_rate"
     t.float    "heart_rate_variability"
-    t.float    "weight"
+    t.string   "weight"
     t.float    "hydration"
   end
 
