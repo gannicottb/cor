@@ -2,7 +2,7 @@ namespace :db do
   desc "Erase and fill database"
   task :populate => :environment do
 
-    [Physician, Patient, BloodOxygenReading, HeartRateReading, WeightReading, ThresholdValues, Alert].each(&:delete_all)
+    [Physician, Patient, BloodOxygenReading, HeartRateReading, WeightReading, ThresholdValues, Ema, Alert].each(&:delete_all)
 
     physician = Physician.create(:name => "Dr. Smith")
     patient = Patient.create(:physician_id => physician.id)
@@ -46,6 +46,14 @@ namespace :db do
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 145, :reading_time => Time.now - 16.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 144, :reading_time => Time.now - 17.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 146, :reading_time => Time.now - 18.days)
+
+    Ema.create(:patient_id => patient.id, :sodium_level => "Low", :reading_time => Time.now)
+    Ema.create(:patient_id => patient.id, :sodium_level => "High", :reading_time => Time.now-1.day)
+    Ema.create(:patient_id => patient.id, :sodium_level => "Low", :reading_time => Time.now-2.days)
+    Ema.create(:patient_id => patient.id, :sodium_level => "High", :reading_time => Time.now-3.days)
+    Ema.create(:patient_id => patient.id, :sodium_level => "High", :reading_time => Time.now-4.days)
+    Ema.create(:patient_id => patient.id, :sodium_level => "Medium", :reading_time => Time.now-5.days)
+    Ema.create(:patient_id => patient.id, :sodium_level => "Low", :reading_time => Time.now-6.days)
 
     ThresholdValues.create(:patient_id =>patient.id, 
         :bo_perc => 90, 

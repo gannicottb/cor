@@ -33,8 +33,8 @@ class Patient < ActiveRecord::Base
   end
 
 	def sodium
-		return {threshold: threshold_values.sodium,
-    				values: emas.map {|r| [r.reading_time.utc.to_i*1000, r.sodium] }}		
+		return {threshold: 0,
+    				values: emas.all.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}		
 	end
 
 	def blood_pressure
@@ -94,6 +94,19 @@ class Patient < ActiveRecord::Base
       end
     end
     return alerts
+  end
+
+  def sodiumStringToInt(str)
+    case str.downcase
+    when "low"
+      return 1
+    when "medium"
+      return 2
+    when "high"
+      return 3
+    else
+      return nil
+    end
   end
 
 end
