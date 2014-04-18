@@ -1,3 +1,52 @@
 // Place all the styles related to the Patient controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	background-color: #1d4169;
+}
+
+.navbar-header {
+	margin: 0 auto;
+}
+
+ul {
+	list-style: none;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.navbar {
+	box-shadow: 0 0 15px #fff;
+	padding-top: 0.3em;
+	background-color: #e9e2dd
+}
+
+#metric-nav {
+	margin-top: 10em;
+}
+
+.navbar a {
+	color: #d3843d;
+}
+
+.w75 {
+	width: 75%;
+}
+
+#metric-nav li {
+	padding: 0.5em 0;
+	background-color: #fff;
+}
+
+.border-r {
+	border-radius: 4px;
+	height: 50px;
+}
+
+.btn-spacing {
+	margin-top: 1em;
+	line-height: 35px;
+}

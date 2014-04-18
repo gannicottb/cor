@@ -2,7 +2,7 @@ namespace :db do
   desc "Erase and fill database"
   task :populate => :environment do
 
-    [Physician, Patient, BloodOxygenReading, HeartRateReading, WeightReading, ThresholdValues].each(&:delete_all)
+    [Physician, Patient, BloodOxygenReading, HeartRateReading, WeightReading, ThresholdValues, Alert].each(&:delete_all)
 
     physician = Physician.create(:name => "Dr. Smith")
     patient = Patient.create(:physician_id => physician.id)
@@ -47,8 +47,13 @@ namespace :db do
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 144, :reading_time => Time.now - 17.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 146, :reading_time => Time.now - 18.days)
 
-    ThresholdValues.create(:patient_id =>patient.id, :bo_perc => 90, :weight => 5, :heart_rate => 140, :heart_rate_variability => 0.5,
-        :systolic_bp => 150, :diastolic_bp => 90)
+    ThresholdValues.create(:patient_id =>patient.id, 
+        :bo_perc => 90, 
+        :weight => {weight: 5, time: 4}.to_s, 
+        :heart_rate => {high: 140, low: 50}.to_s, 
+        :heart_rate_variability => 0.5, 
+        :systolic_bp => {high: 150, low: 90}.to_s, 
+        :diastolic_bp => {high: 90, low: 60}.to_s)
     
   end
 end

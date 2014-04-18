@@ -50,7 +50,9 @@ class PatientController < ApplicationController
   end
 
   def alerts
-    #Fetch alert data by patient_id    
+    #Fetch alert data by patient_id
+    patient = Patient.take
+    @alerts = patient.scanForAlerts    
     #redirect to alerts
   end
 

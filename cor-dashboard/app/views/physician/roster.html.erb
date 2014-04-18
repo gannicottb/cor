@@ -1,4 +1,13 @@
-<h1>Roster</h1>
-<% @patients.each do |patient| %>
-<%= render :partial => 'patient/patient', :locals => {:patient => patient} %>
-<% end %>
+<h1>Roster</h1>	
+
+	<% @patients.in_groups_of(4) do |group| %>	
+		<div class="row">
+			<% group.each do |patient| %>	
+				<% if patient != nil %>
+					<div class="col-md-3">
+						<%= render :partial => 'patient/patient', :locals => {:patient => patient} %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	<% end %>

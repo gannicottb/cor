@@ -1,2 +1,9 @@
-<h1>Patient#alerts</h1>
-<p>Find me in app/views/patient/alerts.html.erb</p>
+<div class="col-md-12">
+	<ul>
+		<% @alerts.each do |a| %>
+			<li> 			
+				<%= render :partial => 'patient/alert', :locals => {alert: a} %>		
+			</li>
+		<% end %>
+	</ul>
+</div>
