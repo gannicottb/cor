@@ -25,7 +25,8 @@ class PhysicianController < ApplicationController
 	end
 
 	def summary
-		
+		@physician = Physician.take
+		@patients = @physician.patients
 	end
 
 	def detail
