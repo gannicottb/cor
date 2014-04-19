@@ -29,7 +29,7 @@ namespace :db do
 
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 114, :reading_time => Time.now)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 115, :reading_time => Time.now - 1.day)
-    WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 114, :reading_time => Time.now - 2.days)
+    WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 113, :reading_time => Time.now - 2.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 115, :reading_time => Time.now - 3.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 116, :reading_time => Time.now - 4.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 117, :reading_time => Time.now - 5.days)
@@ -57,7 +57,7 @@ namespace :db do
 
     ThresholdValues.create(:patient_id =>patient.id, 
         :bo_perc => 90, 
-        :weight => {weight: 5, time: 4}.to_s, 
+        :weight => {weight: 5, time: 7}.to_s,
         :heart_rate => {high: 140, low: 50}.to_s, 
         :heart_rate_variability => 0.5, 
         :systolic_bp => {high: 150, low: 90}.to_s, 
