@@ -9,7 +9,9 @@ class Activity < ActiveRecord::Base
 	belongs_to :patient
 
 	if Rails.env.production?
-    self.table_name = "daily_data"
+    self.table_name = "activity_daily_data"
   end
+
+  scope :last_week, -> {where(reading_time: 1.week.ago .. Time.now)}
 
 end

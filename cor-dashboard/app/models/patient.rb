@@ -45,6 +45,27 @@ class Patient < ActiveRecord::Base
     				values: [r.reading_time.utc.to_i*1000, r.systolic_bp, r.diastolic_bp] }
 	end
 
+  def activity_log
+    #Package up the data for the activity log page    
+    results = {}
+    #sum the total minutes    
+    total = {}
+    activity_logs = activities.last_week
+    activity_logs.each do |al|
+      total[:sedentary] += al.sedentary_minutes
+      total[:lightly_active] += al.lightly_active_minutes
+      total[:fairly_active] += al.fairly_active_minutes
+      total[:very_active] += al.very_active_minutes      
+      total[:minutes] += al.sedentary_minutes + al.lightly_active_minutes + al.fairly_active_minutes + al.very_active_minutes
+      total[:sleep_minutes] += al.minutes_asleep
+    end
+    results[:exercise] = [['sedentary', total[:sedentary]/total[:minutes]],
+                          ['lightly active', total[:lightly_active]/total[:minutes]],
+                          ['fairly active', total[:fairly_active]/total[:minutes]],
+                          ['very active', total[:very_active]/total[:minutes]]]
+    results[:sleep] = {sleep_efficiency: al.sleep_efficiency, number_of_awakenings: al.number_of_awakenings, minutes: total[:sleep_minutes]}
+  end
+
   def scanForAlerts
     #Check all recent readings with threshold values and create Alerts
     #for each blood oxygen reading, compare with threshold 

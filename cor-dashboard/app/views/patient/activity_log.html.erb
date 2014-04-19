@@ -1,2 +1,18 @@
 <h1>Patient#activity_log</h1>
-<p>Find me in app/views/patient/activity_log.html.erb</p>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<div class="col-sm-2 col-sm-offset-1">
+	<div id="metric-nav">
+		<ul>		
+			<li class="text-center btn-default border-r btn-spacing"><%= button_to "Exercise Log", patient_exercise_log_path, :remote => true, class:"btn btn-default w75", method: "get" %>
+			</li>		
+			<li class="text-center btn-default border-r btn-spacing"><%= button_to "Sleep Log", patient_sleep_log_path, :remote => true, class:"btn btn-default w75", method: "get" %>
+			</li>    
+		</ul>
+	</div>	
+</div>
+<div id="metric-nav" class="col-md-8">
+	<div id="graph">
+		<h2>Pie Chart or The Undefined Sleep Visualization</h2>
+	</div>
+</div>
