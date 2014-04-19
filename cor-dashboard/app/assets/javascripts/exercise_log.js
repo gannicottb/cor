@@ -4,10 +4,12 @@ function populate_exercise_log_container () {
                 type: 'column'
             },
             title: {
-                text: 'Stacked column chart'
+                text: 'Active Minutes as reported by FitBit'
             },
             xAxis: {
-                categories: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+                categories: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 
+                            'Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+               
             },
             yAxis: {
                 min: 0,
@@ -53,17 +55,19 @@ function populate_exercise_log_container () {
                 }
             },
             series: [{
-                name: 'Sedentary',
-                data: sed
+                name: 'Very Active',
+                data: very
+
+            }, {
+                name: 'Fairly Active',
+                data: fairly
+                
             }, {
                 name: 'Lightly Active',
                 data: lightly
             }, {
-                name: 'Fairly Active',
-                data: fairly
-            }, {
-                name: 'Very Active',
-                data: very
+                name: 'Sedentary',
+                data: sed
             }]
         });
 }

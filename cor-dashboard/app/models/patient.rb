@@ -50,10 +50,12 @@ class Patient < ActiveRecord::Base
     return {exercise: {sedentary: activities.last_week.map {|r| r.sedentary_minutes},
                       lightly_active: activities.last_week.map {|r| r.lightly_active_minutes},
                       fairly_active: activities.last_week.map {|r| r.fairly_active_minutes},
-                      very_active: activities.last_week.map {|r| r.very_active_minutes}
+                      very_active: activities.last_week.map {|r| r.very_active_minutes},
+                      day_range: activities.last_week.map {|r| r.date}                      
                       },
             sleep: {sleep_efficiency: activities.last_week.map {|r| r.sleep_efficiency}, 
-                    number_of_awakenings: activities.last_week.map {|r| r.number_of_awakenings}
+                    number_of_awakenings: activities.last_week.map {|r| r.number_of_awakenings},
+                    minutes: activities.last_week.map{|r| r.minutes_asleep}
                    }
           }
   end

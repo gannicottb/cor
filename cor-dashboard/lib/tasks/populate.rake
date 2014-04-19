@@ -55,7 +55,7 @@ namespace :db do
     Ema.create(:patient_id => patient.id, :sodium_level => "Medium", :reading_time => Time.now-5.days)
     Ema.create(:patient_id => patient.id, :sodium_level => "Low", :reading_time => Time.now-6.days)
 
-    7.times do |i|
+    14.times do |i|
         Activity.create(:patient_id => patient.id, 
                     :minutes_asleep => Random.new.rand(240..540), 
                     :number_of_awakenings => Random.new.rand(1..10),
