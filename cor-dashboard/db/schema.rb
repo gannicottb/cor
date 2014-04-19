@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417224247) do
+ActiveRecord::Schema.define(version: 20140419174711) do
+
+  create_table "activities", force: true do |t|
+    t.integer  "patient_id"
+    t.datetime "date"
+    t.integer  "minutes_asleep"
+    t.integer  "number_of_awakenings"
+    t.float    "sleep_efficiency"
+    t.integer  "steps"
+    t.integer  "sedentary_minutes"
+    t.integer  "lightly_active_minutes"
+    t.integer  "fairly_active_minutes"
+    t.integer  "very_active_minutes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "alerts", force: true do |t|
     t.boolean  "resolved"

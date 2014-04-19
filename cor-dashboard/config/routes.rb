@@ -15,6 +15,9 @@ CorDashboard::Application.routes.draw do
   get "patient/medication"
   get "patient/cough"
 
+  get "patient/exercise_log"
+  get "patient/sleep_log"
+
   get 'physician/roster'
   get 'physician/critical_patients'
   get 'physician/alerts'

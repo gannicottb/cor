@@ -62,8 +62,17 @@ class PatientController < ApplicationController
   end
 
   def activity_log
-    #Fetch activity_log data by patient_id    
+    #Fetch activity_log data by patient_id 
+    patient = Patient.take
+    logs = patient.activity_log
+    @exercise_log = logs[:exercise]
+    @sleep_log = logs[:sleep]   
     #redirect to activity_log
+  end
+
+  def exercise_log
+    patient = Patient.take    
+    @exercise_log = patient.activity_log[:exercise]
   end
 
   def settings

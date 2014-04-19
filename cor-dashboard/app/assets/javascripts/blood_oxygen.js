@@ -1,5 +1,3 @@
-
-
 function populate_blood_oxygen_container() {
     $('#blood_oxygen_container').highcharts({
         chart: {

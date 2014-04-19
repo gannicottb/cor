@@ -10,6 +10,7 @@ class Patient < ActiveRecord::Base
     has_many :blood_pressure_readings   
     has_many :emas
     has_many :alerts
+    has_many :activities
     has_one :threshold_values
 
     if Rails.env.production?
@@ -33,8 +34,8 @@ class Patient < ActiveRecord::Base
   end
 
 	def sodium
-		return {threshold: threshold_values.sodium,
-    				values: emas.map {|r| [r.reading_time.utc.to_i*1000, r.sodium] }}		
+		return {threshold: 0,
+    				values: emas.all.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}		
 	end
 
 	def blood_pressure
@@ -43,6 +44,19 @@ class Patient < ActiveRecord::Base
                   			:diastolic =>eval(threshold_values.diastolic_bp)} ,
     				values: [r.reading_time.utc.to_i*1000, r.systolic_bp, r.diastolic_bp] }
 	end
+
+  def activity_log
+    #Package up the data for the activity log page        
+    return {exercise: {sedentary: activities.last_week.map {|r| r.sedentary_minutes},
+                      lightly_active: activities.last_week.map {|r| r.lightly_active_minutes},
+                      fairly_active: activities.last_week.map {|r| r.fairly_active_minutes},
+                      very_active: activities.last_week.map {|r| r.very_active_minutes}
+                      },
+            sleep: {sleep_efficiency: activities.last_week.map {|r| r.sleep_efficiency}, 
+                    number_of_awakenings: activities.last_week.map {|r| r.number_of_awakenings}
+                   }
+          }
+  end
 
   def scanForAlerts
     #Check all recent readings with threshold values and create Alerts
@@ -70,15 +84,43 @@ class Patient < ActiveRecord::Base
       end
     end
 
-    blood_oxygen_readings.each do |r|
+    thresholdSystolic = eval(threshold_values.systolic_bp)
+    thresholdDiastolic = eval(threshold_values.diastolic_bp)
+
+    blood_pressure_readings.each do |r|
       if !alerts.exists?(reading_id: r.id)
-        if r.bo_perc < threshold_values.bo_perc
+        if r.systolic_bp >= thresholdSystolic[:high]
           #create a new alert for this patient
-          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Oxygen is under threshold")
-        end  
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Systolic) is HIGH")
+        end
+        if r.systolic_bp <= thresholdSystolic[:low]
+          #create a new alert for this patient
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Systolic) is LOW")
+        end
+        if r.diastolic_bp >= thresholdDiastolic[:high]
+          #create a new alert for this patient
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Diastolic) is HIGH")
+        end
+        if r.diastolic_bp <= thresholdDiastolic[:low]
+          #create a new alert for this patient
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Diastolic) is LOW")
+        end    
       end
     end
     return alerts
+  end
+
+  def sodiumStringToInt(str)
+    case str.downcase
+    when "low"
+      return 1
+    when "medium"
+      return 2
+    when "high"
+      return 3
+    else
+      return nil
+    end
   end
 
 end

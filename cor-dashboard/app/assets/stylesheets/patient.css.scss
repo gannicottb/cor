@@ -14,8 +14,29 @@ ul {
 	list-style: none;
 }
 
+#alerts .col-sm-3.col-sm-offset-1 {
+	height: 7em;
+	background-color: #eee;
+	border-radius: 20px;
+}
+
+#alerts .col-sm-6 {
+	background-color: #a8452d;
+	border-radius: 20px;
+	border: 2px solid #D41919;
+	height: 7em;
+}
+
+#alerts div {
+	margin-top: 2.5em;
+}
+
 .text-center {
 	text-align: center;
+}
+
+#metric-nav ul .btn-default {
+	border: none;
 }
 
 .navbar {

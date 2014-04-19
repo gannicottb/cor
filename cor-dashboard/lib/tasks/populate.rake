@@ -2,7 +2,7 @@ namespace :db do
   desc "Erase and fill database"
   task :populate => :environment do
 
-    [Physician, Patient, BloodOxygenReading, HeartRateReading, WeightReading, ThresholdValues, Alert].each(&:delete_all)
+    [Physician, Patient, BloodOxygenReading, HeartRateReading, WeightReading, ThresholdValues, Ema, Activity, Alert].each(&:delete_all)
 
     physician = Physician.create(:name => "Dr. Smith")
     patient = Patient.create(:physician_id => physician.id)
@@ -46,6 +46,28 @@ namespace :db do
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 145, :reading_time => Time.now - 16.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 144, :reading_time => Time.now - 17.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 146, :reading_time => Time.now - 18.days)
+
+    Ema.create(:patient_id => patient.id, :sodium_level => "Low", :reading_time => Time.now)
+    Ema.create(:patient_id => patient.id, :sodium_level => "High", :reading_time => Time.now-1.day)
+    Ema.create(:patient_id => patient.id, :sodium_level => "Low", :reading_time => Time.now-2.days)
+    Ema.create(:patient_id => patient.id, :sodium_level => "High", :reading_time => Time.now-3.days)
+    Ema.create(:patient_id => patient.id, :sodium_level => "High", :reading_time => Time.now-4.days)
+    Ema.create(:patient_id => patient.id, :sodium_level => "Medium", :reading_time => Time.now-5.days)
+    Ema.create(:patient_id => patient.id, :sodium_level => "Low", :reading_time => Time.now-6.days)
+
+    7.times do |i|
+        Activity.create(:patient_id => patient.id, 
+                    :minutes_asleep => Random.new.rand(240..540), 
+                    :number_of_awakenings => Random.new.rand(1..10),
+                    :sleep_efficiency => Random.new.rand(0.4..1.0), 
+                    :steps => Random.new.rand(500..10000), 
+                    :sedentary_minutes => Random.new.rand(600..800), 
+                    :lightly_active_minutes => Random.new.rand(100..300),
+                    :fairly_active_minutes => Random.new.rand(100..200), 
+                    :very_active_minutes => Random.new.rand(0..60),
+                    :date => Time.now-i.days)
+    end
+    
 
     ThresholdValues.create(:patient_id =>patient.id, 
         :bo_perc => 90, 
