@@ -1,7 +1,8 @@
 <%= javascript_tag do %>
-	var data = <%= values %>;
-	var threshold = <%= threshold %>;
-  data.sort();
+	var sed = <%= exercise_log[:sedentary] %>;	
+	var lightly = <%= exercise_log[:lightly_active] %>;
+	var fairly = <%= exercise_log[:fairly_active] %>;
+	var very = <%= exercise_log[:very_active] %>;  
 <% end %>
 
 <div id="exercise_log_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>

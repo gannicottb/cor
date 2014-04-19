@@ -46,24 +46,16 @@ class Patient < ActiveRecord::Base
 	end
 
   def activity_log
-    #Package up the data for the activity log page    
-    results = {}
-    #sum the total minutes    
-    total = {}
-    activity_logs = activities.last_week
-    activity_logs.each do |al|
-      total[:sedentary] += al.sedentary_minutes
-      total[:lightly_active] += al.lightly_active_minutes
-      total[:fairly_active] += al.fairly_active_minutes
-      total[:very_active] += al.very_active_minutes      
-      total[:minutes] += al.sedentary_minutes + al.lightly_active_minutes + al.fairly_active_minutes + al.very_active_minutes
-      total[:sleep_minutes] += al.minutes_asleep
-    end
-    results[:exercise] = [['sedentary', total[:sedentary]/total[:minutes]],
-                          ['lightly active', total[:lightly_active]/total[:minutes]],
-                          ['fairly active', total[:fairly_active]/total[:minutes]],
-                          ['very active', total[:very_active]/total[:minutes]]]
-    results[:sleep] = {sleep_efficiency: al.sleep_efficiency, number_of_awakenings: al.number_of_awakenings, minutes: total[:sleep_minutes]}
+    #Package up the data for the activity log page        
+    return {exercise: {sedentary: activities.last_week.map {|r| r.sedentary_minutes},
+                      lightly_active: activities.last_week.map {|r| r.lightly_active_minutes},
+                      fairly_active: activities.last_week.map {|r| r.fairly_active_minutes},
+                      very_active: activities.last_week.map {|r| r.very_active_minutes}
+                      },
+            sleep: {sleep_efficiency: activities.last_week.map {|r| r.sleep_efficiency}, 
+                    number_of_awakenings: activities.last_week.map {|r| r.number_of_awakenings}
+                   }
+          }
   end
 
   def scanForAlerts
