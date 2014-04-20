@@ -32,11 +32,6 @@ class Patient < ActiveRecord::Base
     				values: weight_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }}  	  
   end
 
-	def sodium
-		return {threshold: threshold_values.sodium,
-    				values: emas.map {|r| [r.reading_time.utc.to_i*1000, r.sodium] }}		
-	end
-
 	def blood_pressure
 		r = blood_pressure_readings.first
 		return {threshold: {:systolic => eval(threshold_values.systolic_bp), 
