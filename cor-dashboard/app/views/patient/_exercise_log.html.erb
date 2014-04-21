@@ -6,6 +6,8 @@
 	//var dayrange = <%= exercise_log[:day_range] %>;  
 <% end %>
 
+<h2>This Week's Steps: <%=@exercise_log[:steps] %></h2>
+
 <div id="exercise_log_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <script>
   $(populate_exercise_log_container());
