@@ -17,6 +17,10 @@ class Patient < ActiveRecord::Base
       self.table_name = "patient_info"
     end
 
+  def summary
+
+  end
+
   def blood_oxygen  	     
     return {threshold: threshold_values.bo_perc, 
     				values: blood_oxygen_readings.last_week.map {|r| [r.reading_time.utc.to_i*1000, r.bo_perc] }}  	
@@ -47,17 +51,17 @@ class Patient < ActiveRecord::Base
 
   def activity_log
     #Package up the data for the activity log page        
-    return {exercise: {sedentary: activities.last_week.map {|r| r.sedentary_minutes},
+    return  {exercise: {sedentary: activities.last_week.map {|r| r.sedentary_minutes},
                       lightly_active: activities.last_week.map {|r| r.lightly_active_minutes},
                       fairly_active: activities.last_week.map {|r| r.fairly_active_minutes},
                       very_active: activities.last_week.map {|r| r.very_active_minutes},
-                      day_range: activities.last_week.map {|r| r.date}                      
+                      steps: activities.last_week.map {|r| r.steps}                    
                       },
             sleep: {sleep_efficiency: activities.last_week.map {|r| r.sleep_efficiency}, 
                     number_of_awakenings: activities.last_week.map {|r| r.number_of_awakenings},
-                    minutes: activities.last_week.map{|r| r.minutes_asleep}
+                    minutes: activities.last_week.map {|r| r.minutes_asleep}
                    }
-          }
+            }
   end
 
   def scanForAlerts
