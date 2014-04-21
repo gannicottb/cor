@@ -26,7 +26,13 @@ class PhysicianController < ApplicationController
 
 	def summary
 		@physician = Physician.take
-		@patients = @physician.patients
+		patient = @physician.patients.take
+		@bundle = {}
+		@bundle[:blood_oxygen] = patient.blood_oxygen
+		@bundle[:heart_rate] = patient.heart_rate
+		@bundle[:weight] = patient.weight
+		@bundle[:sodium] = patient.sodium
+		@bundle[:blood_pressure] = patient.blood_pressure
 	end
 
 	def detail

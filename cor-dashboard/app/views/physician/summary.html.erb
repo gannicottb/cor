@@ -1,15 +1,25 @@
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
 <div id="patient_pane" class="col-md-2">Pane</div>
 <div class="col-md-10">
-	<div class="col-md-5">
-		<div id="weight_graph">Weight</div>
+	<div class="col-md-6">
+		<div id="weight_graph">
+			Weight
+		</div>
 		<div id="hr_graph">Heart Rate</div>
 		<div id="bo_graph">Blood Oxygen</div>
 		<div id="bp_graph">Blood Pressure</div>
 	</div>
-	<div class="col-md-5">
+	<div class="col-md-6">
 		<div id="activity_graph">Activity</div>
 		<div id="medication_graph">Medication</div>
 		<div id="sodium_graph">Sodium</div>
 	</div>
 </div>
-<script></script>
+<script>
+	$('#bo_graph').html("<%= escape_javascript(render :partial => 'patient/blood_oxygen', :locals => @bundle[:blood_oxygen])%>");
+	$('#hr_graph').html("<%= escape_javascript(render :partial => 'patient/heart_rate', :locals => @bundle[:heart_rate])%>");
+	$('#weight_graph').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => @bundle[:weight])%>");
+	$('#sodium_graph').html("<%= escape_javascript(render :partial => 'patient/sodium', :locals => @bundle[:sodium])%>");
+	$('#bp_graph').html("<%= escape_javascript(render :partial => 'patient/blood_pressure', :locals => @bundle[:blood_pressure])%>");
+</script>

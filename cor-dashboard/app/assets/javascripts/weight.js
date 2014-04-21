@@ -44,7 +44,7 @@ function parseData() {
 }
 
 function populate_weight_container() {
-    parseOutput = parseData();
+    var parseOutput = parseData();
     var regData = parseOutput[0];
     var irregData = parseOutput[1];
     $('#weight_container').highcharts({
