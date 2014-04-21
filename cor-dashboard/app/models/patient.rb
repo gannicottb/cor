@@ -113,6 +113,22 @@ class Patient < ActiveRecord::Base
         end    
       end
     end
+
+    emas.each do |r|
+      if !alerts.exists?(reading_id: r.id)
+        if r.sodium_level == "High"
+          #create a new alert for this patient
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Sodium Level is high")
+        end
+      end
+    end
+
+    relevant_weight_readings = weight_readings.where(reading_time: eval(threshold_values.weight)[:time].days.ago .. Time.now)
+    if(relevant_weight_readings.maximum(:weight) - relevant_weight_readings.minimum(:weight)>=eval(threshold_values.weight)[:weight])
+      #create a new alert for this patient
+      Alert.create(patient_id: id, resolved: false, reading_id: relevant_weight_readings.where(weight: relevant_weight_readings.maximum(:weight)).first().id, text: "Change in weight has exceeded the threshold")
+    end
+
     return alerts
   end
 
@@ -128,5 +144,6 @@ class Patient < ActiveRecord::Base
       return nil
     end
   end
+
 
 end
