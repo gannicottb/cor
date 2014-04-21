@@ -1,0 +1,157 @@
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<div class="col col-md-3" id="patient-container">
+  <div class="row" style="padding-left: 10px;">
+
+    <div>
+      <button><div id="slidehorizontal"><%= image_tag "hamburger.png" %></div></button> <br>
+    </div>
+    <div class="col col-sm-2" id="navvertical">
+      <ul>
+        <br>
+        <li><%= button_to "Weight", patient_weight_path, :remote => true, class:"btn btn-default w75", method: "get", id: "weight" %></li><br>
+        <li><%= button_to "Blood Pressure", patient_blood_pressure_path, :remote => true, class:"btn btn-default w75", method: "get", id: "bloodpress" %></li><br>
+        <li><%= link_to "Heart Rate", patient_heart_rate_path, :remote => true, class:"btn btn-default w75", method: "get", id:"heartrate" %></li><br>
+        <li><%= link_to "Blood Oxygen", patient_blood_oxygen_path, :remote => true, class:"btn btn-default w75", method: "get", id:"bloodoxygen" %></li><br>
+        <!--li><button>Sodium Intake</button></li-->
+      </ul>
+    </div>
+  <ul>
+  <li><div class="col col-md-2" id="patientpic-container"></div>   </li>
+    <li> <div class="col col-md-2" id="patientinfo-container"></div>  </li>
+    <li><div class="col col-md-2" id="medication-container"></div>   </li>
+   </ul>
+    </div>
+</div>
+<div class="col col-md-9" id="patient-container">
+  <br>
+  <div class="col col-md-12" id="graph-container">
+    <div id="chart"></div>
+  </div>
+  <div class="col col-md-12" id="metrictable-container">
+    <table class="table" id="weight_tab">
+      <thead>
+        <tr>
+          <th>Reading Time</th>
+          <th>Weight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @values_wt.each do |i| %>
+        <tr>
+          <% sec = (i[0].to_f / 1000) %>
+          <% datetime = Time.at(sec) %>
+          <th><%=datetime%></th>
+          <th><%= i[1] %></th>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <table class="table" id="bloodpressure_tab">
+      <thead>
+      <tr>
+        <th>Reading Time</th>
+        <th>Systolic</th>
+        <th>Diastolic</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @values_bp.each do |i| %>
+          <tr>
+            <% sec = (i[0].to_f / 1000) %>
+            <% datetime = Time.at(sec) %>
+            <th><%=datetime%></th>
+            <th><%= i[1] %></th>
+            <th><%= i[2] %></th>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <table class="table" id="heartrate_tab">
+      <thead>
+      <tr>
+        <th>Reading Time</th>
+        <th>Heart Rate</th>
+        <th>Heart Rate Variability</th>
+      </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <% sec = (@values_hr[0].to_f / 1000) %>
+            <% datetime = Time.at(sec) %>
+            <th><%=datetime%></th>
+            <th><%= @values_hr[1] %></th>
+          </tr>
+      </tbody>
+    </table>
+    <table class="table" id="bloodoxygen_tab">
+      <thead>
+      <tr>
+        <th>Reading Time</th>
+        <th>Blood Oxygen %</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @values_bo.each do |i| %>
+        <tr>
+            <% sec = (i[0].to_f / 1000) %>
+            <% datetime = Time.at(sec) %>
+            <th><%=datetime%></th>
+            <th><%= i[1] %></th>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col col-md-12" id="notes-container"></div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#navvertical').hide();
+        // Click handler
+        $('#slidehorizontal').click(function(){
+            $('#navvertical').animate({width: 'toggle'});
+            $('#patientpic-container').toggle();
+            $('#patientinfo-container').toggle();
+            $('#medication-container').toggle();
+        });
+    });
+</script>
+<script>
+    $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
+    $('#weight_tab').show();
+    $('#bloodpressure_tab').hide();
+    $('#heartrate_tab').hide();
+    $('#bloodoxygen_tab').hide();
+</script>
+<script>
+    $('#weight').click(function(){
+        $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
+        $('#weight_tab').show();
+        $('#bloodpressure_tab').hide();
+        $('#heartrate_tab').hide();
+        $('#bloodoxygen_tab').hide();
+    })
+    $('#bloodpress').click(function(){
+        $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_pressure', :locals => {:threshold => @threshold_bp, :values => @values_bp})%>");
+        $('#bloodpressure_tab').show();
+        $('#weight_tab').hide();
+        $('#heartrate_tab').hide();
+        $('#bloodoxygen_tab').hide();
+    })
+    $('#heartrate').click(function(){
+        $('#chart').html("<%= escape_javascript(render :partial => 'patient/heart_rate', :locals => {:threshold => @threshold_hr, :values => @values_hr})%>");
+        $('#heartrate_tab').show();
+        $('#weight_tab').hide();
+        $('#bloodpressure_tab').hide();
+        $('#bloodoxygen_tab').hide();
+    })
+    $('#bloodoxygen').click(function(){
+        $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_oxygen', :locals => {:threshold => @threshold_bo, :values => @values_bo})%>");
+        $('#bloodoxygen_tab').show();
+        $('#weight_tab').hide();
+        $('#heartrate_tab').hide();
+        $('#bloodpressure_tab').hide();
+    })
+</script>

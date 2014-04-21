@@ -1,0 +1,141 @@
+#patient-container {
+  margin-top: 0px;
+  min-height: 650px;
+  /*max-width: 500px;*/
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+#navvertical  {
+  margin-top: 0px;
+  min-height: 950px;
+  min-width: 330px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #c3d7f0;
+  padding-top: 5px;
+  padding-left: 45px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+#patientpic-container {
+  margin-top: 0px;
+  min-height: 250px;
+  min-width: 330px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+#patientinfo-container {
+  margin-top: 0px;
+  min-height: 350px;
+  min-width: 330px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+#medication-container {
+  margin-top: 0px;
+  min-height: 350px;
+  min-width: 330px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+#graph-container {
+  margin-top: 0px;
+  min-height: 350px;
+  min-width: 900px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+#metrictable-container {
+  margin-top: 0px;
+  max-height: 370px;
+  min-height: 370px;
+  display:block;
+  height: 100%;
+  overflow: scroll;
+  min-width: 900px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 25px;
+}
+
+#notes-container {
+  margin-top: 0px;
+  min-height: 150px;
+  min-width: 900px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.scrollable {
+  height: 100%;
+  overflow: auto;
+}
+
+.pad40-top {
+  padding-top: 40px;
+}
+
+.max-height {
+  height: 100%;
+}

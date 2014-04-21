@@ -33,17 +33,17 @@ class Patient < ActiveRecord::Base
     				values: weight_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }}  	  
   end
 
-	def sodium
-		return {threshold: 0,
-    				values: emas.all.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}		
-	end
+  def sodium
+      return {threshold: 0,
+              values: emas.all.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}		
+  end
 
-	def blood_pressure
-		r = blood_pressure_readings.first
-		return {threshold: {:systolic => eval(threshold_values.systolic_bp), 
-                  			:diastolic =>eval(threshold_values.diastolic_bp)} ,
-    				values: [r.reading_time.utc.to_i*1000, r.systolic_bp, r.diastolic_bp] }
-	end
+  def blood_pressure
+      r = blood_pressure_readings.first
+      return {threshold: {:systolic => eval(threshold_values.systolic_bp), 
+                          :diastolic =>eval(threshold_values.diastolic_bp)} ,
+      values: [r.reading_time.utc.to_i*1000, r.systolic_bp, r.diastolic_bp] }
+  end
 
   def activity_log
     #Package up the data for the activity log page        
