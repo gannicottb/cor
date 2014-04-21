@@ -42,6 +42,16 @@ function populate_doctor_heart_rate_container() {
                         color: '#606060'
                     }
                 }
+            }, {
+                from: 0,
+                to: threshold,
+                color: 'rgba(0, 255, 0, .3)',
+                label: {
+                    text: 'Normal',
+                    style: {
+                        color: '#606060'
+                    }
+                }
             }]
         },
         tooltip: {

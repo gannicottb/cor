@@ -21,7 +21,7 @@
   border-color: #F0F0F0;
   box-shadow: 9px 9px 20px #787878;
   border-width: 3px;
-  background-color: #c4e3f3;
+  background-color: #c3d7f0;
   padding-top: 5px;
   padding-left: 45px;
   padding-right: 5px;
@@ -89,7 +89,11 @@
 
 #metrictable-container {
   margin-top: 0px;
-  min-height: 450px;
+  max-height: 370px;
+  min-height: 370px;
+  display:block;
+  height: 100%;
+  overflow: scroll;
   min-width: 900px;
   border-style: solid;
   border-color: #F0F0F0;
@@ -99,7 +103,7 @@
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
 }
 
 #notes-container {
@@ -123,3 +127,15 @@
 }
 
 
+.scrollable {
+  height: 100%;
+  overflow: auto;
+}
+
+.pad40-top {
+  padding-top: 40px;
+}
+
+.max-height {
+  height: 100%;
+}
