@@ -119,39 +119,49 @@
     });
 </script>
 <script>
-    $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
-    $('#weight_tab').show();
-    $('#bloodpressure_tab').hide();
-    $('#heartrate_tab').hide();
-    $('#bloodoxygen_tab').hide();
-</script>
-<script>
-    $('#weight').click(function(){
+    function hideAll() {
+      $('#weight_tab').hide();
+      $('#bloodpressure_tab').hide();
+      $('#heartrate_tab').hide();
+      $('#bloodoxygen_tab').hide();
+    }
+
+    function showGraph(metric) {
+      hideAll();
+      if(metric == "weight") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
         $('#weight_tab').show();
-        $('#bloodpressure_tab').hide();
-        $('#heartrate_tab').hide();
-        $('#bloodoxygen_tab').hide();
-    })
-    $('#bloodpress').click(function(){
+      } else if(metric == "blood_pressure") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_pressure', :locals => {:threshold => @threshold_bp, :values => @values_bp})%>");
         $('#bloodpressure_tab').show();
-        $('#weight_tab').hide();
-        $('#heartrate_tab').hide();
-        $('#bloodoxygen_tab').hide();
-    })
-    $('#heartrate').click(function(){
+      } else if(metric == "heart_rate") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/heart_rate', :locals => {:threshold => @threshold_hr, :values => @values_hr})%>");
         $('#heartrate_tab').show();
-        $('#weight_tab').hide();
-        $('#bloodpressure_tab').hide();
-        $('#bloodoxygen_tab').hide();
-    })
-    $('#bloodoxygen').click(function(){
+      } else if(metric == "blood_oxygen") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_oxygen', :locals => {:threshold => @threshold_bo, :values => @values_bo})%>");
         $('#bloodoxygen_tab').show();
-        $('#weight_tab').hide();
-        $('#heartrate_tab').hide();
-        $('#bloodpressure_tab').hide();
-    })
+      } else { /* show weight by default */
+        $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
+        $('#weight_tab').show();
+      }
+    }
+
+    function setupButtons() {
+      $('#weight').click(function(){
+          showGraph("weight");
+      })
+      $('#bloodpress').click(function(){
+          showGraph("blood_pressure");
+      })
+      $('#heartrate').click(function(){
+          showGraph("heart_rate");
+      })
+      $('#bloodoxygen').click(function(){
+          showGraph("blood_oxygen");
+      })
+    }
+
+    setupButtons();
+    showGraph("<%= @metric %>");
+
 </script>

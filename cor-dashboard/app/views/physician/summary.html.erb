@@ -3,15 +3,29 @@
 <div id="patient_pane" class="col-md-2">Pane</div>
 <div class="col-md-10">
 	<div class="col-md-6">
-		<div id="weight_graph">Weight</div>
-		<div id="hr_graph">Heart Rate</div>
-		<div id="bo_graph">Blood Oxygen</div>
-		<div id="bp_graph">Blood Pressure</div>
+		<%= link_to physician_detail_path(:metric => "weight") do %>
+			<div id="weight_graph">Weight</div>
+		<% end %>
+		<%= link_to physician_detail_path(:metric => "heart_rate") do %>
+			<div id="hr_graph">Heart Rate</div>
+		<% end %>
+		<%= link_to physician_detail_path(:metric => "blood_oxygen") do %>
+			<div id="bo_graph">Blood Oxygen</div>
+		<% end %>
+		<%= link_to physician_detail_path(:metric => "blood_pressure") do %>
+			<div id="bp_graph">Blood Pressure</div>
+		<% end %>
 	</div>
 	<div class="col-md-6">
-		<div id="activity_graph">Activity</div>
-		<div id="medication_graph">Medication</div>
-		<div id="sodium_graph">Sodium</div>
+		<%= link_to physician_detail_path(:metric => "activity") do %>
+			<div id="activity_graph">Activity</div>
+		<% end %>
+		<%= link_to physician_detail_path(:metric => "medication") do %>
+			<div id="medication_graph">Medication</div>
+		<% end %>
+		<%= link_to physician_detail_path(:metric => "sodium") do %>
+			<div id="sodium_graph">Sodium</div>
+		<% end %>
 	</div>
 </div>
 <script>
