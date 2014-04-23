@@ -3,9 +3,7 @@ class PatientController < ApplicationController
   respond_to :html, :js
   
   def metrics
-    #Fetch summary data by patient_id 
-    @patient = Patient.take
-    #THE PATIENT ID IS HARD CODED FOR NOW
+    #Fetch summary data by patient_id   
   end
 
   def blood_oxygen
@@ -62,9 +60,7 @@ class PatientController < ApplicationController
   end
 
   def activity_log
-    #Fetch activity_log data by patient_id 
-    patient = Patient.take    
-    @exercise_log = patient.activity_log[:exercise]
+    #Fetch activity_log data by patient_id     
     #redirect to activity_log
   end
 

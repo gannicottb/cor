@@ -3,10 +3,11 @@
 	var lightly = <%= exercise_log[:lightly_active] %>;
 	var fairly = <%= exercise_log[:fairly_active] %>;
 	var very = <%= exercise_log[:very_active] %>;
-	//var dayrange = <%= exercise_log[:day_range] %>;  
+	//Uncomment foo and then the graph dies!!!!
+	//var foo = <%= exercise_log[:days] %>;  
 <% end %>
 
-<h2>This Week's Steps: <%=@exercise_log[:steps] %></h2>
+<h2>This Week's Steps: <%= exercise_log[:days] %></h2>
 
 <div id="exercise_log_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <script>

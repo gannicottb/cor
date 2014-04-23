@@ -55,7 +55,8 @@ class Patient < ActiveRecord::Base
                       lightly_active: activities.last_week.map {|r| r.lightly_active_minutes},
                       fairly_active: activities.last_week.map {|r| r.fairly_active_minutes},
                       very_active: activities.last_week.map {|r| r.very_active_minutes},
-                      steps: activities.last_week.map {|r| r.steps}                    
+                      steps: activities.last_week.map {|r| r.steps},
+                      days: activities.last_week.map{|r| r.date.strftime("%B %d")}                    
                       },
             sleep: {sleep_efficiency: activities.last_week.map {|r| r.sleep_efficiency}, 
                     number_of_awakenings: activities.last_week.map {|r| r.number_of_awakenings},
