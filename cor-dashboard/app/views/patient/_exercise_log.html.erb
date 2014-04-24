@@ -4,7 +4,13 @@
 	var fairly = <%= exercise_log[:fairly_active] %>;
 	var very = <%= exercise_log[:very_active] %>;
 	//Uncomment foo and then the graph dies!!!!
-	//var foo = <%= exercise_log[:days] %>;  
+	var numDays = <%= exercise_log[:days].length%>
+	var days = new Array();
+	for(int i = 0; i < numDays; i++ )
+	{
+		days[i] = <%= j (exercise_log[:days][i]) %>
+	}
+	
 <% end %>
 
 <h2>This Week's Steps: <%= exercise_log[:days] %></h2>
