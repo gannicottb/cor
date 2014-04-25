@@ -14,7 +14,7 @@ namespace :db do
 				Ema.create(:patient_id => patient.id, :sodium_level => ["High", "Low", "Medium"].sample, :reading_time => Time.now-i.days) 
 				
 				BloodOxygenReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, 
-																	:bo_perc => Random.new.rand(70.0..100.0), :reading_time => Time.now-i.days)   
+																	:bo_perc => Random.new.rand(85.0..100.0), :reading_time => Time.now-i.days)   
 				
 				BloodPressureReading.create(:patient_id => patient.id, :bp_sensor_id => 123456789, 
 																		:systolic_bp => Random.new.rand(100..120), 

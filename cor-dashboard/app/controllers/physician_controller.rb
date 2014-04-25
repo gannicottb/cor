@@ -26,7 +26,7 @@ class PhysicianController < ApplicationController
 
 	def summary
 		@physician = Physician.take
-		patient = @physician.patients.take
+		patient = @physician.patients.find(params[:id])
 		@bundle = {}
 		@bundle[:blood_oxygen] = patient.blood_oxygen
 		@bundle[:heart_rate] = patient.heart_rate
