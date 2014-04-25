@@ -16,7 +16,7 @@
 #navvertical  {
   margin-top: 0px;
   min-height: 950px;
-  min-width: 330px;
+  min-width: 230px;
   border-style: solid;
   border-color: #F0F0F0;
   box-shadow: 9px 9px 20px #787878;
@@ -27,55 +27,12 @@
   padding-right: 5px;
   padding-bottom: 5px;
 }
-#patientpic-container {
-  margin-top: 0px;
-  min-height: 250px;
-  min-width: 330px;
-  border-style: solid;
-  border-color: #F0F0F0;
-  box-shadow: 9px 9px 20px #787878;
-  border-width: 3px;
-  background-color: #ffffff;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 15px;
-}
 
-#patientinfo-container {
-  margin-top: 0px;
-  min-height: 350px;
-  min-width: 330px;
-  border-style: solid;
-  border-color: #F0F0F0;
-  box-shadow: 9px 9px 20px #787878;
-  border-width: 3px;
-  background-color: #ffffff;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 15px;
-}
-
-#medication-container {
-  margin-top: 0px;
-  min-height: 350px;
-  min-width: 330px;
-  border-style: solid;
-  border-color: #F0F0F0;
-  box-shadow: 9px 9px 20px #787878;
-  border-width: 3px;
-  background-color: #ffffff;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 15px;
-}
 
 #graph-container {
   margin-top: 0px;
   min-height: 350px;
-  min-width: 900px;
+  min-width: 1000px;
   border-style: solid;
   border-color: #F0F0F0;
   box-shadow: 9px 9px 20px #787878;
@@ -176,15 +133,15 @@
   border-style: solid;
   border-color: #999999;
   box-shadow: 9px 9px 20px #787878;
-  border-width: 3px;
-  background-color: #e4b9c0;
+  border-width: 1px;
+  background-color: #4cae4c;
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
 }
 
-#summarypatientpic-container {
+#patientpic-container {
   margin-top: 0px;
   min-height: 250px;
   min-width: 225px;
@@ -199,7 +156,7 @@
   padding-bottom: 15px;
 }
 
-#summarypatientinfo-container {
+#patientinfo-container {
   margin-top: 0px;
   min-height: 350px;
   min-width: 225px;
@@ -214,7 +171,7 @@
   padding-bottom: 15px;
 }
 
-#summarymedication-container {
+#medication-container {
   margin-top: 0px;
   min-height: 350px;
   min-width: 225px;

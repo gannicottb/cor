@@ -1,54 +1,62 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
-<div class="col col-lg-2" id="patient-summary" style="max-width: 20%;">
+<div class="col col-lg-2" style="max-width: 20%;">
   <div class="row" style="padding-left: 10px;">
     <ul>
-      <li><div class="col col-md-1" id="summarypatientpic-container"></div>   </li>
-      <li> <div class="col col-md-1" id="summarypatientinfo-container"></div>  </li>
-      <li><div class="col col-md-2" id="summarymedication-container"></div>   </li>
+      <li>
+          <div class="col col-md-1" id="patientpic-container">
+            <img src="http://placehold.it/200x220"></img>
+          </div>
+      </li>
+      <li> <div class="col col-md-1" id="patientinfo-container"></div>  </li>
+      <li><div class="col col-md-2" id="medication-container"></div>   </li>
     </ul>
   </div>
 </div>
-<div class="col col-md-10" id="metricsummary-container">
+<div class="col col-md-10">
    <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-6" id="summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "weight", :patientId => @patient.id) do %>
 			<div id="weight_graph">Weight</div>
 		<% end %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6" id="summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "heart_rate", :patientId => @patient.id) do %>
 			<div id="hr_graph">Heart Rate</div>
 		<% end %>
     </div>
-    </div>
+    </div> <br>
      <div class="row">
-     <div class="col-md-6">
+     <div class="col-md-6" id="summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "blood_oxygen", :patientId => @patient.id) do %>
 			<div id="bo_graph">Blood Oxygen</div>
 		<% end %>
      </div>
-     <div class="col-md-6">
+     <div class="col-md-6" id="summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "blood_pressure", :patientId => @patient.id) do %>
 			<div id="bp_graph">Blood Pressure</div>
 		<% end %>
 	</div>
-       </div>
-	<div class="col-md-6">
+       </div> </br>
+  <div class="row">
+	<div class="col-md-6" id="summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "activity", :patientId => @patient.id) do %>
 			<div id="activity_graph">Activity</div>
 		<% end %>
       </div>
-     <div class="col-md-6">
+     <div class="col-md-6" id="summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "medication", :patientId => @patient.id) do %>
 			<div id="medication_graph">Medication</div>
 		<% end %>
        </div>
-     <div class="col-md-6">
+    </div> <br>
+  <div class="row">
+     <div class="col-md-6" id="summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "sodium", :patientId => @patient.id) do %>
 			<div id="sodium_graph">Sodium</div>
 		<% end %>
 	</div>
+    </div>
 </div>
 
 <script>
