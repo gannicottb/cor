@@ -57,4 +57,5 @@
 	$('#weight_graph').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => @bundle[:weight])%>");
 	$('#sodium_graph').html("<%= escape_javascript(render :partial => 'patient/sodium', :locals => @bundle[:sodium])%>");
 	$('#bp_graph').html("<%= escape_javascript(render :partial => 'patient/blood_pressure', :locals => @bundle[:blood_pressure])%>");
+    $('#activity_graph').html("<%= escape_javascript(render :partial => 'patient/exercise_log', :locals => {:exercise_log => @exercise_log})%>");
 </script>
