@@ -139,3 +139,92 @@
 .max-height {
   height: 100%;
 }
+
+#patient-summary {
+  margin-top: 0px;
+  min-height: 650px;
+  /*max-width: 500px;*/
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+#metricsummary-container {
+  margin-top: 0px;
+  min-height: 550px;
+  min-width: 830px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+#summarygraph-container {
+  margin-top: 0px;
+  min-height: 350px;
+  min-width: 430px;
+  border-style: solid;
+  border-color: #999999;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #e4b9c0;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
+#summarypatientpic-container {
+  margin-top: 0px;
+  min-height: 250px;
+  min-width: 225px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+#summarypatientinfo-container {
+  margin-top: 0px;
+  min-height: 350px;
+  min-width: 225px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+#summarymedication-container {
+  margin-top: 0px;
+  min-height: 350px;
+  min-width: 225px;
+  border-style: solid;
+  border-color: #F0F0F0;
+  box-shadow: 9px 9px 20px #787878;
+  border-width: 3px;
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}

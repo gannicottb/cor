@@ -1,33 +1,56 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
-<div id="patient_pane" class="col-md-2">Pane</div>
-<div class="col-md-10">
-	<div class="col-md-6">
+<div class="col col-lg-2" id="patient-container" style="max-width: 20%;">
+  <div class="row" style="padding-left: 10px;">
+    <ul>
+      <li><div class="col col-md-1" id="summarypatientpic-container"></div>   </li>
+      <li> <div class="col col-md-1" id="summarypatientinfo-container"></div>  </li>
+      <li><div class="col col-md-2" id="summarymedication-container"></div>   </li>
+    </ul>
+  </div>
+</div>
+<div class="col col-md-10" id="metricsummary-container">
+   <div class="row">
+	<div class="col-md-6" id="#summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "weight") do %>
 			<div id="weight_graph">Weight</div>
 		<% end %>
+    </div>
+    <div class="col-md-6" id="#summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "heart_rate") do %>
 			<div id="hr_graph">Heart Rate</div>
 		<% end %>
+    </div>
+    </div>
+     <div class="row">
+     <div class="col-md-6">
 		<%= link_to physician_detail_path(:metric => "blood_oxygen") do %>
 			<div id="bo_graph">Blood Oxygen</div>
 		<% end %>
+     </div>
+     <div class="col-md-6">
 		<%= link_to physician_detail_path(:metric => "blood_pressure") do %>
 			<div id="bp_graph">Blood Pressure</div>
 		<% end %>
 	</div>
+       </div>
 	<div class="col-md-6">
 		<%= link_to physician_detail_path(:metric => "activity") do %>
 			<div id="activity_graph">Activity</div>
 		<% end %>
+      </div>
+     <div class="col-md-6">
 		<%= link_to physician_detail_path(:metric => "medication") do %>
 			<div id="medication_graph">Medication</div>
 		<% end %>
+       </div>
+     <div class="col-md-6">
 		<%= link_to physician_detail_path(:metric => "sodium") do %>
 			<div id="sodium_graph">Sodium</div>
 		<% end %>
 	</div>
 </div>
+
 <script>
 	$('#bo_graph').html("<%= escape_javascript(render :partial => 'patient/blood_oxygen', :locals => @bundle[:blood_oxygen])%>");
 	$('#hr_graph').html("<%= escape_javascript(render :partial => 'patient/heart_rate', :locals => @bundle[:heart_rate])%>");
