@@ -13,7 +13,8 @@
 	<div class="container-fluid">
 		<div class="row">
 			<ul class="nav">
-			<li id="myalerts" class="col-sm-2 col-sm-offset-1 text-center"><%= link_to "My Alerts", patient_alerts_path %></li>
+				<li class="col-sm-2 col-sm-offset-1 col-sm-offset-1 text-center"><h1><%= @patient.name.titleize %></h1></li>
+			<li id="myalerts" class="col-sm-2  text-center"><%= link_to "My Alerts", patient_alerts_path %></li>
 			<li id="mymetrics" class="col-sm-2 text-center"><%= link_to "My Metrics", patient_metrics_path %></li>					
 			<li id="myactivitylog" class="col-sm-2 text-center"><%= link_to "My Activity Log", patient_activity_log_path %></li>
 			<li id="mysettings" class="col-sm-2 text-center"><%= link_to "My Settings", patient_settings_path %></li>

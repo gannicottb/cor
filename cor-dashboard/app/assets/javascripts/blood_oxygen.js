@@ -21,7 +21,7 @@ function populate_blood_oxygen_container() {
                 text: 'Blood Oxygen (%)'
             },
             plotBands: [{
-                from: 0,
+                from: 60,
                 to: threshold,
                 color: 'rgba(255, 0, 0, .6)',
                 label: {
@@ -41,7 +41,7 @@ function populate_blood_oxygen_container() {
                     }
                 }
             }],
-            min: 0,
+            min: 60,
             max: 100
         },
         tooltip: {
