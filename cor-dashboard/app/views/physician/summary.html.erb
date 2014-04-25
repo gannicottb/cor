@@ -11,41 +11,41 @@
 </div>
 <div class="col col-md-10" id="metricsummary-container">
    <div class="row">
-	<div class="col-md-6" id="#summarygraph-container">
-		<%= link_to physician_detail_path(:metric => "weight") do %>
+	<div class="col-md-6">
+		<%= link_to physician_detail_path(:metric => "weight", :patientId => @patient.id) do %>
 			<div id="weight_graph">Weight</div>
 		<% end %>
     </div>
-    <div class="col-md-6" id="#summarygraph-container">
-		<%= link_to physician_detail_path(:metric => "heart_rate") do %>
+    <div class="col-md-6">
+		<%= link_to physician_detail_path(:metric => "heart_rate", :patientId => @patient.id) do %>
 			<div id="hr_graph">Heart Rate</div>
 		<% end %>
     </div>
     </div>
      <div class="row">
      <div class="col-md-6">
-		<%= link_to physician_detail_path(:metric => "blood_oxygen") do %>
+		<%= link_to physician_detail_path(:metric => "blood_oxygen", :patientId => @patient.id) do %>
 			<div id="bo_graph">Blood Oxygen</div>
 		<% end %>
      </div>
      <div class="col-md-6">
-		<%= link_to physician_detail_path(:metric => "blood_pressure") do %>
+		<%= link_to physician_detail_path(:metric => "blood_pressure", :patientId => @patient.id) do %>
 			<div id="bp_graph">Blood Pressure</div>
 		<% end %>
 	</div>
        </div>
 	<div class="col-md-6">
-		<%= link_to physician_detail_path(:metric => "activity") do %>
+		<%= link_to physician_detail_path(:metric => "activity", :patientId => @patient.id) do %>
 			<div id="activity_graph">Activity</div>
 		<% end %>
       </div>
      <div class="col-md-6">
-		<%= link_to physician_detail_path(:metric => "medication") do %>
+		<%= link_to physician_detail_path(:metric => "medication", :patientId => @patient.id) do %>
 			<div id="medication_graph">Medication</div>
 		<% end %>
        </div>
      <div class="col-md-6">
-		<%= link_to physician_detail_path(:metric => "sodium") do %>
+		<%= link_to physician_detail_path(:metric => "sodium", :patientId => @patient.id) do %>
 			<div id="sodium_graph">Sodium</div>
 		<% end %>
 	</div>
