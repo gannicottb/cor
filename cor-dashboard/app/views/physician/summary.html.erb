@@ -15,12 +15,12 @@
 </div>
 <div class="col col-md-10">
    <div class="row">
-	<div class="col-md-6" id="summarygraph-container" style="background-color: #ac2925;">
+	<div class="col-md-6" id="summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "weight", :patientId => @patient.id) do %>
 			<div id="weight_graph">Weight</div>
 		<% end %>
     </div>
-    <div class="col-md-6" id="summarygraph-container" style="background-color: #f5e79e;">
+    <div class="col-md-6" id="summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "heart_rate", :patientId => @patient.id) do %>
 			<div id="hr_graph">Heart Rate</div>
 		<% end %>
