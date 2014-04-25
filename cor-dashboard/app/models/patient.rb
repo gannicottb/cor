@@ -34,7 +34,8 @@ class Patient < ActiveRecord::Base
 
   def weight
   	return {threshold: eval(threshold_values.weight),
-    				values: weight_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }}  	  
+     				values: weight_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }} 
+             	  
   end
 
   def sodium
