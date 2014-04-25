@@ -4,7 +4,8 @@ class PatientController < ApplicationController
   
   def metrics
     #Fetch summary data by patient_id  
-    @patient = Patient.take 
+    #@patient = Patient.find(params[:id]) 
+    @patient = Patient.take
   end
 
   def blood_oxygen
