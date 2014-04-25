@@ -17,6 +17,10 @@ class Patient < ActiveRecord::Base
       self.table_name = "patient_info"
     end
 
+  def summary
+
+  end
+
   def blood_oxygen  	     
     return {threshold: threshold_values.bo_perc, 
     				values: blood_oxygen_readings.last_week.map {|r| [r.reading_time.utc.to_i*1000, r.bo_perc] }}  	
@@ -47,15 +51,18 @@ class Patient < ActiveRecord::Base
 
   def activity_log
     #Package up the data for the activity log page        
-    return {exercise: {sedentary: activities.last_week.map {|r| r.sedentary_minutes},
+    return  {exercise: {sedentary: activities.last_week.map {|r| r.sedentary_minutes},
                       lightly_active: activities.last_week.map {|r| r.lightly_active_minutes},
                       fairly_active: activities.last_week.map {|r| r.fairly_active_minutes},
-                      very_active: activities.last_week.map {|r| r.very_active_minutes}
+                      very_active: activities.last_week.map {|r| r.very_active_minutes},
+                      steps: activities.last_week.map {|r| r.steps},
+                      days: activities.last_week.map{|r| r.date.strftime("%B %d")}                    
                       },
             sleep: {sleep_efficiency: activities.last_week.map {|r| r.sleep_efficiency}, 
-                    number_of_awakenings: activities.last_week.map {|r| r.number_of_awakenings}
+                    number_of_awakenings: activities.last_week.map {|r| r.number_of_awakenings},
+                    minutes: activities.last_week.map {|r| r.minutes_asleep}
                    }
-          }
+            }
   end
 
   def scanForAlerts
@@ -107,6 +114,22 @@ class Patient < ActiveRecord::Base
         end    
       end
     end
+
+    emas.each do |r|
+      if !alerts.exists?(reading_id: r.id)
+        if r.sodium_level == "High"
+          #create a new alert for this patient
+          Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Sodium Level is high")
+        end
+      end
+    end
+
+    relevant_weight_readings = weight_readings.where(reading_time: eval(threshold_values.weight)[:time].days.ago .. Time.now)
+    if(relevant_weight_readings.maximum(:weight) - relevant_weight_readings.minimum(:weight)>=eval(threshold_values.weight)[:weight])
+      #create a new alert for this patient
+      Alert.create(patient_id: id, resolved: false, reading_id: relevant_weight_readings.where(weight: relevant_weight_readings.maximum(:weight)).first().id, text: "Change in weight has exceeded the threshold")
+    end
+
     return alerts
   end
 
@@ -122,5 +145,6 @@ class Patient < ActiveRecord::Base
       return nil
     end
   end
+
 
 end

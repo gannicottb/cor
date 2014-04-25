@@ -29,7 +29,7 @@ namespace :db do
 
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 114, :reading_time => Time.now)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 115, :reading_time => Time.now - 1.day)
-    WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 114, :reading_time => Time.now - 2.days)
+    WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 113, :reading_time => Time.now - 2.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 115, :reading_time => Time.now - 3.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 116, :reading_time => Time.now - 4.days)
     WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => 117, :reading_time => Time.now - 5.days)
@@ -55,7 +55,7 @@ namespace :db do
     Ema.create(:patient_id => patient.id, :sodium_level => "Medium", :reading_time => Time.now-5.days)
     Ema.create(:patient_id => patient.id, :sodium_level => "Low", :reading_time => Time.now-6.days)
 
-    7.times do |i|
+    14.times do |i|
         Activity.create(:patient_id => patient.id, 
                     :minutes_asleep => Random.new.rand(240..540), 
                     :number_of_awakenings => Random.new.rand(1..10),
@@ -71,7 +71,7 @@ namespace :db do
 
     ThresholdValues.create(:patient_id =>patient.id, 
         :bo_perc => 90, 
-        :weight => {weight: 5, time: 4}.to_s, 
+        :weight => {weight: 5, time: 7}.to_s,
         :heart_rate => {high: 140, low: 50}.to_s, 
         :heart_rate_variability => 0.5, 
         :systolic_bp => {high: 150, low: 90}.to_s, 

@@ -55,7 +55,7 @@ function populate_weight_container() {
             text: 'Weight'
         },
         subtitle: {
-            text: 'Irregular time data in Highcharts JS'
+            text: ''
         },
         xAxis: {
             type: 'datetime',
@@ -78,11 +78,11 @@ function populate_weight_container() {
         },
 
         series: [{
-                name: 'Regular',
+                name: 'No Weight Gain over Last 5 Days',
                 color: '#00FF00',
                 data:regData
             }, {
-                name: 'Irregular',
+                name: 'Weight Gain Over Last 5 Days',
                 color: '#FF0000',
                 lineWidth: 5,
                 data:irregData

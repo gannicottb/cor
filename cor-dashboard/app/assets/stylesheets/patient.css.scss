@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-	background-color: #1d4169;
+	background-color: #fff;
 }
 
 .navbar-header {
@@ -31,11 +31,22 @@ ul {
 	margin-top: 2.5em;
 }
 
+.navbar .bar {
+	margin-top: -0.75em;
+	height: 1em;
+	background-color: #000;
+}
+
 .text-center {
 	text-align: center;
 }
 
+.navbar {
+	height: 10em;
+}
+
 #metric-nav ul .btn-default {
+	background-color: #eee;
 	border: none;
 }
 
@@ -47,6 +58,20 @@ ul {
 
 #metric-nav {
 	margin-top: 10em;
+}
+
+.row .nav {
+	height: 10em;
+}
+
+.row .nav .col-sm-2 {
+	height: 10em;
+}
+
+.row .nav .col-sm-2 a {
+	padding: 50px 10px;
+	margin-top: 5px;
+	background-color: #000;
 }
 
 .navbar a {
@@ -71,3 +96,4 @@ ul {
 	margin-top: 1em;
 	line-height: 35px;
 }
+

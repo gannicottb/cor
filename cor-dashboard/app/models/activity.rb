@@ -12,6 +12,9 @@ class Activity < ActiveRecord::Base
     self.table_name = "activity_daily_data"
   end
 
-  scope :last_week, -> {where(date: 1.week.ago .. Time.now)}
+  #scope :last_week, -> {where(date: DateTime.now.beginning_of_week(start_day = :sunday) .. Time.now)}
+  #scope :last_week, -> {where(date: DateTime.now.beginning_of_week(start_day = :sunday)..Time.now-1.day)}
+  #scope :last_week, -> {where(date: DateTime.now.beginning_of_week(start_day = :sunday)..Time.now-3.days).order(date: :asc)}
+  scope :last_week, -> {where(date: 1.week.ago..Time.now).order(date: :asc)}
 
 end
