@@ -11,5 +11,9 @@
 <div id="metric-nav" class="col-md-8">	
 	<div id="graph">
 		
-	</div>
+	</div>	
 </div>
+
+<script>
+$('#graph').html("<%= escape_javascript(render :partial => 'patient/exercise_log', :locals => {:exercise_log => @exercise_log})%>");
+</script>
