@@ -2,14 +2,13 @@
 	var sed = <%= exercise_log[:sedentary] %>;	
 	var lightly = <%= exercise_log[:lightly_active] %>;
 	var fairly = <%= exercise_log[:fairly_active] %>;
-	var very = <%= exercise_log[:very_active] %>;
-	//Uncomment foo and then the graph dies!!!!
-	var numDays = <%= exercise_log[:days].length%>
+	var very = <%= exercise_log[:very_active] %>;	
 	var days = new Array();
-	for(int i = 0; i < numDays; i++ )
-	{
-		days[i] = <%= j (exercise_log[:days][i]) %>
-	}
+	var count = 0;
+	<% exercise_log[:days].each do |d| %>
+		days[count] = "<%= d %>";
+		count += 1;
+	<% end %>	
 	
 <% end %>
 

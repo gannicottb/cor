@@ -7,8 +7,7 @@ function populate_exercise_log_container () {
                 text: 'Active Minutes as reported by FitBit'
             },
             xAxis: {
-                categories: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 
-                            'Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+                categories: days
                
             },
             yAxis: {
