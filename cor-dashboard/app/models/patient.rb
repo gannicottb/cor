@@ -1,6 +1,6 @@
 class Patient < ActiveRecord::Base
 
-    attr_accessible :physician_id
+    attr_accessible :physician_id, :name
     
 		belongs_to :physician
 
