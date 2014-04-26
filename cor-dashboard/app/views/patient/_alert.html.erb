@@ -1,12 +1,16 @@
 <div id="alerts"class="row">
-	<div class="col-sm-3 col-sm-offset-1">
-		<p>ID: <%=alert.id%> Image Here</p>
-		<p>READING ID: <%=alert.reading_id%></p>
-	</div>
-	<div class="col-sm-6">
-		<p>TEXT: <%=alert.text%></p>
-		<p>RESOLVED?: <%=alert.resolved%></p>
-	</div>
-	<div class="col-sm-3">
+	<div class="col-sm-10 col-sm-offset-1">
+		<div class="col-sm-2">
+			<p>Image Here</p>
+		</div>
+		<div class="col-sm-9">
+			<h1>Alert</h1>
+			<br>
+			<p class="thick"><%=alert.text%></p>
+			<p>RESOLVED?: <%=alert.resolved%></p>
+		</div>
+		<div class="col-sm-1">
+			<i class="fa fa-arrow-circle-right fa-4x"></i>
+		</div>
 	</div>
 </div>

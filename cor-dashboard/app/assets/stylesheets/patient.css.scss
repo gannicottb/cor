@@ -14,10 +14,14 @@ ul {
 	list-style: none;
 }
 
-#alerts .col-sm-3.col-sm-offset-1 {
-	height: 7em;
-	background-color: #eee;
-	border-radius: 20px;
+.active {
+	padding-bottom: 50px;
+}
+
+#alerts .col-sm-10.col-sm-offset-1 {
+	height: 12em;
+	background-color: #d3a296;
+	border-radius: 3px;
 }
 
 #alerts .col-sm-6 {
@@ -27,8 +31,20 @@ ul {
 	height: 7em;
 }
 
-#alerts div {
-	margin-top: 2.5em;
+#alerts .col-sm-1{
+	margin-top: 4em;	
+}
+
+p.thick {
+	font-weight: bold;
+}
+
+#alertsdiv li {
+	margin-top: 2em;
+}
+
+#alertsdiv {
+	margin-top: 10em;
 }
 
 .navbar .bar {
