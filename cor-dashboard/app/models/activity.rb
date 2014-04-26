@@ -10,6 +10,14 @@ class Activity < ActiveRecord::Base
 
 	if Rails.env.production?
     self.table_name = "activity_daily_data"
+    alias_attribute :sedentary_minutes, :Sedentary_minutes
+    alias_attribute :lightly_active_minutes, :Lightly_Active_minutes
+    alias_attribute :fairly_active_minutes, :Fairly_Active_minutes
+    alias_attribute :steps, :Steps
+    alias_attribute :date, :Date
+    alias_attribute :sleep_efficiency, :Sleep_efficiency
+    alias_attribute :number_of_awakenings, :Number_of_Awakenings
+    alias_attribute :minutes_asleep, :Minutes_Asleep
   end
 
   #scope :last_week, -> {where(date: DateTime.now.beginning_of_week(start_day = :sunday) .. Time.now)}
