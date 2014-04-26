@@ -29,11 +29,11 @@ class PhysicianController < ApplicationController
 		@patient = Patient.find(params[:id])
 		@bundle = {}
 		@bundle[:blood_oxygen] = @patient.blood_oxygen
+    @bundle[:heart_rate] = @patient.heart_rate_for_a_month
 		@bundle[:weight] = @patient.weight
 		@bundle[:sodium] = @patient.sodium
 		@bundle[:blood_pressure] = @patient.blood_pressure
     @exercise_log = @patient.activity_log[:exercise]
-    @bundle[:heart_rate] = @patient.heart_rate_for_a_month
 	end
 
 	def detail
