@@ -24,9 +24,9 @@ function populate_heart_rate_trend_container() {
             plotBands: [{
                 from: 0,
                 to: thresholdLow,
-                color: 'rgba(0, 255, 0, .3)',
+                color: 'rgba(255, 0, 0, .4)',
                 label: {
-                    text: 'Normal',
+                    text: 'Low',
                     style: {
                         color: '#606060'
                     }
@@ -34,9 +34,9 @@ function populate_heart_rate_trend_container() {
             }, {
                 from: thresholdLow,
                 to: thresholdHigh,
-                color: 'rgba(255, 0, 0, .6)',
+                color: 'rgba(0, 255, 0, .4)',
                 label: {
-                    text: 'High',
+                    text: 'Normal',
                     style: {
                         color: '#606060'
                     }
@@ -44,14 +44,16 @@ function populate_heart_rate_trend_container() {
             }, {
                 from: thresholdHigh,
                 to: 300,
-                color: 'rgba(0, 255, 0, .3)',
+                color: 'rgba(255, 0, 0, .4)',
                 label: {
-                    text: 'Normal',
+                    text: 'High',
                     style: {
                         color: '#606060'
                     }
                 }
-            }]
+            }],
+            min: 0,
+            max: 300
         },
         tooltip: {
             formatter: function() {

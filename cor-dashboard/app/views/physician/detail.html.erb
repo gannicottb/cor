@@ -29,14 +29,16 @@
 </div>
 <div class="col col-md-10">
   <br>
-  <div class="col col-md-12" id="graph-container">
+  <div class="col col-md-12" id="graph-container" align="center">
     <div class="btn-group">
-      <button type="button" class="btn btn-default"><%= link_to "Two Weeks", patient_weight_path, :remote => true, method: "get", id: "week" %> </button>
-      <button type="button" class="btn btn-default"><%= link_to "One month", patient_weight_path, :remote => true, method: "get", id: "month" %> </button>
-      <button type="button" class="btn btn-default"><%= link_to "Three month", patient_weight_path, :remote => true, method: "get", id: "threemonths" %></button>
-      <button type="button" class="btn btn-default"><%= link_to "Six months", patient_weight_path, :remote => true, method: "get", id: "sixmonths" %></button>
+      <button type="button" class="btn btn-default"><%= link_to "Last Week", patient_weight_path, :remote => true, method: "get", id: "oneweek" %> </button>
+      <button type="button" class="btn btn-default"><%= link_to "Last two Weeks", patient_weight_path, :remote => true, method: "get", id: "twoweeks" %> </button>
+      <button type="button" class="btn btn-default"><%= link_to "Last one month", patient_weight_path, :remote => true, method: "get", id: "onemonth" %> </button>
+      <button type="button" class="btn btn-default"><%= link_to "Last three months", patient_weight_path, :remote => true, method: "get", id: "threemonths" %></button>
+      <button type="button" class="btn btn-default"><%= link_to "Last six months", patient_weight_path, :remote => true, method: "get", id: "sixmonths" %></button>
+      <button type="button" class="btn btn-default"><%= link_to "Last year", patient_weight_path, :remote => true, method: "get", id: "sixmonths" %></button>
     </div>
-    <div id="chart"></div>
+    <div id="chart" style="padding-top: 10px;"></div>
   </div>
   <div class="col col-md-12" id="metrictable-container">
     <table class="table" id="weight_tab">
@@ -82,16 +84,17 @@
       <tr>
         <th>Reading Time</th>
         <th>Heart Rate</th>
-        <th>Heart Rate Variability</th>
       </tr>
       </thead>
       <tbody>
+          <% @values_hr.each do |i| %>
           <tr>
-            <% sec = (@values_hr[0].to_f / 1000) %>
+            <% sec = (i[0].to_f / 1000) %>
             <% datetime = Time.at(sec) %>
             <th><%=datetime%></th>
-            <th><%= @values_hr[1] %></th>
+            <th><%= i[1] %></th>
           </tr>
+          <% end %>
       </tbody>
     </table>
     <table class="table" id="bloodoxygen_tab">
@@ -175,9 +178,6 @@
       } else if(metric == "blood_pressure") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_pressure', :locals => {:threshold => @threshold_bp, :values => @values_bp})%>");
         $('#bloodpressure_tab').show();
-      } else if(metric == "heart_rate") {
-        $('#chart').html("<%= escape_javascript(render :partial => 'patient/heart_rate', :locals => {:threshold => @threshold_hr, :values => @values_hr})%>");
-        $('#heartrate_tab').show();
       } else if(metric == "heart_rate_trend") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/heart_rate_trend', :locals => {:threshold => @threshold_hr, :values => @values_hr})%>");
         $('#heartrate_tab').show();

@@ -29,7 +29,7 @@ class PhysicianController < ApplicationController
 		@patient = Patient.find(params[:id])
 		@bundle = {}
 		@bundle[:blood_oxygen] = @patient.blood_oxygen
-    @bundle[:heart_rate] = @patient.heart_rate_for_a_month
+    @bundle[:heart_rate] = @patient.heart_rate
 		@bundle[:weight] = @patient.weight
 		@bundle[:sodium] = @patient.sodium
 		@bundle[:blood_pressure] = @patient.blood_pressure
@@ -41,14 +41,14 @@ class PhysicianController < ApplicationController
 	  @physician = Physician.take
 	  #@patients = @physician.patients
     @patient = Patient.find(params[:patientId])
-	  #patient = Patient.take
-    bundle = @patient.weight_for_a_month
+	  # last_week, last_2_weeks, last_month, last_three_months, last_six_months, last_year
+    bundle = @patient.weight_last_week
 	  @threshold_wt = bundle[:threshold]
 	  @values_wt = bundle[:values]
 	  bundle = @patient.blood_oxygen
 	  @threshold_bo = bundle[:threshold]
 	  @values_bo = bundle[:values]
-	  bundle = @patient.heart_rate_for_a_month
+	  bundle = @patient.heart_rate_last_week
 	  @threshold_hr = bundle[:threshold]
 	  @values_hr = bundle[:values]
 	  bundle = @patient.blood_pressure
