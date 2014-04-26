@@ -20,9 +20,40 @@ function populate_sodium_container() {
         yAxis: {
             title: {
                 text: 'Sodium Intake'
-            },            
-            min: 0,
-            max: 4
+            },
+            plotBands: [{
+                from: 0.5,
+                to: 1.5,
+                color: 'rgba(0, 255, 0, .4)',
+                label: {
+                    text: 'Normal',
+                    style: {
+                        color: '#606060'
+                    }
+                }
+            }, {
+                from: 1.5,
+                to: 2.5,
+                color: 'rgba(255, 255, 0, .4)',
+                label: {
+                    text: 'Above Normal',
+                    style: {
+                        color: '#606060'
+                    }
+                }
+            }, {
+                from: 2.5,
+                to: 4,
+                color: 'rgba(255, 0, 0, .4)',
+                label: {
+                    text: 'High',
+                    style: {
+                        color: '#606060'
+                    }
+                }
+            }],
+            min: 0.5,
+            max: 3.5
         },
         tooltip: {
             formatter: function() {

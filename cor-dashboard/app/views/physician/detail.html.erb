@@ -30,7 +30,7 @@
 <div class="col col-md-10">
   <br>
   <div class="col col-md-12" id="graph-container" align="center">
-    <div class="btn-group">
+    <div class="btn-group" id="timeperiod">
       <button type="button" class="btn btn-default"><%= link_to "Last Week", patient_weight_path, :remote => true, method: "get", id: "oneweek" %> </button>
       <button type="button" class="btn btn-default"><%= link_to "Last two Weeks", patient_weight_path, :remote => true, method: "get", id: "twoweeks" %> </button>
       <button type="button" class="btn btn-default"><%= link_to "Last one month", patient_weight_path, :remote => true, method: "get", id: "onemonth" %> </button>
@@ -139,7 +139,15 @@
             <% sec = (i[0].to_f / 1000) %>
             <% datetime = Time.at(sec) %>
             <th><%=datetime%></th>
-            <th><%= i[1] %></th>
+            <% if i[1] == 1 %>
+                <th>Low</th>
+            <% end %>
+            <% if i[1] == 2 %>
+                <th>Medium</th>
+            <% end %>
+            <% if i[1] == 3 %>
+                <th>High</th>
+            <% end %>
           </tr>
       <% end %>
       </tbody>
@@ -168,6 +176,7 @@
       $('#bloodoxygen_tab').hide();
       $('#sodium_tab').hide();
       $('#activity_tab').hide();
+      $('#timeperiod').hide();
     }
 
     function showGraph(metric) {
@@ -175,24 +184,29 @@
       if(metric == "weight") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
         $('#weight_tab').show();
+        $('#timeperiod').show();
       } else if(metric == "blood_pressure") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_pressure', :locals => {:threshold => @threshold_bp, :values => @values_bp})%>");
         $('#bloodpressure_tab').show();
       } else if(metric == "heart_rate_trend") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/heart_rate_trend', :locals => {:threshold => @threshold_hr, :values => @values_hr})%>");
         $('#heartrate_tab').show();
+        $('#timeperiod').show();
       } else if(metric == "blood_oxygen") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_oxygen', :locals => {:threshold => @threshold_bo, :values => @values_bo})%>");
         $('#bloodoxygen_tab').show();
+        $('#timeperiod').show();
       } else if(metric == "sodium") {
          $('#chart').html("<%= escape_javascript(render :partial => 'patient/sodium', :locals => {:threshold => @threshold_so, :values => @values_so})%>");
          $('#sodium_tab').show();
+         $('#timeperiod').show();
       } else if(metric == "activity") {
          $('#chart').html("<%= escape_javascript(render :partial => 'patient/exercise_log', :locals => {:exercise_log => @exercise_log})%>");
           $('#activity_tab').show();
       } else { /* show weight by default */
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
         $('#weight_tab').show();
+        $('#timeperiod').show();
       }
     }
 
