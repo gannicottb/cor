@@ -51,8 +51,8 @@ class PatientController < ApplicationController
 
   def alerts
     #Fetch alert data by patient_id
-    patient = Patient.take
-    @alerts = patient.scanForAlerts    
+    @patient = Patient.take
+    @alerts = @patient.scanForAlerts
     #redirect to alerts
   end
 
@@ -64,17 +64,18 @@ class PatientController < ApplicationController
   def activity_log
     #Fetch activity_log data by patient_id     
     #redirect to activity_log
-     patient = Patient.take    
-    @exercise_log = patient.activity_log[:exercise]
+    @patient = Patient.take
+    @exercise_log = @patient.activity_log[:exercise]
   end
 
   def exercise_log
-    patient = Patient.take    
-    @exercise_log = patient.activity_log[:exercise]
+    @patient = Patient.take
+    @exercise_log = @patient.activity_log[:exercise]
   end
 
   def settings
     #Fetch settings data by patient_id    
     #redirect to settings
+    @patient = Patient.take
   end
 end
