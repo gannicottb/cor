@@ -15,6 +15,7 @@ class Patient < ActiveRecord::Base
 
     if Rails.env.production?
       self.table_name = "patient_info"
+      alias_attribute :name, :patient_name
     end
 
     def summary
