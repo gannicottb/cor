@@ -10,7 +10,7 @@ namespace :db do
     20.times do
     	patient = Patient.create(:physician_id => physician.id, :name => names.sample)
 
-			14.times do |i|
+			90.times do |i|
 				Ema.create(:patient_id => patient.id, :sodium_level => ["High", "Low", "Medium"].sample, :reading_time => Time.now-i.days) 
 				
 				BloodOxygenReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, 

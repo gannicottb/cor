@@ -23,7 +23,7 @@ function populate_blood_oxygen_container() {
             plotBands: [{
                 from: 60,
                 to: threshold,
-                color: 'rgba(255, 0, 0, .6)',
+                color: 'rgba(255, 0, 0, .4)',
                 label: {
                     text: 'Below Normal',
                     style: {
@@ -33,7 +33,7 @@ function populate_blood_oxygen_container() {
             }, {
                 from: threshold,
                 to: 100,
-                color: 'rgba(0, 255, 0, .3)',
+                color: 'rgba(0, 255, 0, .4)',
                 label: {
                     text: 'Normal',
                     style: {

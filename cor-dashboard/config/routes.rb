@@ -10,6 +10,7 @@ CorDashboard::Application.routes.draw do
   get "patient/weight"
   get "patient/blood_oxygen"
   get "patient/heart_rate"
+  get "patient/heart_rate_trend"
   get "patient/sodium"
   get "patient/blood_pressure"
   get "patient/medication"
@@ -25,6 +26,8 @@ CorDashboard::Application.routes.draw do
   get 'physician/settings'
   get 'physician/summary'
   get 'physician/detail'
+
+  root 'patient#metrics'
 
 
   

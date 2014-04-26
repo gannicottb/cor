@@ -14,10 +14,16 @@ ul {
 	list-style: none;
 }
 
-#alerts .col-sm-3.col-sm-offset-1 {
-	height: 7em;
-	background-color: #eee;
-	border-radius: 20px;
+.active {
+	padding-bottom: 51px !important;
+	box-shadow: none !important;
+	border-radius: 3px 3px 0 0 !important;
+}
+
+#alerts .col-sm-10.col-sm-offset-1 {
+	height: 12em;
+	background-color: #d3a296;
+	border-radius: 3px;
 }
 
 #alerts .col-sm-6 {
@@ -27,14 +33,27 @@ ul {
 	height: 7em;
 }
 
-#alerts div {
-	margin-top: 2.5em;
+#alerts .col-sm-1{
+	margin-top: 4em;	
+}
+
+p.thick {
+	font-weight: bold;
+}
+
+#alertsdiv li {
+	margin-top: 2em;
+}
+
+#alertsdiv {
+	margin-top: 10em;
 }
 
 .navbar .bar {
 	margin-top: -0.75em;
 	height: 1em;
-	background-color: #000;
+	background-color: #d5853c;
+	box-shadow: 0px 5px #c37235;
 }
 
 .text-center {
@@ -46,8 +65,15 @@ ul {
 }
 
 #metric-nav ul .btn-default {
-	background-color: #eee;
+	background-color: #234e73;
 	border: none;
+	width: 100%;
+	height: 50px;
+	color: #fff;
+	font-size: 20px;
+	font-weight: lighter;
+	line-height: -20px;
+	box-shadow: 0px 3px #1a4169;
 }
 
 .navbar {
@@ -69,22 +95,22 @@ ul {
 }
 
 .row .nav .col-sm-2 a {
-	padding: 50px 10px;
+	padding: 40px 10px;
 	margin-top: 5px;
-	background-color: #000;
+	background-color: #d5853c;
+	color: #fff;
+	font-size: 24px;
+	border-radius: 3px;
+	box-shadow: 0px 5px #c37235;
+
 }
 
-.navbar a {
-	color: #d3843d;
+.row .nav .col-sm-2 a:hover {
+	background-color: #d59c68;
 }
 
 .w75 {
 	width: 75%;
-}
-
-#metric-nav li {
-	padding: 0.5em 0;
-	background-color: #fff;
 }
 
 .border-r {

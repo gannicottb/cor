@@ -8,11 +8,18 @@
 		</ul>
 	</div>	
 </div>
-<div id="metric-nav" class="col-md-8">	
+<div id="metric-nav" class="col-md-8">
+  <h2>Today's Steps: <%= @exercise_log[:steps].last %></h2>
 	<div id="graph">
 		
 	</div>	
 </div>
+<script>
+	$("a").removeClass("active");
+	$("#myactivitylog a").css("padding-bottom","51px");
+	$("#myactivitylog a").css("box-shadow","none");
+	$("#myactivitylog a").css("border-radius","3px 3px 0 0");
+</script>
 
 <script>
 $('#graph').html("<%= escape_javascript(render :partial => 'patient/exercise_log', :locals => {:exercise_log => @exercise_log})%>");
