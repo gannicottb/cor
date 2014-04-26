@@ -51,6 +51,7 @@ class Patient < ActiveRecord::Base
               values: blood_oxygen_readings.last_year.map {|r| [r.reading_time.utc.to_i*1000, r.bo_perc] }}
     end
 
+    #Heart Rate
     def heart_rate    
       r = heart_rate_readings.first
     	return {threshold: eval(threshold_values.heart_rate), 
@@ -159,7 +160,7 @@ class Patient < ActiveRecord::Base
 
     # Blood Pressure
     def blood_pressure
-        r = blood_pressure_readings.first
+        r = blood_pressure_readings.last
         return {threshold: {:systolic => eval(threshold_values.systolic_bp),
                             :diastolic =>eval(threshold_values.diastolic_bp)} ,
         values: [r.reading_time.utc.to_i*1000, r.systolic_bp, r.diastolic_bp] }
