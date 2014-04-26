@@ -40,7 +40,7 @@ class Patient < ActiveRecord::Base
 
   def sodium
       return {threshold: 0,
-              values: emas.all.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}		
+              values: emas.last_week.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}
   end
 
   def blood_pressure
