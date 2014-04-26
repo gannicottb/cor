@@ -5,7 +5,7 @@
     var timestamp = <%= values[0] %>;
     var heartrateReading = <%= values[1] %>;
 <% end %>
-
+<h1>Variability: <%= @variability%></h1>
 <div id="heart_rate_container"></div>
 <script>
     $(populate_heart_rate_container());

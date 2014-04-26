@@ -29,7 +29,8 @@ class Patient < ActiveRecord::Base
   def heart_rate    
     r = heart_rate_readings.first
   	return {threshold: eval(threshold_values.heart_rate), 
-    				values: [r.reading_time.utc.to_i*1000, r.heart_rate] }  
+    				values: [r.reading_time.utc.to_i*1000, r.heart_rate],
+            variability: r.heart_rate_variability }  
   end
 
   def weight

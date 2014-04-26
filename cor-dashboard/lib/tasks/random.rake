@@ -21,7 +21,7 @@ namespace :db do
 																		:diastolic_bp => Random.new.rand(70..80), :reading_time => Time.now-i.days)	
 				
 				HeartRateReading.create(:patient_id => patient.id, :hr_sensor_id => 123456789, 
-																:heart_rate => Random.new.rand(100.0..120.0), :heart_rate_variability => 0.1, :reading_time => Time.now-i.days)
+																:heart_rate => Random.new.rand(100.0..120.0), :heart_rate_variability => Random.new.rand(900..1200), :reading_time => Time.now-i.days)
 				
 				WeightReading.create(:patient_id => patient.id, :bo_sensor_id => 123456789, :weight => Random.new.rand(114.0..120.0).round(3), :reading_time => Time.now-i.days)
 				
