@@ -4,6 +4,6 @@ class Physician < ActiveRecord::Base
 
     if Rails.env.production?
       self.table_name = "physician"
-      attribute_alias :name, :patient_name
+      alias_attribute :name, :patient_name
     end
 end
