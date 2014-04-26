@@ -190,7 +190,7 @@ class Patient < ActiveRecord::Base
         if !alerts.exists?(reading_id: r.id)
           if r.bo_perc < threshold_values.bo_perc
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Oxygen is under threshold")
+            Alert.create(patient_id: id, resolved_physician: false, resolved_patient: false, urgent: true, reading_id: r.id, text: "Blood Oxygen is under threshold")
           end
         end
       end
@@ -200,11 +200,11 @@ class Patient < ActiveRecord::Base
         if !alerts.exists?(reading_id: r.id)
           if r.heart_rate >= heartRateThreshValues[:high]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Heart Rate above threshold")
+            Alert.create(patient_id: id, resolved_physician: false, resolved_patient: false, urgent: true, reading_id: r.id, text: "Heart Rate above threshold")
           end
           if r.heart_rate <= heartRateThreshValues[:low]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Heart Rate below threshold")
+            Alert.create(patient_id: id, resolved_physician: false, resolved_patient: false, urgent: true, reading_id: r.id, text: "Heart Rate below threshold")
           end
         end
       end
@@ -216,19 +216,19 @@ class Patient < ActiveRecord::Base
         if !alerts.exists?(reading_id: r.id)
           if r.systolic_bp >= thresholdSystolic[:high]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Systolic) is HIGH")
+            Alert.create(patient_id: id, resolved_physician: false, resolved_patient: false, urgent: true, reading_id: r.id, text: "Blood Pressure (Systolic) is HIGH")
           end
           if r.systolic_bp <= thresholdSystolic[:low]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Systolic) is LOW")
+            Alert.create(patient_id: id, resolved_physician: false, resolved_patient: false, urgent: true, reading_id: r.id, text: "Blood Pressure (Systolic) is LOW")
           end
           if r.diastolic_bp >= thresholdDiastolic[:high]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Diastolic) is HIGH")
+            Alert.create(patient_id: id, resolved_physician: false, resolved_patient: false, urgent: true, reading_id: r.id, text: "Blood Pressure (Diastolic) is HIGH")
           end
           if r.diastolic_bp <= thresholdDiastolic[:low]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Diastolic) is LOW")
+            Alert.create(patient_id: id, resolved_physician: false, resolved_patient: false, urgent: true, reading_id: r.id, text: "Blood Pressure (Diastolic) is LOW")
           end
         end
       end
@@ -237,7 +237,7 @@ class Patient < ActiveRecord::Base
         if !alerts.exists?(reading_id: r.id)
           if r.sodium_level == "High"
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Sodium Level is high")
+            Alert.create(patient_id: id, resolved_physician: false, resolved_patient: false, urgent: true, reading_id: r.id, text: "Sodium Level is high")
           end
         end
       end
@@ -245,7 +245,7 @@ class Patient < ActiveRecord::Base
       relevant_weight_readings = weight_readings.where(reading_time: eval(threshold_values.weight)[:time].days.ago .. Time.now)
       if(relevant_weight_readings.maximum(:weight) - relevant_weight_readings.minimum(:weight)>=eval(threshold_values.weight)[:weight])
         #create a new alert for this patient
-        Alert.create(patient_id: id, resolved: false, reading_id: relevant_weight_readings.where(weight: relevant_weight_readings.maximum(:weight)).first().id, text: "Change in weight has exceeded the threshold")
+        Alert.create(patient_id: id, resolved_physician: false, resolved_patient: false, urgent: true, reading_id: relevant_weight_readings.where(weight: relevant_weight_readings.maximum(:weight)).first().id, text: "Change in weight has exceeded the threshold")
       end
 
       return alerts

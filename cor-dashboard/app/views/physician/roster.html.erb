@@ -4,7 +4,7 @@
 		<div class="row" style="padding-left: 20px;">
 			<% group.each do |patient| %>	
 				<% if patient != nil %>										
-					<div class="col-md-2" id="patientroster-container" style="background-color: <%=@borders[patient.id]%>">						
+					<div class="col-md-2 patientroster-container" id="<%=@borders[patient.id]%>" >						
 						<%= render :partial => 'patient/patient', :locals => {:patient => patient} %>
 					</div>
 				<% end %>
