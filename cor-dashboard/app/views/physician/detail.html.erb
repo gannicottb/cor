@@ -11,6 +11,7 @@
         <li><%= button_to "Blood Pressure", patient_blood_pressure_path, :remote => true, class:"btn btn-default w75", method: "get", id: "bloodpress" %></li><br>
         <li><%= link_to "Heart Rate", patient_heart_rate_path, :remote => true, class:"btn btn-default w75", method: "get", id:"heartrate" %></li><br>
         <li><%= link_to "Blood Oxygen", patient_blood_oxygen_path, :remote => true, class:"btn btn-default w75", method: "get", id:"bloodoxygen" %></li><br>
+        <li><%= link_to "Activity", patient_exercise_log_path, :remote => true, class:"btn btn-default w75", method: "get", id:"activity" %></li><br>
         <li><%= link_to "Sodium", patient_sodium_path, :remote => true, class:"btn btn-default w75", method: "get", id:"sodium" %></li><br>
         <!--li><button>Sodium Intake</button></li-->
       </ul>
@@ -19,8 +20,9 @@
   <li>
   <div class="col col-md-2" id="patientpic-container">
     <img src="http://placehold.it/200x220"></img>
-  </div>   </li>
-    <li> <div class="col col-md-2" id="patientinfo-container"></div>  </li>
+  </div>
+  </li>
+    <li> <div class="col col-md-2" id="patientinfo-container"></div>  </li> <br>
     <li><div class="col col-md-2" id="medication-container"></div>   </li>
    </ul>
     </div>
@@ -104,6 +106,17 @@
       <% end %>
       </tbody>
     </table>
+    <!--table class="table" id="activity_tab">
+      <thead>
+      <tr>
+        <th>Reading Time</th>
+        <th>Sodium</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table-->
     <table class="table" id="sodium_tab">
       <thead>
       <tr>
@@ -145,6 +158,7 @@
       $('#heartrate_tab').hide();
       $('#bloodoxygen_tab').hide();
       $('#sodium_tab').hide();
+      $('#activity_tab').hide();
     }
 
     function showGraph(metric) {
@@ -164,6 +178,9 @@
       } else if(metric == "sodium") {
          $('#chart').html("<%= escape_javascript(render :partial => 'patient/sodium', :locals => {:threshold => @threshold_so, :values => @values_so})%>");
          $('#sodium_tab').show();
+      } else if(metric == "activity") {
+         $('#chart').html("<%= escape_javascript(render :partial => 'patient/exercise_log', :locals => {:exercise_log => @exercise_log})%>");
+          $('#activity_tab').show();
       } else { /* show weight by default */
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
         $('#weight_tab').show();
@@ -182,6 +199,9 @@
       })
       $('#bloodoxygen').click(function(){
           showGraph("blood_oxygen");
+      })
+      $('#sodium').click(function(){
+          showGraph("activity");
       })
       $('#sodium').click(function(){
           showGraph("sodium");

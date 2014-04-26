@@ -33,6 +33,7 @@ class PhysicianController < ApplicationController
 		@bundle[:weight] = @patient.weight
 		@bundle[:sodium] = @patient.sodium
 		@bundle[:blood_pressure] = @patient.blood_pressure
+    @exercise_log = @patient.activity_log[:exercise]
 	end
 
 	def detail
@@ -56,6 +57,7 @@ class PhysicianController < ApplicationController
     bundle = @patient.sodium
     @threshold_so = bundle[:threshold]
     @values_so = bundle[:values]
+    @exercise_log = @patient.activity_log[:exercise]
   end
 
 
