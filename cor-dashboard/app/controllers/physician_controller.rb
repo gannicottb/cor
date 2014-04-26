@@ -5,7 +5,12 @@ class PhysicianController < ApplicationController
 	def roster	
 		@physician = Physician.take
 		@patients = @physician.patients
-
+        @borders = {}
+        @patients.each do |patient|
+            if patient.alerts.exists?(resolved: false)
+                @borders[patient.id] = '#CC0000'
+            end 
+        end
 	end 
 
 	def critical_patients
@@ -29,11 +34,11 @@ class PhysicianController < ApplicationController
 		@patient = Patient.find(params[:id])
 		@bundle = {}
 		@bundle[:blood_oxygen] = @patient.blood_oxygen
-    @bundle[:heart_rate] = @patient.heart_rate
+        @bundle[:heart_rate] = @patient.heart_rate
 		@bundle[:weight] = @patient.weight
 		@bundle[:sodium] = @patient.sodium
 		@bundle[:blood_pressure] = @patient.blood_pressure
-    @exercise_log = @patient.activity_log[:exercise]
+        @exercise_log = @patient.activity_log[:exercise]
 	end
 
 	def detail
