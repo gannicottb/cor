@@ -15,7 +15,9 @@ ul {
 }
 
 .active {
-	padding-bottom: 50px;
+	padding-bottom: 51px !important;
+	box-shadow: none !important;
+	border-radius: 3px 3px 0 0 !important;
 }
 
 #alerts .col-sm-10.col-sm-offset-1 {

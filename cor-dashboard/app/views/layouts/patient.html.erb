@@ -15,7 +15,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<ul class="nav">
-			<li id="mymetrics" class="col-sm-2 col-sm-offset-1 text-center active"><%= link_to "Metrics", patient_metrics_path, class: "active" %></li>	
+			<li id="mymetrics" class="col-sm-2 col-sm-offset-1 text-center"><%= link_to "Metrics", patient_metrics_path, class: "active" %></li>
 			<li id="myalerts" class="col-sm-2  text-center"><%= link_to "Alerts", patient_alerts_path %></li>	
 			<li id="mypatientplan" class="col-sm-2 text-center"><a href=''>Patient Plan</a></li>
 			<li id="myactivitylog" class="col-sm-2 text-center"><%= link_to "Activity Log", patient_activity_log_path %></li>
@@ -26,19 +26,6 @@
 		</div>
 	</div>
 </div>
-<script>
-	// When we click on the a
-	$("a").click(function(){
-	  // If this isn't already active
-	  // if (!$(this).hasClass("active")) {
-	  // 	$(this).addClass("active");
-	  	alert("click function");
-	    // Remove the class from anything that is active
-	    $("a").removeClass("active");
-	  //   // And make this active
-	    $(this).addClass("active");
-	});
-</script>
 <%= yield %>
 </body>
 </html>
