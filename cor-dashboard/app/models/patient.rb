@@ -32,10 +32,25 @@ class Patient < ActiveRecord::Base
     				values: [r.reading_time.utc.to_i*1000, r.heart_rate] }  
   end
 
+  def heart_rate_for_a_week
+    return {threshold: eval(threshold_values.heart_rate),
+            values: heart_rate_readings.last_month.map {|r| [r.reading_time.utc.to_i*1000, r.heart_rate] }}
+  end
+
+  def heart_rate_for_a_month
+    return {threshold: eval(threshold_values.heart_rate),
+            values: heart_rate_readings.last_month.map {|r| [r.reading_time.utc.to_i*1000, r.heart_rate] }}
+  end
+
   def weight
   	return {threshold: eval(threshold_values.weight),
      				values: weight_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }} 
              	  
+  end
+
+  def weight_for_a_month
+    return {threshold: eval(threshold_values.weight),
+            values: weight_readings.last_month.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }}
   end
 
   def sodium

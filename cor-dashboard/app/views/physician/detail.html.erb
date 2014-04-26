@@ -9,9 +9,9 @@
         <br>
         <li><%= button_to "Weight", patient_weight_path, :remote => true, class:"btn btn-default w75", method: "get", id: "weight" %></li><br>
         <li><%= button_to "Blood Pressure", patient_blood_pressure_path, :remote => true, class:"btn btn-default w75", method: "get", id: "bloodpress" %></li><br>
-        <li><%= link_to "Heart Rate", patient_heart_rate_path, :remote => true, class:"btn btn-default w75", method: "get", id:"heartrate" %></li><br>
+        <li><%= link_to "Heart Rate", patient_heart_rate_trend_path, :remote => true, class:"btn btn-default w75", method: "get", id:"heartratetrend" %></li><br>
         <li><%= link_to "Blood Oxygen", patient_blood_oxygen_path, :remote => true, class:"btn btn-default w75", method: "get", id:"bloodoxygen" %></li><br>
-        <li><%= link_to "Activity", patient_exercise_log_path, :remote => true, class:"btn btn-default w75", method: "get", id:"activity" %></li><br>
+        <li><%= link_to "Activity", patient_activity_log_path, :remote => true, class:"btn btn-default w75", method: "get", id:"activity" %></li><br>
         <li><%= link_to "Sodium", patient_sodium_path, :remote => true, class:"btn btn-default w75", method: "get", id:"sodium" %></li><br>
         <!--li><button>Sodium Intake</button></li-->
       </ul>
@@ -30,6 +30,12 @@
 <div class="col col-md-10">
   <br>
   <div class="col col-md-12" id="graph-container">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default"><%= link_to "Two Weeks", patient_weight_path, :remote => true, method: "get", id: "week" %> </button>
+      <button type="button" class="btn btn-default"><%= link_to "One month", patient_weight_path, :remote => true, method: "get", id: "month" %> </button>
+      <button type="button" class="btn btn-default"><%= link_to "Three month", patient_weight_path, :remote => true, method: "get", id: "threemonths" %></button>
+      <button type="button" class="btn btn-default"><%= link_to "Six months", patient_weight_path, :remote => true, method: "get", id: "sixmonths" %></button>
+    </div>
     <div id="chart"></div>
   </div>
   <div class="col col-md-12" id="metrictable-container">
@@ -172,6 +178,9 @@
       } else if(metric == "heart_rate") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/heart_rate', :locals => {:threshold => @threshold_hr, :values => @values_hr})%>");
         $('#heartrate_tab').show();
+      } else if(metric == "heart_rate_trend") {
+        $('#chart').html("<%= escape_javascript(render :partial => 'patient/heart_rate_trend', :locals => {:threshold => @threshold_hr, :values => @values_hr})%>");
+        $('#heartrate_tab').show();
       } else if(metric == "blood_oxygen") {
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_oxygen', :locals => {:threshold => @threshold_bo, :values => @values_bo})%>");
         $('#bloodoxygen_tab').show();
@@ -194,13 +203,13 @@
       $('#bloodpress').click(function(){
           showGraph("blood_pressure");
       })
-      $('#heartrate').click(function(){
-          showGraph("heart_rate");
+      $('#heartratetrend').click(function(){
+          showGraph("heart_rate_trend");
       })
       $('#bloodoxygen').click(function(){
           showGraph("blood_oxygen");
       })
-      $('#sodium').click(function(){
+      $('#activity').click(function(){
           showGraph("activity");
       })
       $('#sodium').click(function(){
