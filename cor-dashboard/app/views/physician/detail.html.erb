@@ -1,3 +1,4 @@
+<% values = {} %>
 <div class="col col-lg-2">
   <div class="row" style="padding-left: 10px;">
 
@@ -49,7 +50,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @values_wt.each do |i| %>
+        <% values.each do |i| %>
         <tr>
           <% sec = (i[0].to_f / 1000) %>
           <% datetime = Time.at(sec) %>
@@ -184,13 +185,20 @@
       if(metric == "weight") {
         $('#timeperiod').show();
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
-        $('#weight_tab').show();
+          <%= values = @values_wt %>
+          $('#weight_tab').reload();
+          $('#weight_tab').show();
         $('#oneweek').click(function(){
             $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
+            <%= values = @values_wt %>
+            $('#weight_tab').reload();
             $('#weight_tab').show();
         })
         $('#twoweeks').click(function(){
             $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt2w, :values => @values_wt2w})%>");
+
+            <%= values = @values_wt2w %>
+            $('#weight_tab').reload();
             $('#weight_tab').show();
         })
           $('#onemonth').click(function(){
