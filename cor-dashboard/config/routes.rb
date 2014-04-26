@@ -26,6 +26,8 @@ CorDashboard::Application.routes.draw do
   get 'physician/summary'
   get 'physician/detail'
 
+  root 'patient#metrics'
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.
