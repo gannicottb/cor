@@ -15,6 +15,7 @@ class Patient < ActiveRecord::Base
 
     if Rails.env.production?
       self.table_name = "patient_info"
+      alias_attribute :name, :patient_name
     end
 
     def summary
@@ -50,17 +51,20 @@ class Patient < ActiveRecord::Base
       return {threshold: threshold_values.bo_perc,
               values: blood_oxygen_readings.last_year.map {|r| [r.reading_time.utc.to_i*1000, r.bo_perc] }}
     end
-    # Heart rate
-    def heart_rate
+
+    #Heart Rate
+    def heart_rate    
       r = heart_rate_readings.first
-      return {threshold: eval(threshold_values.heart_rate),
-              values: [r.reading_time.utc.to_i*1000, r.heart_rate] }
+    	return {threshold: eval(threshold_values.heart_rate), 
+      				values: [r.reading_time.utc.to_i*1000, r.heart_rate],
+              variability: r.heart_rate_variability }  
     end
 
     def heart_rate_last_week
       return {threshold: eval(threshold_values.heart_rate),
               values: heart_rate_readings.last_week.map {|r| [r.reading_time.utc.to_i*1000, r.heart_rate] }}
     end
+
 
     def heart_rate_last_2_weeks
       return {threshold: eval(threshold_values.heart_rate),
@@ -157,7 +161,7 @@ class Patient < ActiveRecord::Base
 
     # Blood Pressure
     def blood_pressure
-        r = blood_pressure_readings.first
+        r = blood_pressure_readings.last
         return {threshold: {:systolic => eval(threshold_values.systolic_bp),
                             :diastolic =>eval(threshold_values.diastolic_bp)} ,
         values: [r.reading_time.utc.to_i*1000, r.systolic_bp, r.diastolic_bp] }
@@ -186,7 +190,7 @@ class Patient < ActiveRecord::Base
         if !alerts.exists?(reading_id: r.id)
           if r.bo_perc < threshold_values.bo_perc
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Oxygen is under threshold")
+            Alert.create(patient_id: id, urgent: true, reading_id: r.id, text: "Blood Oxygen is under threshold")
           end
         end
       end
@@ -196,11 +200,11 @@ class Patient < ActiveRecord::Base
         if !alerts.exists?(reading_id: r.id)
           if r.heart_rate >= heartRateThreshValues[:high]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Heart Rate above threshold")
+            Alert.create(patient_id: id, urgent: true, reading_id: r.id, text: "Heart Rate above threshold")
           end
           if r.heart_rate <= heartRateThreshValues[:low]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Heart Rate below threshold")
+            Alert.create(patient_id: id, urgent: true, reading_id: r.id, text: "Heart Rate below threshold")
           end
         end
       end
@@ -212,19 +216,19 @@ class Patient < ActiveRecord::Base
         if !alerts.exists?(reading_id: r.id)
           if r.systolic_bp >= thresholdSystolic[:high]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Systolic) is HIGH")
+            Alert.create(patient_id: id, urgent: true, reading_id: r.id, text: "Blood Pressure (Systolic) is HIGH")
           end
           if r.systolic_bp <= thresholdSystolic[:low]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Systolic) is LOW")
+            Alert.create(patient_id: id, urgent: true, reading_id: r.id, text: "Blood Pressure (Systolic) is LOW")
           end
           if r.diastolic_bp >= thresholdDiastolic[:high]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Diastolic) is HIGH")
+            Alert.create(patient_id: id, urgent: true, reading_id: r.id, text: "Blood Pressure (Diastolic) is HIGH")
           end
           if r.diastolic_bp <= thresholdDiastolic[:low]
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Blood Pressure (Diastolic) is LOW")
+            Alert.create(patient_id: id, urgent: true, reading_id: r.id, text: "Blood Pressure (Diastolic) is LOW")
           end
         end
       end
@@ -233,7 +237,7 @@ class Patient < ActiveRecord::Base
         if !alerts.exists?(reading_id: r.id)
           if r.sodium_level == "High"
             #create a new alert for this patient
-            Alert.create(patient_id: id, resolved: false, reading_id: r.id, text: "Sodium Level is high")
+            Alert.create(patient_id: id, urgent: true, reading_id: r.id, text: "Sodium Level is high")
           end
         end
       end
@@ -241,7 +245,7 @@ class Patient < ActiveRecord::Base
       relevant_weight_readings = weight_readings.where(reading_time: eval(threshold_values.weight)[:time].days.ago .. Time.now)
       if(relevant_weight_readings.maximum(:weight) - relevant_weight_readings.minimum(:weight)>=eval(threshold_values.weight)[:weight])
         #create a new alert for this patient
-        Alert.create(patient_id: id, resolved: false, reading_id: relevant_weight_readings.where(weight: relevant_weight_readings.maximum(:weight)).first().id, text: "Change in weight has exceeded the threshold")
+        Alert.create(patient_id: id, urgent: true, reading_id: relevant_weight_readings.where(weight: relevant_weight_readings.maximum(:weight)).first().id, text: "Change in weight has exceeded the threshold")
       end
 
       return alerts

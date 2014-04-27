@@ -28,9 +28,20 @@ function populate_heart_rate_container() {
                 return s;
             }
         },
+        labels: {
+            items: [{
+                html: "Variability: "+variability,
+                style: {
+                    left: '75px',
+                    top: '0px',
+                    color: 'black',
+                    fontSize: '20pt',                    
+                }
+            }]
+        },
         plotOptions: {
             column: {
-                stacking: 'normal',
+                stacking: 'normal',                
                 dataLabels: {
                     enabled: true,
                     align: 'left',

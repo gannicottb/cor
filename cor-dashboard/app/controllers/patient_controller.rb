@@ -20,6 +20,7 @@ class PatientController < ApplicationController
     bundle = patient.heart_rate
     @threshold = bundle[:threshold]
     @values = bundle[:values]
+    @variability = bundle[:variability]
   end
 
   def weight

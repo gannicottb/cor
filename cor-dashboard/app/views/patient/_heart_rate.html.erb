@@ -1,7 +1,7 @@
 <%= javascript_tag do %>
     var heartrateHigh = <%= threshold[:high] %>;
     var heartrateLow = <%= threshold[:low] %>;
-
+    var variability = <%= variability %>;
     var timestamp = <%= values[0] %>;
     var heartrateReading = <%= values[1] %>;
 <% end %>
