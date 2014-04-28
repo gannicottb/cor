@@ -74,6 +74,10 @@ class PatientController < ApplicationController
     @exercise_log = @patient.activity_log[:exercise]
   end
 
+  def patient_name
+    return @patient.name
+  end
+
   def settings
     #Fetch settings data by patient_id    
     #redirect to settings
