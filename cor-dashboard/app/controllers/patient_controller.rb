@@ -8,6 +8,11 @@ class PatientController < ApplicationController
     @patient = Patient.take
   end
 
+  def health_summary
+
+  end
+
+
   def blood_oxygen
     patient = Patient.take  
     bundle = patient.blood_oxygen

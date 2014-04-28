@@ -1,0 +1,10 @@
+<%= javascript_tag do %>
+    var data = <%= values %>;
+    data.sort();
+<% end %>
+
+<div id="health_summary_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<script>
+    $(populate_health_summary_container());
+</script>
+<% javascript_include_tag "health_summary"%>

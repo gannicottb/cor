@@ -17,4 +17,5 @@ class WeightReading < ActiveRecord::Base
   scope :last_three_months, -> {where(reading_time: 3.months.ago .. Time.now)}
   scope :last_six_months, -> {where(reading_time: 6.months.ago .. Time.now)}
   scope :last_year, -> {where(reading_time: 1.year.ago .. Time.now)}
+
 end

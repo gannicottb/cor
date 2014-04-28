@@ -45,6 +45,7 @@ class PhysicianController < ApplicationController
 	end
 
 	def detail
+        @values = {}
         @metric = params[:metric]
         @physician = Physician.take
         #@patients = @physician.patients

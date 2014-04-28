@@ -1,5 +1,4 @@
 function populate_heart_rate_trend_container() {
-    console.log(data);
     $('#heart_rate_trend_container').highcharts({
         chart: {
             type: 'spline'
