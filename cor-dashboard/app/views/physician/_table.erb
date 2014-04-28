@@ -29,15 +29,15 @@
   </tr>
   </thead>
   <tbody>
-  <% values_blood_pressure.each do |i| %>
+  <!--% values_blood_pressure.each do |i| %-->
       <tr>
-        <% sec = (i[0].to_f / 1000) %>
+        <% sec = (values_blood_pressure[0].to_f / 1000) %>
         <% datetime = Time.at(sec) %>
         <th><%=datetime%></th>
-        <th><%= i[1] %></th>
-        <th><%= i[2] %></th>
+        <th><%= values_blood_pressure[1] %></th>
+        <th><%= values_blood_pressure[2] %></th>
       </tr>
-  <% end %>
+  <!--% end %-->
   </tbody>
 </table>
 <% end %>
