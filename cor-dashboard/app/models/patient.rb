@@ -183,6 +183,38 @@ class Patient < ActiveRecord::Base
               }
     end
 
+    def activity_log_last_2_weeks
+      #Package up the data for the activity log page
+      return  {exercise: {sedentary: activities.last_2_weeks.map {|r| r.sedentary_minutes},
+                          lightly_active: activities.last_2_weeks.map {|r| r.lightly_active_minutes},
+                          fairly_active: activities.last_2_weeks.map {|r| r.fairly_active_minutes},
+                          very_active: activities.last_2_weeks.map {|r| r.very_active_minutes},
+                          steps: activities.last_2_weeks.map {|r| r.steps},
+                          days: activities.last_2_weeks.map{|r| r.date.strftime("%B %d")}
+      },
+               sleep: {sleep_efficiency: activities.last_2_weeks.map {|r| r.sleep_efficiency},
+                       number_of_awakenings: activities.last_2_weeks.map {|r| r.number_of_awakenings},
+                       minutes: activities.last_2_weeks.map {|r| r.minutes_asleep}
+               }
+      }
+    end
+
+    def activity_log_last_month
+      #Package up the data for the activity log page
+      return  {exercise: {sedentary: activities.last_month.map {|r| r.sedentary_minutes},
+                          lightly_active: activities.last_month.map {|r| r.lightly_active_minutes},
+                          fairly_active: activities.last_month.map {|r| r.fairly_active_minutes},
+                          very_active: activities.last_month.map {|r| r.very_active_minutes},
+                          steps: activities.last_month.map {|r| r.steps},
+                          days: activities.last_month.map{|r| r.date.strftime("%B %d")}
+      },
+               sleep: {sleep_efficiency: activities.last_month.map {|r| r.sleep_efficiency},
+                       number_of_awakenings: activities.last_month.map {|r| r.number_of_awakenings},
+                       minutes: activities.last_month.map {|r| r.minutes_asleep}
+               }
+      }
+    end
+
     def scanForAlerts
       #Check all recent readings with threshold values and create Alerts
       #for each blood oxygen reading, compare with threshold

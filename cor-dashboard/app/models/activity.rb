@@ -24,5 +24,9 @@ class Activity < ActiveRecord::Base
   #scope :last_week, -> {where(date: DateTime.now.beginning_of_week(start_day = :sunday)..Time.now-1.day)}
   #scope :last_week, -> {where(date: DateTime.now.beginning_of_week(start_day = :sunday)..Time.now-3.days).order(date: :asc)}
   scope :last_week, -> {where(date: 1.week.ago..Time.now).order(date: :asc)}
-
+  scope :last_2_weeks, -> {where(date: 2.week.ago .. Time.now).order(date: :asc)}
+  scope :last_month, -> {where(date: 1.month.ago .. Time.now).order(date: :asc)}
+  scope :last_three_months, -> {where(date: 3.months.ago .. Time.now).order(date: :asc)}
+  scope :last_six_months, -> {where(date: 6.months.ago .. Time.now).order(date: :asc)}
+  scope :last_year, -> {where(date: 1.year.ago .. Time.now).order(date: :asc)}
 end

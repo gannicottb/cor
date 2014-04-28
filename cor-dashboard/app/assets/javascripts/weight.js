@@ -54,9 +54,6 @@ function populate_weight_container() {
         title: {
             text: 'Weight'
         },
-        subtitle: {
-            text: ''
-        },
         xAxis: {
             type: 'datetime',
             dateTimeLabelFormats: { // don't display the dummy year

@@ -29,13 +29,14 @@ function populate_heart_rate_container() {
             }
         },
         labels: {
+            align: "center",
             items: [{
                 html: "Variability: "+variability,
                 style: {
-                    left: '75px',
-                    top: '0px',
+                    left: '10px',
+                    top: '100px',
                     color: 'black',
-                    fontSize: '20pt',                    
+                    fontSize: '10pt',
                 }
             }]
         },

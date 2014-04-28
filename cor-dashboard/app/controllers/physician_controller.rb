@@ -66,6 +66,8 @@ class PhysicianController < ApplicationController
         bundle = @patient.sodium
         @threshold_so = bundle[:threshold]
         @values_so = bundle[:values]
+        @exercise_log = @patient.activity_log[:exercise]
+
         # last_2_weeks
         bundle = @patient.weight
         @threshold_wt2w = bundle[:threshold]
@@ -82,6 +84,8 @@ class PhysicianController < ApplicationController
         bundle = @patient.sodium_last_2_weeks
         @threshold_so2w = bundle[:threshold]
         @values_so2w = bundle[:values]
+        @exercise_log_2w = @patient.activity_log_last_2_weeks[:exercise]
+
         # last_month
         bundle = @patient.weight_last_month
         @threshold_wtm = bundle[:threshold]
@@ -98,6 +102,8 @@ class PhysicianController < ApplicationController
         bundle = @patient.sodium_last_month
         @threshold_som = bundle[:threshold]
         @values_som = bundle[:values]
+        @exercise_log_m = @patient.activity_log_last_month[:exercise]
+
         # last_three_months
         bundle = @patient.weight_last_three_months
         @threshold_wt3m = bundle[:threshold]
@@ -114,6 +120,7 @@ class PhysicianController < ApplicationController
         bundle = @patient.sodium_last_three_months
         @threshold_so3m = bundle[:threshold]
         @values_so3m = bundle[:values]
+
         # last_six_months
         bundle = @patient.weight_last_six_months
         @threshold_wt6m = bundle[:threshold]
@@ -148,6 +155,5 @@ class PhysicianController < ApplicationController
         @threshold_soy = bundle[:threshold]
         @values_soy = bundle[:values]
 
-        @exercise_log = @patient.activity_log[:exercise]
     end
 end
