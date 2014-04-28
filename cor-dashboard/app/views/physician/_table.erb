@@ -1,4 +1,4 @@
-<% if metric == "weight" && @metric == "weight" %>
+<% if metric == "weight"%>
 <table class="table" id="weight_tab">
   <thead>
   <tr>
@@ -19,7 +19,7 @@
 </table>
 <% end %>
 
-<% if metric == "blood_pressure" && @metric == "blood_pressure" %>
+<% if metric == "blood_pressure" %>
 <table class="table" id="bloodpressure_tab">
   <thead>
   <tr>
@@ -42,7 +42,7 @@
 </table>
 <% end %>
 
-<% if metric == "heart_rate_trend" && @metric == "heart_rate_trend" %>
+<% if metric == "heart_rate_trend" %>
 <table class="table" id="heartrate_tab">
   <thead>
   <tr>
@@ -63,7 +63,7 @@
 </table>
 <% end %>
 
-<% if metric == "blood_oxygen" && @metric == "blood_oxygen" %>
+<% if metric == "blood_oxygen" %>
 <table class="table" id="bloodoxygen_tab">
   <thead>
   <tr>
@@ -84,34 +84,34 @@
 </table>
 <% end %>
 
-<% if metric == "activity" && @metric == "activity" %>
+<% if metric == "activity" %>
 <table class="table" id="activity_tab">
   <thead>
   <tr>
+    <th>Day</th>
     <th>Sedentary minutes</th>
     <th>Lightly active minutes</th>
     <th>Fairly active minutes</th>
     <th>Very active minutes</th>
     <th>Steps</th>
-    <th>Day</th>
   </tr>
   </thead>
   <tbody>
   <% for i in 0..(values_activity[:days].length - 1) %>
     <tr>
+      <th><%= values_activity[:days][i] %></th>
       <th><%= values_activity[:sedentary][i] %></th>
       <th><%= values_activity[:lightly_active][i] %></th>
       <th><%= values_activity[:fairly_active][i] %></th>
       <th><%= values_activity[:very_active][i] %></th>
       <th><%= values_activity[:steps][i] %></th>
-      <th><%= values_activity[:days][i] %></th>
     </tr>
   <% end %>
   </tbody>
 </table>
 <% end %>
 
-<% if metric == "sodium" && @metric == "sodium" %>
+<% if metric == "sodium" %>
 <table class="table" id="sodium_tab">
   <thead>
   <tr>

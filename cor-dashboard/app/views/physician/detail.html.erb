@@ -93,9 +93,9 @@
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_pressure', :locals => {:threshold => @threshold_bp, :values => @values_bp})%>");
         $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:threshold => @threshold_bp, :values_blood_pressure => @values_bp, :metric => "blood_pressure"})%>");
       } else if(metric == "heart_rate_trend") {
-        $('#chart').html("<%= escape_javascript(render :partial => 'patient/heart_rate_trend', :locals => {:threshold => @threshold_hr, :values => @values_hr})%>");
-          $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:threshold => @threshold_hr, :values_heart_rate => @values_hr, :metric => "heart_rate_trend"})%>");
           $('#timeperiod').show();
+          $('#chart').html("<%= escape_javascript(render :partial => 'patient/heart_rate_trend', :locals => {:threshold => @threshold_hr, :values => @values_hr})%>");
+          $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:threshold => @threshold_hr, :values_heart_rate => @values_hr, :metric => "heart_rate_trend"})%>");
 
           $('#oneweek').click(function(){
               $('#chart').html("<%= escape_javascript(render :partial => 'patient/heart_rate_trend', :locals => {:threshold => @threshold_hr, :values => @values_hr})%>");
@@ -122,9 +122,9 @@
               $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:threshold => @threshold_hry, :values_heart_rate => @values_hry, :metric => "heart_rate_trend"})%>");
           })
       } else if(metric == "blood_oxygen") {
-        $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_oxygen', :locals => {:threshold => @threshold_bo, :values => @values_bo})%>");
-        $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:threshold => @threshold_bo, :values_blood_oxygen => @values_bo, :metric => "blood_oxygen"})%>");
-        $('#timeperiod').show();
+          $('#timeperiod').show();
+          $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_oxygen', :locals => {:threshold => @threshold_bo, :values => @values_bo})%>");
+          $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:threshold => @threshold_bo, :values_blood_oxygen => @values_bo, :metric => "blood_oxygen"})%>");
 
           $('#oneweek').click(function(){
               $('#chart').html("<%= escape_javascript(render :partial => 'patient/blood_oxygen', :locals => {:threshold => @threshold_bo, :values => @values_bo})%>");
@@ -151,9 +151,9 @@
               $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:threshold => @threshold_boy, :values_blood_oxygen => @values_boy, :metric => "blood_oxygen"})%>");
           })
       } else if(metric == "sodium") {
-         $('#chart').html("<%= escape_javascript(render :partial => 'patient/sodium', :locals => {:threshold => @threshold_so, :values => @values_so})%>");
-         $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:threshold => @threshold_so, :values_sodium => @values_so, :metric => "sodium"})%>");
-         $('#timeperiod').show();
+          $('#timeperiod').show();
+          $('#chart').html("<%= escape_javascript(render :partial => 'patient/sodium', :locals => {:threshold => @threshold_so, :values => @values_so})%>");
+          $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:threshold => @threshold_so, :values_sodium => @values_so, :metric => "sodium"})%>");
 
           $('#oneweek').click(function(){
               $('#chart').html("<%= escape_javascript(render :partial => 'patient/sodium', :locals => {:threshold => @threshold_so, :values => @values_so})%>");
@@ -182,6 +182,7 @@
       } else if(metric == "activity") {
          $('#chart').html("<%= escape_javascript(render :partial => 'patient/exercise_log', :locals => {:exercise_log => @exercise_log})%>");
          $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:values_activity => @exercise_log, :metric => "activity"})%>");
+
       } else { /* show weight by default */
         $('#chart').html("<%= escape_javascript(render :partial => 'patient/weight', :locals => {:threshold => @threshold_wt, :values => @values_wt})%>");
         $('#table').html("<%= escape_javascript(render :partial => 'physician/table', :locals => {:threshold => @threshold_wt, :values_weight => @values_wt, :metric => "weight"})%>");
