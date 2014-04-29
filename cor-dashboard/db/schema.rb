@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426222237) do
+ActiveRecord::Schema.define(version: 20140429222952) do
 
   create_table "activities", force: true do |t|
     t.integer  "patient_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140426222237) do
     t.boolean  "resolved_physician"
     t.boolean  "resolved_patient"
     t.boolean  "urgent"
+    t.string   "metric_name"
   end
 
   create_table "blood_oxygen_readings", force: true do |t|
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(version: 20140426222237) do
     t.datetime "updated_at"
     t.integer  "physician_id"
     t.string   "name"
+    t.string   "phone_number"
   end
 
   create_table "physicians", force: true do |t|

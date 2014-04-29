@@ -21,7 +21,11 @@ class PhysicianController < ApplicationController
 
 	def alerts
         @physician = Physician.take
-        @alerts = @physician.patients.take.scanForAlerts
+        @alerts = {}
+        patients = @physician.patients
+        patients.each do |patient|
+          @alert[:patient.id] = patient.scanForAlerts
+        end
 	end
 
 	def patients
