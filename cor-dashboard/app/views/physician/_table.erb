@@ -29,7 +29,7 @@
   </tr>
   </thead>
   <tbody>
-  <% for i in 0..values_blood_pressure[:systolic].length %>
+  <% for i in 0..values_blood_pressure[:systolic].length - 1 %>
       <tr>
         <% sec = (values_blood_pressure[:systolic][i][0].to_f / 1000) %>
         <% datetime = Time.at(sec) %>
