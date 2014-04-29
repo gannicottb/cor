@@ -6,10 +6,13 @@ class PatientController < ApplicationController
     #Fetch summary data by patient_id  
     #@patient = Patient.find(params[:id]) 
     @patient = Patient.take
+    #Have to get this data here too, since we start with health summary
+    @values = @patient.health_summary
   end
 
   def health_summary
-
+    patient = Patient.take
+    @values = patient.health_summary
   end
 
 
