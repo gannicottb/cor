@@ -7,6 +7,8 @@ class Ema < ActiveRecord::Base
     alias_attribute :reading_time, :Reading_time
   end
 
+  scope :latest, -> {limit(1).order('reading_time desc').first}
+  
   scope :last_week, -> {where(reading_time: 1.week.ago .. Time.now)}
   scope :last_2_weeks, -> {where(reading_time: 2.week.ago .. Time.now)}
   scope :last_month, -> {where(reading_time: 1.month.ago .. Time.now)}

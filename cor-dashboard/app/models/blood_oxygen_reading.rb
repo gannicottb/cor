@@ -1,16 +1,15 @@
-class BloodOxygenReading < ActiveRecord::Base
+class BloodOxygenReading < ActiveRecord::Base 
 	
 	attr_accessible :patient_id, :bo_sensor_id, :bo_perc, :reading_time, :created_date
 	belongs_to :patient
 
   if Rails.env.production?
     self.table_name = "blood_oxygen_raw"
-  end
+  end	
 
-	def current
-		#return most current reading
 
-  end
+
+  scope :latest, -> {limit(1).order('reading_time desc').first}
 
   scope :last_week, -> {where(reading_time: 1.week.ago .. Time.now)}
   scope :last_2_weeks, -> {where(reading_time: 2.week.ago .. Time.now)}
