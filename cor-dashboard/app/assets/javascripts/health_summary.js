@@ -1,4 +1,11 @@
 function populate_health_summary_container() {
+    console.log("graph")
+    console.log(weight)
+    console.log(heartRate)
+    console.log(bloodOxygen)
+    console.log(bloodPressure)
+    console.log(sodium)
+
     $('#health_summary_container').highcharts({
 
         chart: {
@@ -47,7 +54,8 @@ function populate_health_summary_container() {
         },
         series: [{
             showInLegend: false,
-            data: [['Weight',3, 0], ['Heart Rate',2.4, 0], ['Blood Oxygen',4, 0], ['Blood Pressure',3.6, 0], ['Sodium',3, 0]],
+            //data: [['Weight',3, 0], ['Heart Rate',2.4, 0], ['Blood Oxygen',4, 0], ['Blood Pressure',3.6, 0], ['Sodium',3, 0]],
+            data:   [['Weight', weight, 0], ['Heart Rate', heartRate, 0], ['Blood Oxygen', bloodOxygen, 0], ['Blood Pressure', bloodPressure, 0], ['Sodium', sodium, 0]],                    
             color: "#0147FA"
         }]
 

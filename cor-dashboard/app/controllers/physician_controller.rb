@@ -6,8 +6,7 @@ class PhysicianController < ApplicationController
 		@physician = Physician.take
 		@patients = @physician.patients
         @borders = {}
-        @patients.each do |patient|
-            #if patient.alerts.exists?(resolved_physician: false) 
+        @patients.each do |patient|            
             if patient.alerts.exists?({resolved_physician: false, urgent: true})           
                 @borders[patient.id] = 'critical'
             elsif patient.alerts.exists?({resolved_physician: false, urgent: false})

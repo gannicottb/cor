@@ -1,6 +1,10 @@
-<%= javascript_tag do %>
-    var data = <%= values %>;
-    data.sort();
+<%= javascript_tag do %>	
+  var weight = <%= values[:weight] %>;
+  var heartRate = <%= values[:heart_rate] %>;
+  var bloodOxygen = <%= values[:blood_oxygen] %>;
+  var bloodPressure = <%= values[:blood_pressure] %>;
+  var sodium = <%= values[:sodium] %>;  
+    
 <% end %>
 
 <div id="health_summary_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>

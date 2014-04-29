@@ -1,7 +1,7 @@
 <div class="col-sm-2 col-sm-offset-1">
 	<div id="metric-nav">
 	<ul>
-		<li class="text-center btn-default border-r btn-spacing"><%= button_to "Summary", patient_health_summary_path, class:"btn btn-default w75", method: "get" %></li>
+		<li class="text-center btn-default border-r btn-spacing"><%= button_to "Summary", patient_health_summary_path, :remote => true, class:"btn btn-default w75", method: "get" %></li>
 		<li class="text-center btn-default border-r btn-spacing"><%= button_to "Weight", patient_weight_path, :remote => true, class:"btn btn-default w75", method: "get" %></li>		
 		<li class="text-center btn-default border-r btn-spacing"><%= button_to "Blood Pressure", patient_blood_pressure_path, :remote => true, class:"btn btn-default w75", method: "get" %></li>
     <li class="text-center btn-default border-r btn-spacing"><%= link_to "Heart Rate", patient_heart_rate_path, :remote => true, class:"btn btn-default w75", method: "get" %></li>

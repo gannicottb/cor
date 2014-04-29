@@ -18,7 +18,42 @@ class Patient < ActiveRecord::Base
       alias_attribute :name, :patient_name
     end
 
-    def summary
+    def health_summary      
+
+      #Blood Oxygen Summary
+      bo_avg = blood_oxygen_readings.last_2_weeks.average(:bo_perc)
+      bo_dev = map(bo_avg, 0.0, 100.0, 0, 3)
+      
+      #Blood Pressure Summary
+      bp_sys_avg = blood_pressure_readings.last_2_weeks.average(:systolic_bp)
+      bp_dia_avg = blood_pressure_readings.last_2_weeks.average(:diastolic_bp)
+
+      green_sys = avg(eval(threshold_values.systolic_bp)[:high] , eval(threshold_values.systolic_bp)[:low])
+      green_dia = avg(eval(threshold_values.diastolic_bp)[:high], eval(threshold_values.diastolic_bp)[:low])
+
+      bp_sys_change = change(bp_sys_avg, green_sys)
+      bp_dia_change = change(bp_dia_avg, green_dia)
+
+      bp_change = max(bp_sys_change, bp_dia_change)
+
+      #Heart Rate Summary
+      hr_avg = heart_rate_readings.last_2_weeks.average(:heart_rate)
+
+      green_hr = avg(eval(threshold_values.heart_rate)[:high], eval(threshold_values.heart_rate)[:low])
+
+      hr_change = change(hr_avg, green_hr)
+
+      #Sodium Summary
+      so_ints = emas.last_2_weeks.map {|r| sodiumStringToInt(r.sodium_level)}
+      so_avg = so_ints.inject(0.0) {|sum, el| sum + el} / so_ints.size
+      #so_change = change(so_avg, 1)
+
+      return {weight: weight_readings.last_2_weeks.average(:weight), 
+              heart_rate: map(hr_change, -1.0, 1.0, 0, 6), 
+              blood_oxygen: bo_dev, 
+              blood_pressure: map(bp_change, -1.0, 1.0, 0, 6),  
+              sodium: map(so_avg, 0, 3, 0, 6)}
+
 
     end
     #Blood oxygen
@@ -296,5 +331,24 @@ class Patient < ActiveRecord::Base
       end
     end
 
+    #more or less copied from Arduino library
+  def map(x, in_min, in_max, out_min, out_max)  
+      (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
+  end
 
+  def avg(val1, val2)
+    (val1 + val2) / 2
+  end
+
+  def change(val1, val2)
+    (val1 - val2)/val2
+  end
+
+  def max(val1, val2)
+    if val1.abs > val2.abs
+      val1
+    else
+      val2
+    end
+  end
 end
