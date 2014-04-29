@@ -19,22 +19,33 @@ class Patient < ActiveRecord::Base
     end
 
     def health_summary      
+      # # Basic premise: Average the readings for last two weeks. 
+      # # Compare to an ideal "green" value if possible. 
+      # # Value to send to summary graph is mapped from [-1, 1] to [0,6] (generally)
 
       #Blood Oxygen Summary
       bo_avg = blood_oxygen_readings.last_2_weeks.average(:bo_perc)
+
+        # Constrain the values to not go off the graph
       bo_dev = map(bo_avg, 0.0, 100.0, 0, 3)
+
       
       #Blood Pressure Summary
+        # Get the average values for both systolic and diastolic
       bp_sys_avg = blood_pressure_readings.last_2_weeks.average(:systolic_bp)
       bp_dia_avg = blood_pressure_readings.last_2_weeks.average(:diastolic_bp)
 
+        # The value would be perfectly in the green zone if it was between the high and low thresholds
       green_sys = avg(eval(threshold_values.systolic_bp)[:high] , eval(threshold_values.systolic_bp)[:low])
       green_dia = avg(eval(threshold_values.diastolic_bp)[:high], eval(threshold_values.diastolic_bp)[:low])
 
+        # What's the % difference between the average reading and the ideal value?
       bp_sys_change = change(bp_sys_avg, green_sys)
       bp_dia_change = change(bp_dia_avg, green_dia)
 
+        # Whichever change is bigger (because we consider the "worst" bp value)      
       bp_change = max(bp_sys_change, bp_dia_change)
+
 
       #Heart Rate Summary
       hr_avg = heart_rate_readings.last_2_weeks.average(:heart_rate)
@@ -45,15 +56,17 @@ class Patient < ActiveRecord::Base
 
       #Sodium Summary
       so_ints = emas.last_2_weeks.map {|r| sodiumStringToInt(r.sodium_level)}
+      # Inject is a way to compute the average value of the contents of this array
       so_avg = so_ints.inject(0.0) {|sum, el| sum + el} / so_ints.size
-      #so_change = change(so_avg, 1)
 
+      
+      # The map function converts a value from one range to another (see at foot of file)
+      # TODO: Figure out some way to represent how the patient's weight is doing
       return {weight: weight_readings.last_2_weeks.average(:weight), 
               heart_rate: map(hr_change, -1.0, 1.0, 0, 6), 
               blood_oxygen: bo_dev, 
               blood_pressure: map(bp_change, -1.0, 1.0, 0, 6),  
               sodium: map(so_avg, 0, 3, 0, 6)}
-
 
     end
     #Blood oxygen
