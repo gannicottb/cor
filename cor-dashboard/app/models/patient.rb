@@ -23,29 +23,25 @@ class Patient < ActiveRecord::Base
       # # Compare to an ideal "green" value if possible. 
       # # Value to send to summary graph is mapped from its range to appropriate graph range
 
-      #Weight Summary TODO
+      #Weight Summary 
       wt_thresh = eval(threshold_values.weight)
-      wt_2_weeks = weight_readings.last_2_weeks.map {|r| r.weight}
-
-      # Analyze each 7-element long slice of wt_2_weeks
-      danger = false
-      wt_2_weeks.each_index do |i|
-        if(i + (wt_thresh[:time]-1) < wt_2_weeks.size)
-          if pos_change(wt_2_weeks[i..i+(wt_thresh[:time]-1)], wt_thresh[:weight])
-            danger = true
-          end
-        end
-      end
+      wt_over_interval = weight_readings.last_n_days(wt_thresh[:time]).map {|r| r.weight}
+      wt_change = wt_over_interval.max - wt_over_interval.min
+      if wt_change >= wt_thresh[:weight] # I'm hardcoding the max weight gain we expect
+        wt_summ = map(wt_change, wt_thresh[:weight], 10, 5, 6 )
+      else # I'm also hardcoding the max weight loss we expect
+        wt_summ = map(wt_change, -10, wt_thresh[:weight], 2.5, 3.5)
+      end    
 
       #Blood Oxygen Summary
       #bo_avg = blood_oxygen_readings.last_2_weeks.average(:bo_perc) 
       #bo_summ = map(bo_avg, 0.0, 100.0, 0, 3)    
 
       bo_current = blood_oxygen_readings.latest.bo_perc
-      if bo_current > threshold_values.bo_perc # Map good values to the 2-3 zone
-        bo_summ = map(bo_current, threshold_values.bo_perc, 100.0, 2, 3)
+      if bo_current > threshold_values.bo_perc # Map good values to the 2.5-3 zone
+        bo_summ = map(bo_current, threshold_values.bo_perc, 100.0, 2.5, 3)
       else # Map bad values to the 0-2 zone
-        bo_summ = map(bo_current, 60.0, threshold_values.bo_perc, 0, 2)
+        bo_summ = map(bo_current, 60.0, threshold_values.bo_perc, 0, 1.5)
       end  
       
       #Blood Pressure Summary
@@ -68,7 +64,7 @@ class Patient < ActiveRecord::Base
         # Whichever change is bigger (because we consider the "worst" bp value)      
       bp_change = max(bp_sys_change, bp_dia_change)
 
-      bp_summ = map(bp_change, -1.0, 1.0, 0, 6)
+      bp_summ = map(bp_change, -1.0, 1.0, 0.5, 5.5)
 
       #Heart Rate Summary
       green_hr = avg(eval(threshold_values.heart_rate)[:high], eval(threshold_values.heart_rate)[:low])  
@@ -79,7 +75,7 @@ class Patient < ActiveRecord::Base
       
       hr_change = change(hr_curr, green_hr)
 
-      hr_summ = map(hr_change, -1.0, 1.0, 0, 6)
+      hr_summ = map(hr_change, -1.0, 1.0, 0.5, 5.5)
 
       #Sodium Summary
       #so_ints = emas.last_2_weeks.map {|r| sodiumStringToInt(r.sodium_level)}
@@ -88,11 +84,11 @@ class Patient < ActiveRecord::Base
 
       so_curr = sodiumStringToInt(emas.latest.sodium_level)
       
-      so_summ = map(so_curr, 1,3, 2, 6) # Low is best, so it's in the green. Medium is on the border, High in the red
+      so_summ = map(so_curr, 1,3, 3, 5) # Low is best, so it's in the green. Medium is on the border, High in the red
       
       # The map function converts a value from one range to another (see at foot of file)
       # TODO: Figure out some way to represent how the patient's weight is doing
-      return {weight: weight_readings.last_2_weeks.average(:weight), 
+      return {weight: wt_summ, 
               heart_rate: hr_summ, 
               blood_oxygen: bo_summ,                       
               blood_pressure: bp_summ,              
@@ -436,21 +432,5 @@ class Patient < ActiveRecord::Base
       val2
     end
   end
-
-  def pos_change(ary, threshold) 
-    change = 0                        # Change between values
-    contig = 0                        # Total contiguous change
-    ary.each_index do |i|             # For each index,
-      if i+1 < ary.size               # If the 'next' index doesn't overflow
-        change += (ary[i+1] - ary[i]) # Calculate change between current value and next value
-        if change > 0                 # If the change is positive
-          contig += change            # Add the change to the total contiguous change
-          if contig >= threshold      # If the total contiguous change is over the prescribed threshold
-            return true               # Return true (could return contig instead to gauge how bad it is)
-          end
-        end
-      end 
-    end 
-    return false                      # If we make it this far, then there wasn't enough positive change 
-  end
+  
 end

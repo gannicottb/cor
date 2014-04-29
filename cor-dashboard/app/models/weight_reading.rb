@@ -8,7 +8,10 @@ class WeightReading < ActiveRecord::Base
   end
 
   scope :latest, -> {limit(1).order('reading_time desc').first}
-	
+  scope :last_n_days, ->(num) {where(reading_time: num.days.ago .. Time.now)}
+	scope :last_n_weeks, ->(num) {where(reading_time: num.weeks.ago .. Time.now)}
+  scope :last_n_months, ->(num) {where(reading_time: num.months.ago .. Time.now)}
+
   scope :last_week, -> {where(reading_time: 1.week.ago .. Time.now)}
   scope :last_2_weeks, -> {where(reading_time: 2.week.ago .. Time.now)}
   scope :last_month, -> {where(reading_time: 1.month.ago .. Time.now)}
