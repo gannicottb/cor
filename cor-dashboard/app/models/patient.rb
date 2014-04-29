@@ -241,8 +241,50 @@ class Patient < ActiveRecord::Base
     def blood_pressure
         r = blood_pressure_readings.last
         return {threshold: {:systolic => eval(threshold_values.systolic_bp),
-                            :diastolic =>eval(threshold_values.diastolic_bp)} ,
+                            :diastolic => eval(threshold_values.diastolic_bp)} ,
         values: [r.reading_time.utc.to_i*1000, r.systolic_bp, r.diastolic_bp] }
+    end
+
+    def blood_pressure_last_week
+      return {threshold: {systolic: eval(threshold_values.systolic_bp),
+                          diastolic: eval(threshold_values.diastolic_bp)} ,
+              values: {systolic: blood_pressure_readings.last_week.map {|r| [r.reading_time.utc.to_i*1000, r.systolic_bp] },
+                        diastolic: blood_pressure_readings.last_week.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
+    end
+
+    def blood_pressure_last_2_weeks
+      return {threshold: {systolic: eval(threshold_values.systolic_bp),
+                          diastolic: eval(threshold_values.diastolic_bp)} ,
+              values: {systolic: blood_pressure_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.systolic_bp] },
+                       diastolic: blood_pressure_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
+    end
+
+    def blood_pressure_last_month
+      return {threshold: {systolic: eval(threshold_values.systolic_bp),
+                          diastolic: eval(threshold_values.diastolic_bp)} ,
+              values: {systolic: blood_pressure_readings.last_month.map {|r| [r.reading_time.utc.to_i*1000, r.systolic_bp] },
+                       diastolic: blood_pressure_readings.last_month.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
+    end
+
+    def blood_pressure_last_three_months
+      return {threshold: {systolic: eval(threshold_values.systolic_bp),
+                          diastolic: eval(threshold_values.diastolic_bp)} ,
+              values: {systolic: blood_pressure_readings.last_three_months.map {|r| [r.reading_time.utc.to_i*1000, r.systolic_bp] },
+                       diastolic: blood_pressure_readings.last_three_months.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
+    end
+
+    def blood_pressure_last_six_months
+      return {threshold: {systolic: eval(threshold_values.systolic_bp),
+                          diastolic: eval(threshold_values.diastolic_bp)} ,
+              values: {systolic: blood_pressure_readings.last_six_months.map {|r| [r.reading_time.utc.to_i*1000, r.systolic_bp] },
+                       diastolic: blood_pressure_readings.last_six_months.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
+    end
+
+    def blood_pressure_last_year
+      return {threshold: {systolic: eval(threshold_values.systolic_bp),
+                          diastolic: eval(threshold_values.diastolic_bp)} ,
+              values: {systolic: blood_pressure_readings.last_year.map {|r| [r.reading_time.utc.to_i*1000, r.systolic_bp] },
+                       diastolic: blood_pressure_readings.last_year.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
     end
 
     def activity_log
