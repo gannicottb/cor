@@ -19,7 +19,7 @@
 </table>
 <% end %>
 
-<% if metric == "blood_pressure" %>
+<% if metric == "blood_pressure_trend" %>
 <table class="table" id="bloodpressure_tab">
   <thead>
   <tr>
@@ -29,15 +29,15 @@
   </tr>
   </thead>
   <tbody>
-  <!--% values_blood_pressure.each do |i| %-->
+  <% for i in 0..values_blood_pressure[:systolic].length %>
       <tr>
-        <% sec = (values_blood_pressure[0].to_f / 1000) %>
+        <% sec = (values_blood_pressure[:systolic][i][0].to_f / 1000) %>
         <% datetime = Time.at(sec) %>
         <th><%=datetime%></th>
-        <th><%= values_blood_pressure[1] %></th>
-        <th><%= values_blood_pressure[2] %></th>
+        <th><%= values_blood_pressure[:systolic][i][1] %></th>
+        <th><%= values_blood_pressure[:diastolic][i][1] %></th>
       </tr>
-  <!--% end %-->
+  <% end %>
   </tbody>
 </table>
 <% end %>
