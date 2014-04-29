@@ -22,7 +22,6 @@ class PhysicianController < ApplicationController
 	def alerts
         @physician = Physician.take
         @alerts = @physician.patients.take.scanForAlerts
-		
 	end
 
 	def patients
