@@ -34,9 +34,7 @@ class Patient < ActiveRecord::Base
         wt_summ = map(wt_change, -10, wt_thresh[:weight], 2.5, 3.5)
       end    
 
-      #Blood Oxygen Summary
-      #bo_avg = blood_oxygen_readings.last_2_weeks.average(:bo_perc) 
-      #bo_summ = map(bo_avg, 0.0, 100.0, 0, 3)    
+      #Blood Oxygen Summary  
 
       bo_current = blood_oxygen_readings.latest.bo_perc
       if bo_current > threshold_values.bo_perc # Map good values to the 2.5-3 zone
@@ -50,12 +48,7 @@ class Patient < ActiveRecord::Base
         # The value would be perfectly in the green zone if it was between the high and low thresholds
       green_sys = avg(eval(threshold_values.systolic_bp)[:high] , eval(threshold_values.systolic_bp)[:low]).to_f
       green_dia = avg(eval(threshold_values.diastolic_bp)[:high], eval(threshold_values.diastolic_bp)[:low]).to_f
-        # Get the average values for both systolic and diastolic
-      # bp_sys_avg = blood_pressure_readings.last_2_weeks.average(:systolic_bp)
-      # bp_dia_avg = blood_pressure_readings.last_2_weeks.average(:diastolic_bp)
-        # What's the % difference between the average reading and the ideal value?
-      # bp_sys_change = change(bp_sys_avg, green_sys)
-      # bp_dia_change = change(bp_dia_avg, green_dia)
+     
       bp_sys_current = blood_pressure_readings.latest.systolic_bp.to_f
       bp_dia_current = blood_pressure_readings.latest.diastolic_bp.to_f
       
@@ -69,16 +62,11 @@ class Patient < ActiveRecord::Base
 
       #Heart Rate Summary
       green_hr = avg(eval(threshold_values.heart_rate)[:high], eval(threshold_values.heart_rate)[:low])  
-      # hr_avg = heart_rate_readings.last_2_weeks.average(:heart_rate)
-      # hr_change = change(hr_avg, green_hr)
-
+     
       hr_curr = heart_rate_readings.latest.heart_rate 
       hr_high = eval(threshold_values.heart_rate)[:high]
       hr_low = eval(threshold_values.heart_rate)[:low]
-      #hr_change = change(hr_curr, green_hr)
-
-      #hr_summ = map(hr_change, -1.0, 1.0, 0.5, 5.5)
-
+     
       if(hr_curr > hr_low && hr_curr < hr_high)
         hr_summ = map(hr_curr, hr_low, hr_high, 2.5, 3.5)
       elsif(hr_curr > hr_high)
@@ -88,16 +76,12 @@ class Patient < ActiveRecord::Base
       end
 
       #Sodium Summary
-      #so_ints = emas.last_2_weeks.map {|r| sodiumStringToInt(r.sodium_level)}
-      # Inject is a way to compute the average value of the contents of this array
-      #so_avg = so_ints.inject(0.0) {|sum, el| sum + el} / so_ints.size
-
+     
       so_curr = sodiumStringToInt(emas.latest.sodium_level)
       
       so_summ = map(so_curr, 1,3, 3, 5) # Low is best, so it's in the green. Medium is on the border, High in the red
       
-      # The map function converts a value from one range to another (see at foot of file)
-      # TODO: Figure out some way to represent how the patient's weight is doing
+      # The map function converts a value from one range to another (see at foot of file)     
       return {weight: wt_summ, 
               heart_rate: hr_summ, 
               blood_oxygen: bo_summ,                       

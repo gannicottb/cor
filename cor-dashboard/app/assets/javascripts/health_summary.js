@@ -49,7 +49,7 @@ function populate_health_summary_container() {
         },
         tooltip: {
             formatter: function() {
-                return '<b>'+ this.x +'</b>'+': '+this.y;
+                return '<b>'+ this.x +'</b>';
             }
         },
         series: [{
