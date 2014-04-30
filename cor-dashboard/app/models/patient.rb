@@ -72,10 +72,19 @@ class Patient < ActiveRecord::Base
       # hr_change = change(hr_avg, green_hr)
 
       hr_curr = heart_rate_readings.latest.heart_rate 
-      
-      hr_change = change(hr_curr, green_hr)
+      hr_high = eval(threshold_values.heart_rate)[:high]
+      hr_low = eval(threshold_values.heart_rate)[:low]
+      #hr_change = change(hr_curr, green_hr)
 
-      hr_summ = map(hr_change, -1.0, 1.0, 0.5, 5.5)
+      #hr_summ = map(hr_change, -1.0, 1.0, 0.5, 5.5)
+
+      if(hr_curr > hr_low && hr_curr < hr_high)
+        hr_summ = map(hr_curr, hr_low, hr_high, 2.5, 3.5)
+      elsif(hr_curr > hr_high)
+        hr_summ = map(hr_curr, hr_high, 200, 4.5, 5.5)
+      elsif (hr_curr < hr_low)
+        hr_summ = map(hr_curr, 0, hr_low, 0, 1.5)
+      end
 
       #Sodium Summary
       #so_ints = emas.last_2_weeks.map {|r| sodiumStringToInt(r.sodium_level)}
@@ -128,7 +137,7 @@ class Patient < ActiveRecord::Base
 
     #Heart Rate
     def heart_rate    
-      r = heart_rate_readings.first
+      r = heart_rate_readings.latest
     	return {threshold: eval(threshold_values.heart_rate), 
       				values: [r.reading_time.utc.to_i*1000, r.heart_rate],
               variability: r.heart_rate_variability }  
