@@ -244,7 +244,7 @@ class Patient < ActiveRecord::Base
 
     # Blood Pressure
     def blood_pressure
-        r = blood_pressure_readings.last
+        r = blood_pressure_readings.latest
         return {threshold: {:systolic => eval(threshold_values.systolic_bp),
                             :diastolic => eval(threshold_values.diastolic_bp)} ,
         values: [r.reading_time.utc.to_i*1000, r.systolic_bp, r.diastolic_bp] }
