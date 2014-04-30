@@ -30,6 +30,13 @@
   padding-bottom: 5px;
 }
 
+.physiciannav {
+  background-color: #eee;
+  height: 1000px;
+  margin-top: -40px;
+  position: fixed;
+}
+
 
 #graph-container {
   margin-top: 0px;
@@ -113,8 +120,9 @@
   padding-right: 10px;
   padding-bottom: 15px;
 }
+
 #metricsummary-container {
-  margin-top: 0px;
+  margin-top: 20px;
   min-height: 550px;
   min-width: 830px;
   border-style: solid;
@@ -134,7 +142,6 @@
   min-width: 430px;
   border-style: solid;
   border-color: #4cae4c;
-  box-shadow: 9px 9px 20px #787878;
   border-width: 6px;
   background-color: #999999;
   padding-top: 5px;
@@ -153,13 +160,20 @@
   }
 }
 
+a:hover {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
 #patientpic-container {
   margin-top: 0px;
   min-height: 250px;
   min-width: 225px;
   border-style: solid;
   border-color: #F0F0F0;
-  box-shadow: 9px 9px 20px #787878;
   border-width: 3px;
   background-color: #ffffff;
   padding-top: 10px;
@@ -174,7 +188,6 @@
   min-width: 225px;
   border-style: solid;
   border-color: #F0F0F0;
-  box-shadow: 9px 9px 20px #787878;
   border-width: 3px;
   background-color: #ffffff;
   padding-top: 10px;
@@ -185,11 +198,9 @@
 
 #medication-container {
   margin-top: 0px;
-  min-height: 350px;
   min-width: 225px;
   border-style: solid;
   border-color: #F0F0F0;
-  box-shadow: 9px 9px 20px #787878;
   border-width: 3px;
   background-color: #ffffff;
   padding-top: 10px;
@@ -200,11 +211,9 @@
 
 .patientroster-container {
   margin-top: 0px;
-  min-height: 200px;
   min-width: 150px;
   border-style: solid;
   border-color: #4cae4c;
-  box-shadow: 9px 9px 20px #787878;
   border-width: 6px;
   background-color: #ffffff;
   padding-top: 10px;
@@ -218,6 +227,7 @@
 #critical{
   border-color: red;
   border-width: 6px;
+  width: 230px;
 }
 
 #warning {

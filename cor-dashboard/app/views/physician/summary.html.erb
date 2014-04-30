@@ -1,38 +1,40 @@
-<div class="col col-lg-2" style="max-width: 20%;">
-  <div class="row" style="padding-left: 10px;">
-    <ul>
-      <li>
-          <div class="col col-md-1" id="patientpic-container">
-            <img src="http://placehold.it/200x220"></img>
-            <h4 align="center"><%=@patient.name%></h4>
-            <h4 align="center"><%=@patient.phone_number%></h4>
-          </div>
-      </li>
-      <li> <div class="col col-md-1" id="patientinfo-container"></div>  </li>
-      <li><div class="col col-md-2" id="medication-container"></div>   </li>
-    </ul>
-  </div>
+
+<div class="row">
+      <div class="col-sm-2 col-sm-offset-1" id="patientpic-container">
+        <img src="http://placehold.it/200x220"></img>
+        </div>
+      <div class="col-sm-2">
+       <ul>
+        <li><h4 align="center"><%=@patient.name%></h4></li>
+        <li><align="center"><%=@patient.phone_number%><li>
+      </div>
+      <div class="col col-md-2" id="medication-container">
+        <ul>
+          <li><h4>Medication</h4></li>
+          <li>Tylonel: 2 for pain</li>
+          <li>Vasotec</li>
+          <li>Coreg</li>
+      </div>
 </div>
-<div class="col col-md-10">
    <div class="row">
-	<div class="col-md-6 summarygraph-container" id="<%= @borders[:weight] %>">
-		<%= link_to physician_detail_path(:metric => "weight", :patientId => @patient.id) do %>
-			<div id="weight_graph">Weight</div>
-		<% end %>
+  	<div class="col-sm-3 col-sm-offset-1 summarygraph-container" id="<%= @borders[:weight] %>">
+  		<%= link_to physician_detail_path(:metric => "weight", :patientId => @patient.id) do %>
+  			<div id="weight_graph">Weight</div>
+  		<% end %>
     </div>
-    <div class="col-md-6 summarygraph-container" id="<%= @borders[:heart_rate] %>">
-		<%= link_to physician_detail_path(:metric => "heart_rate_trend", :patientId => @patient.id) do %>
-			<div id="hr_graph">Heart Rate</div>
-		<% end %>
+    <div class="col-md-3 col-sm-offset-1 summarygraph-container" id="<%= @borders[:heart_rate] %>">
+  		<%= link_to physician_detail_path(:metric => "heart_rate_trend", :patientId => @patient.id) do %>
+  			<div id="hr_graph">Heart Rate</div>
+  		<% end %>
     </div>
-    </div> <br>
-     <div class="row">
-     <div class="col-md-6 summarygraph-container" id="<%= @borders[:blood_oxygen] %>">
+  </div> <br>
+  <div class="row">
+   <div class="col-sm-3 col-sm-offset-1 summarygraph-container" id="<%= @borders[:blood_oxygen] %>">
 		<%= link_to physician_detail_path(:metric => "blood_oxygen", :patientId => @patient.id) do %>
 			<div id="bo_graph">Blood Oxygen</div>
 		<% end %>
-     </div>
-     <div class="col-md-6 summarygraph-container" id="<%= @borders[:blood_pressure] %>">
+  </div>
+  <div class="col-sm-3 col-sm-offset-1 summarygraph-container" id="<%= @borders[:blood_pressure] %>">
 		<%= link_to physician_detail_path(:metric => "blood_pressure", :patientId => @patient.id) do %>
 			<div id="bp_graph">Blood Pressure</div>
 		<% end %>
@@ -43,7 +45,7 @@
 		<%= link_to physician_detail_path(:metric => "activity", :patientId => @patient.id) do %>
 			<div id="activity_graph">Activity</div>
 		<% end %>
-      </div>
+  </div>
      <!--div class="col-md-6" id="summarygraph-container">
 		<%= link_to physician_detail_path(:metric => "medication", :patientId => @patient.id) do %>
 			<div id="medication_graph">Medication</div>
@@ -51,13 +53,12 @@
        </div>
     </div> <br>
   <div class="row"-->
-     <div class="col-md-6 summarygraph-container" id="<%= @borders[:sodium] %>">
+     <div class="col-sm-3 col-sm-offset-1 summarygraph-container" id="<%= @borders[:sodium] %>">
 		<%= link_to physician_detail_path(:metric => "sodium", :patientId => @patient.id) do %>
 			<div id="sodium_graph">Sodium</div>
 		<% end %>
 	</div>
     </div>
-</div>
 
 <script>
 	$('#bo_graph').html("<%= escape_javascript(render :partial => 'patient/blood_oxygen', :locals => @bundle[:blood_oxygen])%>");
