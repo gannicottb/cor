@@ -41,11 +41,42 @@ class PhysicianController < ApplicationController
 		@patient = Patient.find(params[:id])
 		@bundle = {}
 		@bundle[:blood_oxygen] = @patient.blood_oxygen
-        @bundle[:heart_rate] = @patient.heart_rate
+    @bundle[:heart_rate] = @patient.heart_rate
 		@bundle[:weight] = @patient.weight
 		@bundle[:sodium] = @patient.sodium
 		@bundle[:blood_pressure] = @patient.blood_pressure
-        @exercise_log = @patient.activity_log[:exercise]
+    @exercise_log = @patient.activity_log[:exercise]
+
+    @borders = {}
+    if @patient.alerts.exists?({resolved_physician: false, urgent: true, metric_name: "blood oxygen"})
+      @borders[:blood_oxygen] = 'critical'
+    elsif @patient.alerts.exists?({resolved_physician: false, urgent: false, metric_name: "blood oxygen"})
+      @borders[:blood_oxygen] = 'warning'
+    end
+
+    if @patient.alerts.exists?({resolved_physician: false, urgent: true, metric_name: "blood pressure"})
+      @borders[:blood_pressure] = 'critical'
+    elsif @patient.alerts.exists?({resolved_physician: false, urgent: false, metric_name: "blood pressure"})
+      @borders[:blood_pressure] = 'warning'
+    end
+
+    if @patient.alerts.exists?({resolved_physician: false, urgent: true, metric_name: "heart rate"})
+      @borders[:heart_rate] = 'critical'
+    elsif @patient.alerts.exists?({resolved_physician: false, urgent: false, metric_name: "heart rate"})
+      @borders[:heart_rate] = 'warning'
+    end
+
+    if @patient.alerts.exists?({resolved_physician: false, urgent: true, metric_name: "weight"})
+      @borders[:weight] = 'critical'
+    elsif @patient.alerts.exists?({resolved_physician: false, urgent: false, metric_name: "weight"})
+      @borders[:weight] = 'warning'
+    end
+
+    if @patient.alerts.exists?({resolved_physician: false, urgent: true, metric_name: "sodium"})
+      @borders[:sodium] = 'critical'
+    elsif @patient.alerts.exists?({resolved_physician: false, urgent: false, metric_name: "sodium"})
+      @borders[:sodium] = 'warning'
+    end
 	end
 
 	def detail

@@ -1,3 +1,18 @@
+/* finds the max - min of the elements in the given range of the array*/
+function getLocalDelta(i, j) {
+    var min = data[i][1];
+    var max = data[i][1];
+    for(; i<=j; i++) {
+        if(data[i][1] < min) {
+            min = data[i][1];
+        }
+        if(data[i][1] > max) {
+            max = data[i][1];
+        }
+    }
+    return max - min;
+}
+
 function parseData() {
     var regData = new Array();
     var irregData = new Array();
@@ -9,10 +24,10 @@ function parseData() {
 
     for(var i=0; i<data.length; i++) {
         var prevIdx = (i - timeThreshold > 0) ? i - timeThreshold  : 0;
-        var delta = data[i][1] - data[prevIdx][1];
+        var delta = getLocalDelta(prevIdx, i);
         if(delta >= weightThreshold || delta <= -weightThreshold) {
             for(var j=0; j<timeThreshold; j++){
-                regularity[i-j] = false;
+                regularity[i-j-1] = false;
             }
         }
     }
@@ -59,7 +74,7 @@ function populate_weight_container() {
             dateTimeLabelFormats: { // don't display the dummy year
                 month: '%b %e',
                 year: '%b'
-            },
+            }
 //            min: Date.UTC(2014, 0, 1)
         },
         yAxis: {
@@ -75,14 +90,14 @@ function populate_weight_container() {
         },
 
         series: [{
-                name: 'No Weight Gain over Last 5 Days',
-                color: '#00FF00',
-                data:regData
-            }, {
-                name: 'Weight Gain Over Last 5 Days',
-                color: '#FF0000',
-                lineWidth: 5,
-                data:irregData
-            }]
+            name: 'No Weight Change over Last 5 Days',
+            color: '#00FF00',
+            data:regData
+        }, {
+            name: 'Weight Change Over Last 5 Days',
+            color: '#FF0000',
+            lineWidth: 5,
+            data:irregData
+        }]
     });
 }
