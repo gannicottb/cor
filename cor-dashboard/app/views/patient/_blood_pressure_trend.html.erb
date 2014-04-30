@@ -6,6 +6,8 @@
 
     var systolicReading = <%= values[:systolic] %>;
     var diastolicReading = <%= values[:diastolic] %>;
+    systolicReading.sort();
+    diastolicReading.sort();
 <% end %>
 
 <div id="blood_pressure_trend_container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
