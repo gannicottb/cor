@@ -129,6 +129,15 @@
   padding-bottom: 15px;
 }
 
+.physiciannav li i {
+  margin: 10px 0px 0px 15px;
+}
+
+.physiciannav li a {
+  text-align: center;
+  margin-left: 10px;
+}
+
 .summarygraph-container {
   margin-top: 0px;
   min-height: 350px;
@@ -151,6 +160,10 @@
     border-color: yellow;
     border-width: 6px;
   }
+}
+
+#slidehorizontal {
+  padding: 5px;
 }
 
 a:hover {
@@ -204,7 +217,7 @@ li {
 
 .patientroster-container {
   margin-top: 0px;
-  min-width: 150px;
+  min-width: 230px;
   border-style: solid;
   border-color: #4cae4c;
   border-width: 6px;

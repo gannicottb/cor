@@ -1,19 +1,4 @@
   <div class="row" style="padding-left: 10px;">
-
-    <div>
-      <button><div id="slidehorizontal">Metrics</div></button> <br>
-    </div>
-    <div class="col col-sm-2" id="navvertical">
-      <ul>
-        <br>
-        <li><%= button_to "Weight", patient_weight_path, :remote => true, class:"btn btn-default w75", method: "get", id: "weight" %></li><br>
-        <li><%= button_to "Blood Pressure", patient_blood_pressure_path, :remote => true, class:"btn btn-default w75", method: "get", id: "bloodpress" %></li><br>
-        <li><%= link_to "Heart Rate", patient_heart_rate_trend_path, :remote => true, class:"btn btn-default w75", method: "get", id:"heartratetrend" %></li><br>
-        <li><%= link_to "Blood Oxygen", patient_blood_oxygen_path, :remote => true, class:"btn btn-default w75", method: "get", id:"bloodoxygen" %></li><br>
-        <li><%= link_to "Activity", patient_activity_log_path, :remote => true, class:"btn btn-default w75", method: "get", id:"activity" %></li><br>
-        <li><%= link_to "Sodium", patient_sodium_path, :remote => true, class:"btn btn-default w75", method: "get", id:"sodium" %></li><br>
-      </ul>
-    </div>
   <ul>
   <li>
 <div class="row">
@@ -34,6 +19,21 @@
       </div>
 </div>
 </div>
+
+    <div>
+      <button><div id="slidehorizontal">Change Metric</div></button> </br>
+    </div>
+    <div class="col col-sm-2" id="navvertical">
+      <ul>
+        <br>
+        <li><%= button_to "Weight", patient_weight_path, :remote => true, class:"btn btn-default w75", method: "get", id: "weight" %></li><br>
+        <li><%= button_to "Blood Pressure", patient_blood_pressure_path, :remote => true, class:"btn btn-default w75", method: "get", id: "bloodpress" %></li><br>
+        <li><%= link_to "Heart Rate", patient_heart_rate_trend_path, :remote => true, class:"btn btn-default w75", method: "get", id:"heartratetrend" %></li><br>
+        <li><%= link_to "Blood Oxygen", patient_blood_oxygen_path, :remote => true, class:"btn btn-default w75", method: "get", id:"bloodoxygen" %></li><br>
+        <li><%= link_to "Activity", patient_activity_log_path, :remote => true, class:"btn btn-default w75", method: "get", id:"activity" %></li><br>
+        <li><%= link_to "Sodium", patient_sodium_path, :remote => true, class:"btn btn-default w75", method: "get", id:"sodium" %></li><br>
+      </ul>
+    </div>
 <div class="col col-md-10">
   <br>
   <div class="col col-md-12" id="graph-container" align="center">
