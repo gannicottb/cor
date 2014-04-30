@@ -1,8 +1,7 @@
-<div class="col col-lg-2">
   <div class="row" style="padding-left: 10px;">
 
     <div>
-      <button><div id="slidehorizontal"><%= image_tag "hamburger.png" %></div></button> <br>
+      <button><div id="slidehorizontal">Metrics</div></button> <br>
     </div>
     <div class="col col-sm-2" id="navvertical">
       <ul>
@@ -17,16 +16,23 @@
     </div>
   <ul>
   <li>
-  <div class="col col-md-2" id="patientpic-container">
-    <img src="http://placehold.it/200x220"></img>
-    <h4 align="center"><%=@patient.name%></h4>
-    <h4 align="center"><%=@patient.phone_number%></h4>
-  </div>
-  </li>
-    <li> <div class="col col-md-2" id="patientinfo-container"></div>  </li> <br>
-    <li><div class="col col-md-2" id="medication-container"></div>   </li>
-   </ul>
-    </div>
+<div class="row">
+      <div class="col-sm-2 col-sm-offset-1" id="patientpic-container">
+        <img src="http://placehold.it/200x220"></img>
+        </div>
+      <div class="col-sm-2">
+       <ul>
+        <li><h4 align="center"><%=@patient.name%></h4></li>
+        <li><align="center"><%=@patient.phone_number%><li>
+      </div>
+      <div class="col col-md-2" id="medication-container">
+        <ul>
+          <li><h4>Medication</h4></li>
+          <li>Tylonel: 2 for pain</li>
+          <li>Vasotec</li>
+          <li>Coreg</li>
+      </div>
+</div>
 </div>
 <div class="col col-md-10">
   <br>
@@ -45,7 +51,6 @@
     <div id="table"></div>
   </div>
   <div class="col col-md-12" id="notes-container"></div>
-</div>
 
 <script>
     $(document).ready(function() {
