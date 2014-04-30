@@ -403,7 +403,7 @@ class Patient < ActiveRecord::Base
       weight_readings.each do |r|
         if !alerts.exists?(reading_id: r.id)
           relevant_weight_readings = weight_readings.where(reading_time: (r.reading_time - eval(threshold_values.weight)[:time].days) .. r.reading_time)
-          if(relevant_weight_readings.maximum(:weight) - relevant_weight_readings.minimum(:weight)>=eval(threshold_values.weight)[:weight])
+          if((relevant_weight_readings.maximum(:weight) - relevant_weight_readings.minimum(:weight)>=eval(threshold_values.weight)[:weight]) && !alerts.exists?(reading_id: relevant_weight_readings.order('weight desc').first.id))
             #create a new alert for this patient
             Alert.create(patient_id: id, urgent: true, reading_id: relevant_weight_readings.where(weight: relevant_weight_readings.maximum(:weight)).first().id, metric_name: "weight", text: "Change in weight has exceeded the threshold")
           end
