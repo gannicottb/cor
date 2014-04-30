@@ -128,19 +128,29 @@
   padding-bottom: 15px;
 }
 
-#summarygraph-container {
+.summarygraph-container {
   margin-top: 0px;
   min-height: 350px;
   min-width: 430px;
   border-style: solid;
-  border-color: #999999;
+  border-color: #4cae4c;
   box-shadow: 9px 9px 20px #787878;
-  border-width: 1px;
-  background-color: #4cae4c;
+  border-width: 6px;
+  background-color: #999999;
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
+
+  #critical{
+    border-color: red;
+    border-width: 6px;
+  }
+
+  #warning {
+    border-color: yellow;
+    border-width: 6px;
+  }
 }
 
 #patientpic-container {
@@ -193,9 +203,9 @@
   min-height: 200px;
   min-width: 150px;
   border-style: solid;
-  border-color: #F0F0F0;
+  border-color: #4cae4c;
   box-shadow: 9px 9px 20px #787878;
-  border-width: 3px;
+  border-width: 6px;
   background-color: #ffffff;
   padding-top: 10px;
   padding-left: 10px;

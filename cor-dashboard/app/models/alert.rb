@@ -1,5 +1,5 @@
 class Alert < ActiveRecord::Base
-	attr_accessible :patient_id, :resolved_physician, :resolved_patient, :urgent, :reading_id, :created_date, :text
+	attr_accessible :patient_id, :resolved_physician, :resolved_patient, :urgent, :reading_id, :created_date, :text, :metric_name
 	belongs_to :patient
 	after_initialize :default_values
   

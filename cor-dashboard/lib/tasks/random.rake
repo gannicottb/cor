@@ -8,7 +8,7 @@ namespace :db do
     names = ["Bob", "Adam", "Jay", "Abhishek", "Greg", "Brandon", "Harvey", "Bruce", "Tyler", "Michael",
     					"Veronica", "Sandy", "Rita", "Ashe", "Wanda", "Jisha","Sreejita","Abby","Ranika","Crystal"]
     20.times do
-    	patient = Patient.create(:physician_id => physician.id, :name => names.sample)
+    	patient = Patient.create(:physician_id => physician.id, :name => names.sample, :phone_number => Random.new.rand(1000000000 .. 9999999999))
 
 			90.times do |i|
 				Ema.create(:patient_id => patient.id, :sodium_level => ["High", "Low", "Medium"].sample, :reading_time => Time.now-i.days) 
