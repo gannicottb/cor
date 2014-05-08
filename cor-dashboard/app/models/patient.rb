@@ -27,7 +27,7 @@ class Patient < ActiveRecord::Base
       #Weight Summary 
       wt_thresh = eval(threshold_values.weight)
       wt_over_interval = weight_readings.last_n_days(wt_thresh[:time]).map {|r| r.weight}
-      wt_change = wt_over_interval.max - wt_over_interval.min
+      wt_change = wt_over_interval.length == 0 ? 0 : wt_over_interval.max - wt_over_interval.min
       if wt_change >= wt_thresh[:weight] # I'm hardcoding the max weight gain we expect
         wt_summ = map(wt_change, wt_thresh[:weight], 10, 5, 6 )
       else # I'm also hardcoding the max weight loss we expect
