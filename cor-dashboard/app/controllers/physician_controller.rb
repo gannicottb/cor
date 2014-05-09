@@ -1,7 +1,9 @@
+#The controller class for the physician dashboard
 class PhysicianController < ApplicationController
 
 	respond_to :html, :js
 
+  #Get all the patients for the physician id and apply border style based on whether any alert is pending
 	def roster	
 		@physician = Physician.take
 		@patients = @physician.patients
@@ -15,10 +17,12 @@ class PhysicianController < ApplicationController
         end
 	end 
 
+  #Should display only patients with pending alerts - Not implemented
 	def critical_patients
 		
 	end
 
+  #Generate and show alerts for all the patients belonging to this physician
 	def alerts
     @alerts = {}
     @physician = Physician.take
@@ -28,14 +32,18 @@ class PhysicianController < ApplicationController
     end
 	end
 
+  #Should display patient details- unclear - to be changed when implemented
 	def patients
 		
 	end
 
+  #Get settings for the physician -- To be implemented
 	def settings
 		
 	end
 
+  #Get the summary page for the particular patient belonging to this physician. Get and display all the default charts
+  #and highlight metric if alerts pending against it
 	def summary
 		@physician = Physician.take
 		@patient = Patient.find(params[:id])
@@ -79,6 +87,7 @@ class PhysicianController < ApplicationController
     end
 	end
 
+  #Get all the detailed data for all the metrics for this particular patient belonging to this physician
 	def detail
         @values = {}
         @metric = params[:metric]

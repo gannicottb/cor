@@ -1,3 +1,4 @@
+#The blood pressure readings model class
 class BloodPressureReading < ActiveRecord::Base
 	attr_accessible :patient_id, :bp_sensor_id, :systolic_bp, :diastolic_bp, :reading_time, :created_date
 	belongs_to :patient
@@ -6,10 +7,6 @@ class BloodPressureReading < ActiveRecord::Base
     self.table_name = "blood_pressure_raw"
     alias_attribute :systolic_bp, :systolic
     alias_attribute :diastolic_bp, :diastolic
-  end
-
-	def current
-		BloodPressureReading.take
   end
 
   scope :latest, -> {limit(1).order('reading_time desc').first}

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class PatientController - Rails Application Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-activity_log">#activity_log</a>
+    
+    <li ><a href="#method-i-alerts">#alerts</a>
+    
+    <li ><a href="#method-i-blood_oxygen">#blood_oxygen</a>
+    
+    <li ><a href="#method-i-blood_pressure">#blood_pressure</a>
+    
+    <li ><a href="#method-i-cough">#cough</a>
+    
+    <li ><a href="#method-i-exercise_log">#exercise_log</a>
+    
+    <li ><a href="#method-i-health_summary">#health_summary</a>
+    
+    <li ><a href="#method-i-heart_rate">#heart_rate</a>
+    
+    <li ><a href="#method-i-medication">#medication</a>
+    
+    <li ><a href="#method-i-metrics">#metrics</a>
+    
+    <li ><a href="#method-i-patient_plan">#patient_plan</a>
+    
+    <li ><a href="#method-i-settings">#settings</a>
+    
+    <li ><a href="#method-i-sodium">#sodium</a>
+    
+    <li ><a href="#method-i-weight">#weight</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-PatientController">
+  <h1 id="class-PatientController" class="class">
+    class PatientController
+  </h1>
+
+  <section class="description">
+    
+<p>The controller class for the patient dashboard</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-activity_log" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">activity_log</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch activity log data by patient_id over default time period</p>
+          
+          
+
+          
+          <div class="method-source-code" id="activity_log-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">activity_log</span>
+  <span class="ruby-comment">#redirect to activity_log</span>
+  <span class="ruby-ivar">@patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span>
+  <span class="ruby-ivar">@exercise_log</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">activity_log</span>[<span class="ruby-value">:exercise</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-alerts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alerts</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch alerts data by patient_id</p>
+          
+          
+
+          
+          <div class="method-source-code" id="alerts-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">alerts</span>
+  <span class="ruby-ivar">@patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span>
+  <span class="ruby-ivar">@alerts</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">scanForAlerts</span>
+  <span class="ruby-comment">#redirect to alerts</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_oxygen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_oxygen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch blood oxygen data by patient_id over default time period</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_oxygen-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_oxygen</span>
+  <span class="ruby-identifier">patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span>  
+  <span class="ruby-identifier">bundle</span> = <span class="ruby-identifier">patient</span>.<span class="ruby-identifier">blood_oxygen</span>
+  <span class="ruby-ivar">@threshold</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+  <span class="ruby-ivar">@values</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_pressure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_pressure</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch blood pressure data by patient_id over default time period</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_pressure-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_pressure</span>
+  <span class="ruby-identifier">patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span>         
+  <span class="ruby-identifier">bundle</span> = <span class="ruby-identifier">patient</span>.<span class="ruby-identifier">blood_pressure</span>
+  <span class="ruby-ivar">@threshold</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+  <span class="ruby-ivar">@values</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cough" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cough</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch cough data by patient_id over default time period – To be implemented</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cough-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cough</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exercise_log" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exercise_log</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch exercise log data by patient_id over default time period</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exercise_log-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exercise_log</span>
+  <span class="ruby-ivar">@patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span>
+  <span class="ruby-ivar">@exercise_log</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">activity_log</span>[<span class="ruby-value">:exercise</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-health_summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">health_summary</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch summary data by patient_id</p>
+          
+          
+
+          
+          <div class="method-source-code" id="health_summary-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">health_summary</span>
+  <span class="ruby-identifier">patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span>
+  <span class="ruby-ivar">@values</span> = <span class="ruby-identifier">patient</span>.<span class="ruby-identifier">health_summary</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-heart_rate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">heart_rate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch heart rate data by patient_id over default time period</p>
+          
+          
+
+          
+          <div class="method-source-code" id="heart_rate-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">heart_rate</span>   
+  <span class="ruby-identifier">patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span>        
+  <span class="ruby-identifier">bundle</span> = <span class="ruby-identifier">patient</span>.<span class="ruby-identifier">heart_rate</span>
+  <span class="ruby-ivar">@threshold</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+  <span class="ruby-ivar">@values</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+  <span class="ruby-ivar">@variability</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:variability</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-medication" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">medication</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch medication data by patient_id over default time period – To be
+implemented</p>
+          
+          
+
+          
+          <div class="method-source-code" id="medication-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">medication</span>    
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-metrics" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">metrics</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch summary data by patient_id by default</p>
+          
+          
+
+          
+          <div class="method-source-code" id="metrics-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">metrics</span>
+  <span class="ruby-comment">#@patient = Patient.find(params[:id]) </span>
+  <span class="ruby-ivar">@patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span>
+  <span class="ruby-comment">#Have to get this data here too, since we start with health summary</span>
+  <span class="ruby-ivar">@values</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">health_summary</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-patient_plan" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">patient_plan</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch <a
+href="PatientController.html#method-i-patient_plan">#patient_plan</a> data
+by patient_id – To be implemented</p>
+          
+          
+
+          
+          <div class="method-source-code" id="patient_plan-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">patient_plan</span>
+  <span class="ruby-comment">#redirect to patient_plan</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-settings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">settings</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch settings data by patient_id – To be implemented</p>
+          
+          
+
+          
+          <div class="method-source-code" id="settings-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">settings</span>
+  <span class="ruby-comment">#redirect to settings</span>
+  <span class="ruby-ivar">@patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sodium" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sodium</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch sodium data by patient_id over default time period</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sodium-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sodium</span>
+  <span class="ruby-identifier">patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span> 
+  <span class="ruby-identifier">bundle</span> = <span class="ruby-identifier">patient</span>.<span class="ruby-identifier">sodium</span>
+  <span class="ruby-ivar">@threshold</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+  <span class="ruby-ivar">@values</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-weight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">weight</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch weight data by patient_id over default time period</p>
+          
+          
+
+          
+          <div class="method-source-code" id="weight-source">
+            <pre><span class="ruby-comment"># File app/controllers/patient_controller.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">weight</span>
+  <span class="ruby-identifier">patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">take</span>      
+  <span class="ruby-identifier">bundle</span> = <span class="ruby-identifier">patient</span>.<span class="ruby-identifier">weight</span>
+  <span class="ruby-ivar">@threshold</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+  <span class="ruby-ivar">@values</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,2 +1,3 @@
+#WeightReadingsHelper module
 module WeightReadingsHelper
 end

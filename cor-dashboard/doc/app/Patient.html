@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class Patient - Rails Application Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ActiveRecord::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-activity_log">#activity_log</a>
+    
+    <li ><a href="#method-i-activity_log_last_2_weeks">#activity_log_last_2_weeks</a>
+    
+    <li ><a href="#method-i-activity_log_last_month">#activity_log_last_month</a>
+    
+    <li ><a href="#method-i-avg">#avg</a>
+    
+    <li ><a href="#method-i-blood_oxygen">#blood_oxygen</a>
+    
+    <li ><a href="#method-i-blood_oxygen_last_2_weeks">#blood_oxygen_last_2_weeks</a>
+    
+    <li ><a href="#method-i-blood_oxygen_last_month">#blood_oxygen_last_month</a>
+    
+    <li ><a href="#method-i-blood_oxygen_last_six_months">#blood_oxygen_last_six_months</a>
+    
+    <li ><a href="#method-i-blood_oxygen_last_three_months">#blood_oxygen_last_three_months</a>
+    
+    <li ><a href="#method-i-blood_oxygen_last_year">#blood_oxygen_last_year</a>
+    
+    <li ><a href="#method-i-blood_pressure">#blood_pressure</a>
+    
+    <li ><a href="#method-i-blood_pressure_last_2_weeks">#blood_pressure_last_2_weeks</a>
+    
+    <li ><a href="#method-i-blood_pressure_last_month">#blood_pressure_last_month</a>
+    
+    <li ><a href="#method-i-blood_pressure_last_six_months">#blood_pressure_last_six_months</a>
+    
+    <li ><a href="#method-i-blood_pressure_last_three_months">#blood_pressure_last_three_months</a>
+    
+    <li ><a href="#method-i-blood_pressure_last_week">#blood_pressure_last_week</a>
+    
+    <li ><a href="#method-i-blood_pressure_last_year">#blood_pressure_last_year</a>
+    
+    <li ><a href="#method-i-change">#change</a>
+    
+    <li ><a href="#method-i-health_summary">#health_summary</a>
+    
+    <li ><a href="#method-i-heart_rate">#heart_rate</a>
+    
+    <li ><a href="#method-i-heart_rate_last_2_weeks">#heart_rate_last_2_weeks</a>
+    
+    <li ><a href="#method-i-heart_rate_last_month">#heart_rate_last_month</a>
+    
+    <li ><a href="#method-i-heart_rate_last_six_months">#heart_rate_last_six_months</a>
+    
+    <li ><a href="#method-i-heart_rate_last_three_months">#heart_rate_last_three_months</a>
+    
+    <li ><a href="#method-i-heart_rate_last_week">#heart_rate_last_week</a>
+    
+    <li ><a href="#method-i-heart_rate_last_year">#heart_rate_last_year</a>
+    
+    <li ><a href="#method-i-map">#map</a>
+    
+    <li ><a href="#method-i-max">#max</a>
+    
+    <li ><a href="#method-i-scanForAlerts">#scanForAlerts</a>
+    
+    <li ><a href="#method-i-sodium">#sodium</a>
+    
+    <li ><a href="#method-i-sodiumStringToInt">#sodiumStringToInt</a>
+    
+    <li ><a href="#method-i-sodium_last_2_weeks">#sodium_last_2_weeks</a>
+    
+    <li ><a href="#method-i-sodium_last_month">#sodium_last_month</a>
+    
+    <li ><a href="#method-i-sodium_last_six_months">#sodium_last_six_months</a>
+    
+    <li ><a href="#method-i-sodium_last_three_months">#sodium_last_three_months</a>
+    
+    <li ><a href="#method-i-sodium_last_year">#sodium_last_year</a>
+    
+    <li ><a href="#method-i-weight">#weight</a>
+    
+    <li ><a href="#method-i-weight_last_month">#weight_last_month</a>
+    
+    <li ><a href="#method-i-weight_last_six_months">#weight_last_six_months</a>
+    
+    <li ><a href="#method-i-weight_last_three_months">#weight_last_three_months</a>
+    
+    <li ><a href="#method-i-weight_last_week">#weight_last_week</a>
+    
+    <li ><a href="#method-i-weight_last_year">#weight_last_year</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Patient">
+  <h1 id="class-Patient" class="class">
+    class Patient
+  </h1>
+
+  <section class="description">
+    
+<p>The patient model class</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-activity_log" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">activity_log</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Activity.html">Activity</a> Log for last week</p>
+          
+          
+
+          
+          <div class="method-source-code" id="activity_log-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 308</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">activity_log</span>
+  <span class="ruby-comment">#Package up the data for the activity log page</span>
+  <span class="ruby-keyword">return</span>  {<span class="ruby-identifier">exercise</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">sedentary</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sedentary_minutes</span>},
+                    <span class="ruby-identifier">lightly_active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">lightly_active_minutes</span>},
+                    <span class="ruby-identifier">fairly_active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">fairly_active_minutes</span>},
+                    <span class="ruby-identifier">very_active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">very_active_minutes</span>},
+                    <span class="ruby-identifier">steps</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">steps</span>},
+                    <span class="ruby-identifier">days</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%B %d&quot;</span>)}
+                    },
+          <span class="ruby-identifier">sleep</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">sleep_efficiency</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sleep_efficiency</span>},
+                  <span class="ruby-identifier">number_of_awakenings</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">number_of_awakenings</span>},
+                  <span class="ruby-identifier">minutes</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">minutes_asleep</span>}
+                 }
+          }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-activity_log_last_2_weeks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">activity_log_last_2_weeks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Activity.html">Activity</a> Log for last 2 weeks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="activity_log_last_2_weeks-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 325</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">activity_log_last_2_weeks</span>
+  <span class="ruby-comment">#Package up the data for the activity log page</span>
+  <span class="ruby-keyword">return</span>  {<span class="ruby-identifier">exercise</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">sedentary</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sedentary_minutes</span>},
+                      <span class="ruby-identifier">lightly_active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">lightly_active_minutes</span>},
+                      <span class="ruby-identifier">fairly_active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">fairly_active_minutes</span>},
+                      <span class="ruby-identifier">very_active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">very_active_minutes</span>},
+                      <span class="ruby-identifier">steps</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">steps</span>},
+                      <span class="ruby-identifier">days</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%B %d&quot;</span>)}
+  },
+           <span class="ruby-identifier">sleep</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">sleep_efficiency</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sleep_efficiency</span>},
+                   <span class="ruby-identifier">number_of_awakenings</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">number_of_awakenings</span>},
+                   <span class="ruby-identifier">minutes</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">minutes_asleep</span>}
+           }
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-activity_log_last_month" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">activity_log_last_month</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Activity.html">Activity</a> Log for last month</p>
+          
+          
+
+          
+          <div class="method-source-code" id="activity_log_last_month-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">activity_log_last_month</span>
+  <span class="ruby-comment">#Package up the data for the activity log page</span>
+  <span class="ruby-keyword">return</span>  {<span class="ruby-identifier">exercise</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">sedentary</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sedentary_minutes</span>},
+                      <span class="ruby-identifier">lightly_active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">lightly_active_minutes</span>},
+                      <span class="ruby-identifier">fairly_active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">fairly_active_minutes</span>},
+                      <span class="ruby-identifier">very_active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">very_active_minutes</span>},
+                      <span class="ruby-identifier">steps</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">steps</span>},
+                      <span class="ruby-identifier">days</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%B %d&quot;</span>)}
+  },
+           <span class="ruby-identifier">sleep</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">sleep_efficiency</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sleep_efficiency</span>},
+                   <span class="ruby-identifier">number_of_awakenings</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">number_of_awakenings</span>},
+                   <span class="ruby-identifier">minutes</span><span class="ruby-operator">:</span> <span class="ruby-identifier">activities</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">minutes_asleep</span>}
+           }
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-avg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">avg</span><span
+            class="method-args">(val1, val2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper function to average values</p>
+          
+          
+
+          
+          <div class="method-source-code" id="avg-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 450</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">avg</span>(<span class="ruby-identifier">val1</span>, <span class="ruby-identifier">val2</span>)
+  (<span class="ruby-identifier">val1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">val2</span>) <span class="ruby-operator">/</span> <span class="ruby-value">2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_oxygen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_oxygen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood oxygen for last week</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_oxygen-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_oxygen</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">bo_perc</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_oxygen_readings</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">bo_perc</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_oxygen_last_2_weeks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_oxygen_last_2_weeks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood oxygen for last 2 weeks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_oxygen_last_2_weeks-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_oxygen_last_2_weeks</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">bo_perc</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_oxygen_readings</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">bo_perc</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_oxygen_last_month" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_oxygen_last_month</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood oxygen for last month</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_oxygen_last_month-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_oxygen_last_month</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">bo_perc</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_oxygen_readings</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">bo_perc</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_oxygen_last_six_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_oxygen_last_six_months</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood oxygen for last 6 months</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_oxygen_last_six_months-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_oxygen_last_six_months</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">bo_perc</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_oxygen_readings</span>.<span class="ruby-identifier">last_six_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">bo_perc</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_oxygen_last_three_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_oxygen_last_three_months</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood oxygen for last 3 months</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_oxygen_last_three_months-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_oxygen_last_three_months</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">bo_perc</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_oxygen_readings</span>.<span class="ruby-identifier">last_three_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">bo_perc</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_oxygen_last_year" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_oxygen_last_year</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood oxygen for last year</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_oxygen_last_year-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_oxygen_last_year</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">bo_perc</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_oxygen_readings</span>.<span class="ruby-identifier">last_year</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">bo_perc</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_pressure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_pressure</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood Pressure latest reading</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_pressure-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_pressure</span>
+    <span class="ruby-identifier">r</span> = <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">latest</span>
+    <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> {<span class="ruby-value">:systolic</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">systolic_bp</span>),
+                        <span class="ruby-value">:diastolic</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">diastolic_bp</span>)} ,
+    <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">systolic_bp</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">diastolic_bp</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_pressure_last_2_weeks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_pressure_last_2_weeks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood Pressure for last 2 weeks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_pressure_last_2_weeks-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_pressure_last_2_weeks</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">systolic_bp</span>),
+                      <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">diastolic_bp</span>)} ,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">systolic_bp</span>] },
+                   <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">diastolic_bp</span>] }} }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_pressure_last_month" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_pressure_last_month</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood Pressure for last month</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_pressure_last_month-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_pressure_last_month</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">systolic_bp</span>),
+                      <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">diastolic_bp</span>)} ,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">systolic_bp</span>] },
+                   <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">diastolic_bp</span>] }} }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_pressure_last_six_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_pressure_last_six_months</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood Pressure for last 6 months</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_pressure_last_six_months-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 292</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_pressure_last_six_months</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">systolic_bp</span>),
+                      <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">diastolic_bp</span>)} ,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_six_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">systolic_bp</span>] },
+                   <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_six_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">diastolic_bp</span>] }} }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_pressure_last_three_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_pressure_last_three_months</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood Pressure for last 3 months</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_pressure_last_three_months-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_pressure_last_three_months</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">systolic_bp</span>),
+                      <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">diastolic_bp</span>)} ,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_three_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">systolic_bp</span>] },
+                   <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_three_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">diastolic_bp</span>] }} }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_pressure_last_week" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_pressure_last_week</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood Pressure for last week</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_pressure_last_week-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 260</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_pressure_last_week</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">systolic_bp</span>),
+                      <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">diastolic_bp</span>)} ,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">systolic_bp</span>] },
+                    <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">diastolic_bp</span>] }} }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blood_pressure_last_year" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blood_pressure_last_year</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blood Pressure for last year</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blood_pressure_last_year-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 300</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blood_pressure_last_year</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">systolic_bp</span>),
+                      <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">diastolic_bp</span>)} ,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> {<span class="ruby-identifier">systolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_year</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">systolic_bp</span>] },
+                   <span class="ruby-identifier">diastolic</span><span class="ruby-operator">:</span> <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">last_year</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">diastolic_bp</span>] }} }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-change" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">change</span><span
+            class="method-args">(val1, val2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper function to find change in value with respect to the second value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="change-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 455</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">change</span>(<span class="ruby-identifier">val1</span>, <span class="ruby-identifier">val2</span>)
+  (<span class="ruby-identifier">val1</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">val2</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">val2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-health_summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">health_summary</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Basic premise: Average the readings for last two weeks // Read most recent
+reading Compare to an ideal “green” value if possible. Value to send to
+summary graph is mapped from its range to appropriate graph range</p>
+          
+          
+
+          
+          <div class="method-source-code" id="health_summary-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">health_summary</span>
+
+  <span class="ruby-comment">#Weight Summary </span>
+  <span class="ruby-identifier">wt_thresh</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">weight</span>)
+  <span class="ruby-identifier">wt_over_interval</span> = <span class="ruby-identifier">weight_readings</span>.<span class="ruby-identifier">last_n_days</span>(<span class="ruby-identifier">wt_thresh</span>[<span class="ruby-value">:time</span>]).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">weight</span>}
+  <span class="ruby-identifier">wt_change</span> = <span class="ruby-identifier">wt_over_interval</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">wt_over_interval</span>.<span class="ruby-identifier">max</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">wt_over_interval</span>.<span class="ruby-identifier">min</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">wt_change</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">wt_thresh</span>[<span class="ruby-value">:weight</span>] <span class="ruby-comment"># I'm hardcoding the max weight gain we expect</span>
+    <span class="ruby-identifier">wt_summ</span> = <span class="ruby-identifier">map</span>(<span class="ruby-identifier">wt_change</span>, <span class="ruby-identifier">wt_thresh</span>[<span class="ruby-value">:weight</span>], <span class="ruby-value">10</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span> )
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># I'm also hardcoding the max weight loss we expect</span>
+    <span class="ruby-identifier">wt_summ</span> = <span class="ruby-identifier">map</span>(<span class="ruby-identifier">wt_change</span>, <span class="ruby-value">-10</span>, <span class="ruby-identifier">wt_thresh</span>[<span class="ruby-value">:weight</span>], <span class="ruby-value">2.5</span>, <span class="ruby-value">3.5</span>)
+  <span class="ruby-keyword">end</span>    
+
+  <span class="ruby-comment">#Blood Oxygen Summary  </span>
+
+  <span class="ruby-identifier">bo_current</span> = <span class="ruby-identifier">blood_oxygen_readings</span>.<span class="ruby-identifier">latest</span>.<span class="ruby-identifier">bo_perc</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">bo_current</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">bo_perc</span> <span class="ruby-comment"># Map good values to the 2.5-3 zone</span>
+    <span class="ruby-identifier">bo_summ</span> = <span class="ruby-identifier">map</span>(<span class="ruby-identifier">bo_current</span>, <span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">bo_perc</span>, <span class="ruby-value">100.0</span>, <span class="ruby-value">2.5</span>, <span class="ruby-value">3</span>)
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># Map bad values to the 0-2 zone</span>
+    <span class="ruby-identifier">bo_summ</span> = <span class="ruby-identifier">map</span>(<span class="ruby-identifier">bo_current</span>, <span class="ruby-value">60.0</span>, <span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">bo_perc</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1.5</span>)
+  <span class="ruby-keyword">end</span>  
+  
+  <span class="ruby-comment">#Blood Pressure Summary</span>
+
+    <span class="ruby-comment"># The value would be perfectly in the green zone if it was between the high and low thresholds</span>
+  <span class="ruby-identifier">green_sys</span> = <span class="ruby-identifier">avg</span>(<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">systolic_bp</span>)[<span class="ruby-value">:high</span>] , <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">systolic_bp</span>)[<span class="ruby-value">:low</span>]).<span class="ruby-identifier">to_f</span>
+  <span class="ruby-identifier">green_dia</span> = <span class="ruby-identifier">avg</span>(<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">diastolic_bp</span>)[<span class="ruby-value">:high</span>], <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">diastolic_bp</span>)[<span class="ruby-value">:low</span>]).<span class="ruby-identifier">to_f</span>
+ 
+  <span class="ruby-identifier">bp_sys_current</span> = <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">latest</span>.<span class="ruby-identifier">systolic_bp</span>.<span class="ruby-identifier">to_f</span>
+  <span class="ruby-identifier">bp_dia_current</span> = <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">latest</span>.<span class="ruby-identifier">diastolic_bp</span>.<span class="ruby-identifier">to_f</span>
+  
+  <span class="ruby-identifier">bp_sys_change</span> = <span class="ruby-identifier">change</span>(<span class="ruby-identifier">bp_sys_current</span>, <span class="ruby-identifier">green_sys</span>)
+  <span class="ruby-identifier">bp_dia_change</span> = <span class="ruby-identifier">change</span>(<span class="ruby-identifier">bp_dia_current</span>, <span class="ruby-identifier">green_dia</span>)
+
+    <span class="ruby-comment"># Whichever change is bigger (because we consider the &quot;worst&quot; bp value)      </span>
+  <span class="ruby-identifier">bp_change</span> = <span class="ruby-identifier">max</span>(<span class="ruby-identifier">bp_sys_change</span>, <span class="ruby-identifier">bp_dia_change</span>)
+
+  <span class="ruby-identifier">bp_summ</span> = <span class="ruby-identifier">map</span>(<span class="ruby-identifier">bp_change</span>, <span class="ruby-value">-1.0</span>, <span class="ruby-value">1.0</span>, <span class="ruby-value">0.5</span>, <span class="ruby-value">5.5</span>)
+
+  <span class="ruby-comment">#Heart Rate Summary</span>
+  <span class="ruby-identifier">green_hr</span> = <span class="ruby-identifier">avg</span>(<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>)[<span class="ruby-value">:high</span>], <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>)[<span class="ruby-value">:low</span>])  
+ 
+  <span class="ruby-identifier">hr_curr</span> = <span class="ruby-identifier">heart_rate_readings</span>.<span class="ruby-identifier">latest</span>.<span class="ruby-identifier">heart_rate</span> 
+  <span class="ruby-identifier">hr_high</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>)[<span class="ruby-value">:high</span>]
+  <span class="ruby-identifier">hr_low</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>)[<span class="ruby-value">:low</span>]
+ 
+  <span class="ruby-keyword">if</span>(<span class="ruby-identifier">hr_curr</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">hr_low</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">hr_curr</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">hr_high</span>)
+    <span class="ruby-identifier">hr_summ</span> = <span class="ruby-identifier">map</span>(<span class="ruby-identifier">hr_curr</span>, <span class="ruby-identifier">hr_low</span>, <span class="ruby-identifier">hr_high</span>, <span class="ruby-value">2.5</span>, <span class="ruby-value">3.5</span>)
+  <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">hr_curr</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">hr_high</span>)
+    <span class="ruby-identifier">hr_summ</span> = <span class="ruby-identifier">map</span>(<span class="ruby-identifier">hr_curr</span>, <span class="ruby-identifier">hr_high</span>, <span class="ruby-value">200</span>, <span class="ruby-value">4.5</span>, <span class="ruby-value">5.5</span>)
+  <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">hr_curr</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">hr_low</span>)
+    <span class="ruby-identifier">hr_summ</span> = <span class="ruby-identifier">map</span>(<span class="ruby-identifier">hr_curr</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">hr_low</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1.5</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment">#Sodium Summary</span>
+ 
+  <span class="ruby-identifier">so_curr</span> = <span class="ruby-identifier">sodiumStringToInt</span>(<span class="ruby-identifier">emas</span>.<span class="ruby-identifier">latest</span>.<span class="ruby-identifier">sodium_level</span>)
+  
+  <span class="ruby-identifier">so_summ</span> = <span class="ruby-identifier">map</span>(<span class="ruby-identifier">so_curr</span>, <span class="ruby-value">1</span>,<span class="ruby-value">3</span>, <span class="ruby-value">3</span>, <span class="ruby-value">5</span>) <span class="ruby-comment"># Low is best, so it's in the green. Medium is on the border, High in the red</span>
+  
+  <span class="ruby-comment"># The map function converts a value from one range to another (see at foot of file)     </span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">weight</span><span class="ruby-operator">:</span> <span class="ruby-identifier">wt_summ</span>, 
+          <span class="ruby-identifier">heart_rate</span><span class="ruby-operator">:</span> <span class="ruby-identifier">hr_summ</span>, 
+          <span class="ruby-identifier">blood_oxygen</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bo_summ</span>,                       
+          <span class="ruby-identifier">blood_pressure</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bp_summ</span>,              
+          <span class="ruby-identifier">sodium</span><span class="ruby-operator">:</span> <span class="ruby-identifier">so_summ</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-heart_rate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">heart_rate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Heart Rate latest reading</p>
+          
+          
+
+          
+          <div class="method-source-code" id="heart_rate-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">heart_rate</span>    
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">heart_rate_readings</span>.<span class="ruby-identifier">latest</span>
+    <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>), 
+                            <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">heart_rate</span>],
+          <span class="ruby-identifier">variability</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">heart_rate_variability</span> }  
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-heart_rate_last_2_weeks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">heart_rate_last_2_weeks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Heart Rate for last 2 weeks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="heart_rate_last_2_weeks-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">heart_rate_last_2_weeks</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">heart_rate_readings</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">heart_rate</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-heart_rate_last_month" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">heart_rate_last_month</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Heart Rate for last month</p>
+          
+          
+
+          
+          <div class="method-source-code" id="heart_rate_last_month-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">heart_rate_last_month</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">heart_rate_readings</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">heart_rate</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-heart_rate_last_six_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">heart_rate_last_six_months</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Heart Rate for last 6 months</p>
+          
+          
+
+          
+          <div class="method-source-code" id="heart_rate_last_six_months-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">heart_rate_last_six_months</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">heart_rate_readings</span>.<span class="ruby-identifier">last_six_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">heart_rate</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-heart_rate_last_three_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">heart_rate_last_three_months</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Heart Rate for last 3 months</p>
+          
+          
+
+          
+          <div class="method-source-code" id="heart_rate_last_three_months-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">heart_rate_last_three_months</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">heart_rate_readings</span>.<span class="ruby-identifier">last_three_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">heart_rate</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-heart_rate_last_week" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">heart_rate_last_week</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Heart Rate for last week</p>
+          
+          
+
+          
+          <div class="method-source-code" id="heart_rate_last_week-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">heart_rate_last_week</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">heart_rate_readings</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">heart_rate</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-heart_rate_last_year" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">heart_rate_last_year</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Heart Rate for last year</p>
+          
+          
+
+          
+          <div class="method-source-code" id="heart_rate_last_year-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">heart_rate_last_year</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">heart_rate_readings</span>.<span class="ruby-identifier">last_year</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">heart_rate</span>] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">map</span><span
+            class="method-args">(x, in_min, in_max, out_min, out_max)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>more or less copied from Arduino library for summary graph</p>
+          
+          
+
+          
+          <div class="method-source-code" id="map-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 445</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">map</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">in_min</span>, <span class="ruby-identifier">in_max</span>, <span class="ruby-identifier">out_min</span>, <span class="ruby-identifier">out_max</span>)
+  (<span class="ruby-identifier">x</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">in_min</span>) <span class="ruby-operator">*</span> (<span class="ruby-identifier">out_max</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">out_min</span>) <span class="ruby-operator">/</span> (<span class="ruby-identifier">in_max</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">in_min</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">out_min</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-max" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">max</span><span
+            class="method-args">(val1, val2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper function to find the maximum between the 2 supplied values</p>
+          
+          
+
+          
+          <div class="method-source-code" id="max-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 460</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">max</span>(<span class="ruby-identifier">val1</span>, <span class="ruby-identifier">val2</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">val1</span>.<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">val2</span>.<span class="ruby-identifier">abs</span>
+    <span class="ruby-identifier">val1</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">val2</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-scanForAlerts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scanForAlerts</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check all recent readings with threshold values and create Alerts</p>
+          
+          
+
+          
+          <div class="method-source-code" id="scanForAlerts-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 359</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scanForAlerts</span>
+  <span class="ruby-comment">#for each blood oxygen reading, compare with threshold</span>
+  <span class="ruby-identifier">blood_oxygen_readings</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">bo_perc</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">bo_perc</span>
+        <span class="ruby-comment">#create a new alert for this patient</span>
+        <span class="ruby-constant">Alert</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">patient_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;blood oxygen&quot;</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Blood Oxygen is under threshold&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">heartRateThreshValues</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">heart_rate</span>)
+  <span class="ruby-identifier">heart_rate_readings</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">heart_rate</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">heartRateThreshValues</span>[<span class="ruby-value">:high</span>]
+        <span class="ruby-comment">#create a new alert for this patient</span>
+        <span class="ruby-constant">Alert</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">patient_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;heart rate&quot;</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Heart Rate above threshold&quot;</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">heart_rate</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">heartRateThreshValues</span>[<span class="ruby-value">:low</span>]
+        <span class="ruby-comment">#create a new alert for this patient</span>
+        <span class="ruby-constant">Alert</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">patient_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;heart rate&quot;</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Heart Rate below threshold&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">thresholdSystolic</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">systolic_bp</span>)
+  <span class="ruby-identifier">thresholdDiastolic</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">diastolic_bp</span>)
+
+  <span class="ruby-identifier">blood_pressure_readings</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">systolic_bp</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">thresholdSystolic</span>[<span class="ruby-value">:high</span>]
+        <span class="ruby-comment">#create a new alert for this patient</span>
+        <span class="ruby-constant">Alert</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">patient_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;blood pressure&quot;</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Blood Pressure (Systolic) is HIGH&quot;</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">systolic_bp</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">thresholdSystolic</span>[<span class="ruby-value">:low</span>]
+        <span class="ruby-comment">#create a new alert for this patient</span>
+        <span class="ruby-constant">Alert</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">patient_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;blood pressure&quot;</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Blood Pressure (Systolic) is LOW&quot;</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">diastolic_bp</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">thresholdDiastolic</span>[<span class="ruby-value">:high</span>]
+        <span class="ruby-comment">#create a new alert for this patient</span>
+        <span class="ruby-constant">Alert</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">patient_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;blood pressure&quot;</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Blood Pressure (Diastolic) is HIGH&quot;</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">diastolic_bp</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">thresholdDiastolic</span>[<span class="ruby-value">:low</span>]
+        <span class="ruby-comment">#create a new alert for this patient</span>
+        <span class="ruby-constant">Alert</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">patient_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;blood pressure&quot;</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Blood Pressure (Diastolic) is LOW&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">emas</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sodium_level</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;High&quot;</span>
+        <span class="ruby-comment">#create a new alert for this patient</span>
+        <span class="ruby-constant">Alert</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">patient_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;sodium&quot;</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Sodium Level is high&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">weight_readings</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-identifier">relevant_weight_readings</span> = <span class="ruby-identifier">weight_readings</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">reading_time</span><span class="ruby-operator">:</span> (<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">weight</span>)[<span class="ruby-value">:time</span>].<span class="ruby-identifier">days</span>) <span class="ruby-operator">..</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>)
+      <span class="ruby-keyword">if</span>((<span class="ruby-identifier">relevant_weight_readings</span>.<span class="ruby-identifier">maximum</span>(<span class="ruby-value">:weight</span>) <span class="ruby-operator">-</span> <span class="ruby-identifier">relevant_weight_readings</span>.<span class="ruby-identifier">minimum</span>(<span class="ruby-value">:weight</span>)<span class="ruby-operator">&gt;=</span><span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">weight</span>)[<span class="ruby-value">:weight</span>]) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">relevant_weight_readings</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">'weight desc'</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">id</span>))
+        <span class="ruby-comment">#create a new alert for this patient</span>
+        <span class="ruby-constant">Alert</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">patient_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">reading_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">relevant_weight_readings</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">weight</span><span class="ruby-operator">:</span> <span class="ruby-identifier">relevant_weight_readings</span>.<span class="ruby-identifier">maximum</span>(<span class="ruby-value">:weight</span>)).<span class="ruby-identifier">first</span>().<span class="ruby-identifier">id</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;weight&quot;</span>, <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Change in weight has exceeded the threshold&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">alerts</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sodium" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sodium</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sodium for last week</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sodium-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sodium</span>
+    <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>,
+            <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">emas</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">sodiumStringToInt</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">sodium_level</span>)] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sodiumStringToInt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sodiumStringToInt</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper function for the sodium values, to map from string to integer</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sodiumStringToInt-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 431</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sodiumStringToInt</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">downcase</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;low&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;medium&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-value">2</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;high&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-value">3</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sodium_last_2_weeks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sodium_last_2_weeks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sodium for last 2 weeks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sodium_last_2_weeks-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sodium_last_2_weeks</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">emas</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">sodiumStringToInt</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">sodium_level</span>)] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sodium_last_month" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sodium_last_month</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sodium for last month</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sodium_last_month-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sodium_last_month</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">emas</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">sodiumStringToInt</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">sodium_level</span>)] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sodium_last_six_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sodium_last_six_months</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sodium for last 6 months</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sodium_last_six_months-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 240</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sodium_last_six_months</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">emas</span>.<span class="ruby-identifier">last_six_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">sodiumStringToInt</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">sodium_level</span>)] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sodium_last_three_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sodium_last_three_months</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sodium for last 3 months</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sodium_last_three_months-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sodium_last_three_months</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">emas</span>.<span class="ruby-identifier">last_three_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">sodiumStringToInt</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">sodium_level</span>)] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sodium_last_year" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sodium_last_year</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sodium for last year</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sodium_last_year-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 246</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sodium_last_year</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>,
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">emas</span>.<span class="ruby-identifier">last_year</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">sodiumStringToInt</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">sodium_level</span>)] }}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-weight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">weight</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Weight for last 2 weeks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="weight-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">weight</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">weight</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">weight_readings</span>.<span class="ruby-identifier">last_2_weeks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">weight</span>] }}
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-weight_last_month" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">weight_last_month</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Weight for last month</p>
+          
+          
+
+          
+          <div class="method-source-code" id="weight_last_month-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">weight_last_month</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">weight</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">weight_readings</span>.<span class="ruby-identifier">last_month</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">weight</span>] }}
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-weight_last_six_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">weight_last_six_months</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Weight for last 6 months</p>
+          
+          
+
+          
+          <div class="method-source-code" id="weight_last_six_months-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">weight_last_six_months</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">weight</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">weight_readings</span>.<span class="ruby-identifier">last_six_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">weight</span>] }}
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-weight_last_three_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">weight_last_three_months</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Weight for last 3 months</p>
+          
+          
+
+          
+          <div class="method-source-code" id="weight_last_three_months-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">weight_last_three_months</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">weight</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">weight_readings</span>.<span class="ruby-identifier">last_three_months</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">weight</span>] }}
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-weight_last_week" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">weight_last_week</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Weight for last week</p>
+          
+          
+
+          
+          <div class="method-source-code" id="weight_last_week-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">weight_last_week</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">weight</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">weight_readings</span>.<span class="ruby-identifier">last_week</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">weight</span>] }}
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-weight_last_year" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">weight_last_year</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Weight for last year</p>
+          
+          
+
+          
+          <div class="method-source-code" id="weight_last_year-source">
+            <pre><span class="ruby-comment"># File app/models/patient.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">weight_last_year</span>
+  <span class="ruby-keyword">return</span> {<span class="ruby-identifier">threshold</span><span class="ruby-operator">:</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">threshold_values</span>.<span class="ruby-identifier">weight</span>),
+          <span class="ruby-identifier">values</span><span class="ruby-operator">:</span> <span class="ruby-identifier">weight_readings</span>.<span class="ruby-identifier">last_year</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">r</span>.<span class="ruby-identifier">reading_time</span>.<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">weight</span>] }}
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

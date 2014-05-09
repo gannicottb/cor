@@ -1,3 +1,4 @@
+#The patient model class
 class Patient < ActiveRecord::Base
 
     attr_accessible :id, :physician_id, :name, :phone_number
@@ -19,10 +20,10 @@ class Patient < ActiveRecord::Base
       alias_attribute :id, :patient_id
     end
 
-    def health_summary      
-      # # Basic premise: Average the readings for last two weeks // Read most recent reading
-      # # Compare to an ideal "green" value if possible. 
-      # # Value to send to summary graph is mapped from its range to appropriate graph range
+    # # Basic premise: Average the readings for last two weeks // Read most recent reading
+    # # Compare to an ideal "green" value if possible.
+    # # Value to send to summary graph is mapped from its range to appropriate graph range
+    def health_summary
 
       #Weight Summary 
       wt_thresh = eval(threshold_values.weight)
@@ -89,38 +90,43 @@ class Patient < ActiveRecord::Base
               sodium: so_summ}
     end
 
-    #Blood oxygen
+    #Blood oxygen for last week
     def blood_oxygen
       return {threshold: threshold_values.bo_perc,
               values: blood_oxygen_readings.last_week.map {|r| [r.reading_time.utc.to_i*1000, r.bo_perc] }}
     end
 
+    #Blood oxygen for last 2 weeks
     def blood_oxygen_last_2_weeks
       return {threshold: threshold_values.bo_perc,
               values: blood_oxygen_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.bo_perc] }}
     end
 
+    #Blood oxygen for last month
     def blood_oxygen_last_month
       return {threshold: threshold_values.bo_perc,
               values: blood_oxygen_readings.last_month.map {|r| [r.reading_time.utc.to_i*1000, r.bo_perc] }}
     end
 
+    #Blood oxygen for last 3 months
     def blood_oxygen_last_three_months
       return {threshold: threshold_values.bo_perc,
               values: blood_oxygen_readings.last_three_months.map {|r| [r.reading_time.utc.to_i*1000, r.bo_perc] }}
     end
 
+    #Blood oxygen for last 6 months
     def blood_oxygen_last_six_months
       return {threshold: threshold_values.bo_perc,
               values: blood_oxygen_readings.last_six_months.map {|r| [r.reading_time.utc.to_i*1000, r.bo_perc] }}
     end
 
+    #Blood oxygen for last year
     def blood_oxygen_last_year
       return {threshold: threshold_values.bo_perc,
               values: blood_oxygen_readings.last_year.map {|r| [r.reading_time.utc.to_i*1000, r.bo_perc] }}
     end
 
-    #Heart Rate
+    #Heart Rate latest reading
     def heart_rate    
       r = heart_rate_readings.latest
     	return {threshold: eval(threshold_values.heart_rate), 
@@ -128,106 +134,121 @@ class Patient < ActiveRecord::Base
               variability: r.heart_rate_variability }  
     end
 
+    #Heart Rate for last week
     def heart_rate_last_week
       return {threshold: eval(threshold_values.heart_rate),
               values: heart_rate_readings.last_week.map {|r| [r.reading_time.utc.to_i*1000, r.heart_rate] }}
     end
 
-
+    #Heart Rate for last 2 weeks
     def heart_rate_last_2_weeks
       return {threshold: eval(threshold_values.heart_rate),
               values: heart_rate_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.heart_rate] }}
     end
 
+    #Heart Rate for last month
     def heart_rate_last_month
       return {threshold: eval(threshold_values.heart_rate),
               values: heart_rate_readings.last_month.map {|r| [r.reading_time.utc.to_i*1000, r.heart_rate] }}
     end
 
+    #Heart Rate for last 3 months
     def heart_rate_last_three_months
       return {threshold: eval(threshold_values.heart_rate),
               values: heart_rate_readings.last_three_months.map {|r| [r.reading_time.utc.to_i*1000, r.heart_rate] }}
     end
 
+    #Heart Rate for last 6 months
     def heart_rate_last_six_months
       return {threshold: eval(threshold_values.heart_rate),
               values: heart_rate_readings.last_six_months.map {|r| [r.reading_time.utc.to_i*1000, r.heart_rate] }}
     end
 
+    #Heart Rate for last year
     def heart_rate_last_year
       return {threshold: eval(threshold_values.heart_rate),
               values: heart_rate_readings.last_year.map {|r| [r.reading_time.utc.to_i*1000, r.heart_rate] }}
     end
-    # Weight
+
+    # Weight for last 2 weeks
     def weight
       return {threshold: eval(threshold_values.weight),
               values: weight_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }}
 
     end
 
+    #Weight for last week
     def weight_last_week
       return {threshold: eval(threshold_values.weight),
               values: weight_readings.last_week.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }}
 
     end
 
+    #Weight for last month
     def weight_last_month
       return {threshold: eval(threshold_values.weight),
               values: weight_readings.last_month.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }}
 
     end
 
+    #Weight for last 3 months
     def weight_last_three_months
       return {threshold: eval(threshold_values.weight),
               values: weight_readings.last_three_months.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }}
 
     end
 
+    #Weight for last 6 months
     def weight_last_six_months
       return {threshold: eval(threshold_values.weight),
               values: weight_readings.last_six_months.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }}
 
     end
 
+    #Weight for last year
     def weight_last_year
       return {threshold: eval(threshold_values.weight),
               values: weight_readings.last_year.map {|r| [r.reading_time.utc.to_i*1000, r.weight] }}
 
     end
 
-    # Sodium
-
+    # Sodium for last week
     def sodium
         return {threshold: 0,
                 values: emas.last_week.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}
     end
 
+    # Sodium for last 2 weeks
     def sodium_last_2_weeks
       return {threshold: 0,
               values: emas.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}
     end
 
+    # Sodium for last month
     def sodium_last_month
       return {threshold: 0,
               values: emas.last_month.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}
     end
 
+    # Sodium for last 3 months
     def sodium_last_three_months
       return {threshold: 0,
               values: emas.last_three_months.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}
     end
 
+    # Sodium for last 6 months
     def sodium_last_six_months
       return {threshold: 0,
               values: emas.last_six_months.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}
     end
 
+    # Sodium for last year
     def sodium_last_year
       return {threshold: 0,
               values: emas.last_year.map {|r| [r.reading_time.utc.to_i*1000, sodiumStringToInt(r.sodium_level)] }}
     end
 
-    # Blood Pressure
+    # Blood Pressure latest reading
     def blood_pressure
         r = blood_pressure_readings.latest
         return {threshold: {:systolic => eval(threshold_values.systolic_bp),
@@ -235,6 +256,7 @@ class Patient < ActiveRecord::Base
         values: [r.reading_time.utc.to_i*1000, r.systolic_bp, r.diastolic_bp] }
     end
 
+    # Blood Pressure for last week
     def blood_pressure_last_week
       return {threshold: {systolic: eval(threshold_values.systolic_bp),
                           diastolic: eval(threshold_values.diastolic_bp)} ,
@@ -242,6 +264,7 @@ class Patient < ActiveRecord::Base
                         diastolic: blood_pressure_readings.last_week.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
     end
 
+    # Blood Pressure for last 2 weeks
     def blood_pressure_last_2_weeks
       return {threshold: {systolic: eval(threshold_values.systolic_bp),
                           diastolic: eval(threshold_values.diastolic_bp)} ,
@@ -249,6 +272,7 @@ class Patient < ActiveRecord::Base
                        diastolic: blood_pressure_readings.last_2_weeks.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
     end
 
+    # Blood Pressure for last month
     def blood_pressure_last_month
       return {threshold: {systolic: eval(threshold_values.systolic_bp),
                           diastolic: eval(threshold_values.diastolic_bp)} ,
@@ -256,6 +280,7 @@ class Patient < ActiveRecord::Base
                        diastolic: blood_pressure_readings.last_month.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
     end
 
+    # Blood Pressure for last 3 months
     def blood_pressure_last_three_months
       return {threshold: {systolic: eval(threshold_values.systolic_bp),
                           diastolic: eval(threshold_values.diastolic_bp)} ,
@@ -263,6 +288,7 @@ class Patient < ActiveRecord::Base
                        diastolic: blood_pressure_readings.last_three_months.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
     end
 
+    # Blood Pressure for last 6 months
     def blood_pressure_last_six_months
       return {threshold: {systolic: eval(threshold_values.systolic_bp),
                           diastolic: eval(threshold_values.diastolic_bp)} ,
@@ -270,6 +296,7 @@ class Patient < ActiveRecord::Base
                        diastolic: blood_pressure_readings.last_six_months.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
     end
 
+    # Blood Pressure for last year
     def blood_pressure_last_year
       return {threshold: {systolic: eval(threshold_values.systolic_bp),
                           diastolic: eval(threshold_values.diastolic_bp)} ,
@@ -277,6 +304,7 @@ class Patient < ActiveRecord::Base
                        diastolic: blood_pressure_readings.last_year.map {|r| [r.reading_time.utc.to_i*1000, r.diastolic_bp] }} }
     end
 
+    # Activity Log for last week
     def activity_log
       #Package up the data for the activity log page
       return  {exercise: {sedentary: activities.last_week.map {|r| r.sedentary_minutes},
@@ -293,6 +321,7 @@ class Patient < ActiveRecord::Base
               }
     end
 
+    # Activity Log for last 2 weeks
     def activity_log_last_2_weeks
       #Package up the data for the activity log page
       return  {exercise: {sedentary: activities.last_2_weeks.map {|r| r.sedentary_minutes},
@@ -309,6 +338,7 @@ class Patient < ActiveRecord::Base
       }
     end
 
+    # Activity Log for last month
     def activity_log_last_month
       #Package up the data for the activity log page
       return  {exercise: {sedentary: activities.last_month.map {|r| r.sedentary_minutes},
@@ -325,8 +355,8 @@ class Patient < ActiveRecord::Base
       }
     end
 
+    #Check all recent readings with threshold values and create Alerts
     def scanForAlerts
-      #Check all recent readings with threshold values and create Alerts
       #for each blood oxygen reading, compare with threshold
       blood_oxygen_readings.each do |r|
         if !alerts.exists?(reading_id: r.id)
@@ -397,6 +427,7 @@ class Patient < ActiveRecord::Base
       return alerts
     end
 
+    #Helper function for the sodium values, to map from string to integer
     def sodiumStringToInt(str)
       case str.downcase
       when "low"
@@ -410,25 +441,27 @@ class Patient < ActiveRecord::Base
       end
     end
 
-    #more or less copied from Arduino library
-  def map(x, in_min, in_max, out_min, out_max)  
+    #more or less copied from Arduino library for summary graph
+    def map(x, in_min, in_max, out_min, out_max)
       (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
-  end
-
-  def avg(val1, val2)
-    (val1 + val2) / 2
-  end
-
-  def change(val1, val2)
-    (val1 - val2)/val2
-  end
-
-  def max(val1, val2)
-    if val1.abs > val2.abs
-      val1
-    else
-      val2
     end
-  end
-  
+
+    #Helper function to average values
+    def avg(val1, val2)
+      (val1 + val2) / 2
+    end
+
+    #Helper function to find change in value with respect to the second value
+    def change(val1, val2)
+      (val1 - val2)/val2
+    end
+
+    #Helper function to find the maximum between the 2 supplied values
+    def max(val1, val2)
+      if val1.abs > val2.abs
+        val1
+      else
+        val2
+      end
+    end
 end

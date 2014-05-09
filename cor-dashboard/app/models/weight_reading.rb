@@ -1,3 +1,4 @@
+#The weight readings model class
 class WeightReading < ActiveRecord::Base
 
 	attr_accessible  :patient_id, :weight, :hydration, :reading_time, :created_date, :weight_monitor_id

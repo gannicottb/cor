@@ -1,3 +1,4 @@
+#The activity model class
 class Activity < ActiveRecord::Base
 
 	attr_accessible :patient_id, :date, 

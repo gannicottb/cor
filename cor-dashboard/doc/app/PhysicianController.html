@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class PhysicianController - Rails Application Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-alerts">#alerts</a>
+    
+    <li ><a href="#method-i-critical_patients">#critical_patients</a>
+    
+    <li ><a href="#method-i-detail">#detail</a>
+    
+    <li ><a href="#method-i-patients">#patients</a>
+    
+    <li ><a href="#method-i-roster">#roster</a>
+    
+    <li ><a href="#method-i-settings">#settings</a>
+    
+    <li ><a href="#method-i-summary">#summary</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-PhysicianController">
+  <h1 id="class-PhysicianController" class="class">
+    class PhysicianController
+  </h1>
+
+  <section class="description">
+    
+<p>The controller class for the physician dashboard</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-alerts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alerts</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate and show alerts for all the patients belonging to this physician</p>
+          
+          
+
+          
+          <div class="method-source-code" id="alerts-source">
+            <pre><span class="ruby-comment"># File app/controllers/physician_controller.rb, line 26</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">alerts</span>
+<span class="ruby-ivar">@alerts</span> = {}
+<span class="ruby-ivar">@physician</span> = <span class="ruby-constant">Physician</span>.<span class="ruby-identifier">take</span>
+<span class="ruby-ivar">@patients</span> = <span class="ruby-ivar">@physician</span>.<span class="ruby-identifier">patients</span>
+<span class="ruby-ivar">@patients</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">patient</span><span class="ruby-operator">|</span>
+  <span class="ruby-ivar">@alerts</span>[<span class="ruby-identifier">patient</span>.<span class="ruby-identifier">id</span>] = <span class="ruby-identifier">patient</span>.<span class="ruby-identifier">scanForAlerts</span>
+<span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-critical_patients" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">critical_patients</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Should display only patients with pending alerts - Not implemented</p>
+          
+          
+
+          
+          <div class="method-source-code" id="critical_patients-source">
+            <pre><span class="ruby-comment"># File app/controllers/physician_controller.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">critical_patients</span>
+        
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-detail" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">detail</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all the detailed data for all the metrics for this particular patient
+belonging to this physician</p>
+          
+          
+
+          
+          <div class="method-source-code" id="detail-source">
+            <pre><span class="ruby-comment"># File app/controllers/physician_controller.rb, line 91</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">detail</span>
+    <span class="ruby-ivar">@values</span> = {}
+    <span class="ruby-ivar">@metric</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:metric</span>]
+    <span class="ruby-ivar">@physician</span> = <span class="ruby-constant">Physician</span>.<span class="ruby-identifier">take</span>
+    <span class="ruby-comment">#@patients = @physician.patients</span>
+    <span class="ruby-ivar">@patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:patientId</span>])
+    <span class="ruby-comment"># last_week</span>
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">weight_last_week</span>
+    <span class="ruby-ivar">@threshold_wt</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_wt</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_oxygen</span>
+    <span class="ruby-ivar">@threshold_bo</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bo</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">heart_rate_last_week</span>
+    <span class="ruby-ivar">@threshold_hr</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_hr</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_pressure_last_week</span>
+    <span class="ruby-ivar">@threshold_bp</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bp</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">sodium</span>
+    <span class="ruby-ivar">@threshold_so</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_so</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-ivar">@exercise_log</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">activity_log</span>[<span class="ruby-value">:exercise</span>]
+
+    <span class="ruby-comment"># last_2_weeks</span>
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">weight</span>
+    <span class="ruby-ivar">@threshold_wt2w</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_wt2w</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_oxygen_last_2_weeks</span>
+    <span class="ruby-ivar">@threshold_bo2w</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bo2w</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">heart_rate_last_2_weeks</span>
+    <span class="ruby-ivar">@threshold_hr2w</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_hr2w</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_pressure_last_2_weeks</span>
+    <span class="ruby-ivar">@threshold_bp2w</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bp2w</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">sodium_last_2_weeks</span>
+    <span class="ruby-ivar">@threshold_so2w</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_so2w</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-ivar">@exercise_log_2w</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">activity_log_last_2_weeks</span>[<span class="ruby-value">:exercise</span>]
+
+    <span class="ruby-comment"># last_month</span>
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">weight_last_month</span>
+    <span class="ruby-ivar">@threshold_wtm</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_wtm</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_oxygen_last_month</span>
+    <span class="ruby-ivar">@threshold_bom</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bom</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">heart_rate_last_month</span>
+    <span class="ruby-ivar">@threshold_hrm</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_hrm</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_pressure_last_month</span>
+    <span class="ruby-ivar">@threshold_bpm</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bpm</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">sodium_last_month</span>
+    <span class="ruby-ivar">@threshold_som</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_som</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-ivar">@exercise_log_m</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">activity_log_last_month</span>[<span class="ruby-value">:exercise</span>]
+
+    <span class="ruby-comment"># last_three_months</span>
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">weight_last_three_months</span>
+    <span class="ruby-ivar">@threshold_wt3m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_wt3m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_oxygen_last_three_months</span>
+    <span class="ruby-ivar">@threshold_bo3m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bo3m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">heart_rate_last_three_months</span>
+    <span class="ruby-ivar">@threshold_hr3m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_hr3m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_pressure_last_three_months</span>
+    <span class="ruby-ivar">@threshold_bp3m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bp3m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">sodium_last_three_months</span>
+    <span class="ruby-ivar">@threshold_so3m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_so3m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+
+    <span class="ruby-comment"># last_six_months</span>
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">weight_last_six_months</span>
+    <span class="ruby-ivar">@threshold_wt6m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_wt6m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_oxygen_last_six_months</span>
+    <span class="ruby-ivar">@threshold_bo6m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bo6m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">heart_rate_last_six_months</span>
+    <span class="ruby-ivar">@threshold_hr6m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_hr6m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_pressure_last_six_months</span>
+    <span class="ruby-ivar">@threshold_bp6m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bp6m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">sodium_last_six_months</span>
+    <span class="ruby-ivar">@threshold_so6m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_so6m</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+
+    <span class="ruby-comment"># last_year</span>
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">weight_last_year</span>
+    <span class="ruby-ivar">@threshold_wty</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_wty</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_oxygen_last_year</span>
+    <span class="ruby-ivar">@threshold_boy</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_boy</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">heart_rate_last_year</span>
+    <span class="ruby-ivar">@threshold_hry</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_hry</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_pressure_last_year</span>
+    <span class="ruby-ivar">@threshold_bpy</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_bpy</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+    <span class="ruby-identifier">bundle</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">sodium_last_year</span>
+    <span class="ruby-ivar">@threshold_soy</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:threshold</span>]
+    <span class="ruby-ivar">@values_soy</span> = <span class="ruby-identifier">bundle</span>[<span class="ruby-value">:values</span>]
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-patients" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">patients</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Should display patient details- unclear - to be changed when implemented</p>
+          
+          
+
+          
+          <div class="method-source-code" id="patients-source">
+            <pre><span class="ruby-comment"># File app/controllers/physician_controller.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">patients</span>
+        
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-roster" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">roster</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all the patients for the physician id and apply border style based on
+whether any alert is pending</p>
+          
+          
+
+          
+          <div class="method-source-code" id="roster-source">
+            <pre><span class="ruby-comment"># File app/controllers/physician_controller.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">roster</span>     
+        <span class="ruby-ivar">@physician</span> = <span class="ruby-constant">Physician</span>.<span class="ruby-identifier">take</span>
+        <span class="ruby-ivar">@patients</span> = <span class="ruby-ivar">@physician</span>.<span class="ruby-identifier">patients</span>
+<span class="ruby-ivar">@borders</span> = {}
+<span class="ruby-ivar">@patients</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">patient</span><span class="ruby-operator">|</span>            
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>})           
+        <span class="ruby-ivar">@borders</span>[<span class="ruby-identifier">patient</span>.<span class="ruby-identifier">id</span>] = <span class="ruby-string">'critical'</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>})
+         <span class="ruby-ivar">@borders</span>[<span class="ruby-identifier">patient</span>.<span class="ruby-identifier">id</span>] = <span class="ruby-string">'warning'</span>               
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-settings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">settings</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get settings for the physician – To be implemented</p>
+          
+          
+
+          
+          <div class="method-source-code" id="settings-source">
+            <pre><span class="ruby-comment"># File app/controllers/physician_controller.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">settings</span>
+        
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">summary</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the summary page for the particular patient belonging to this
+physician. Get and display all the default charts and highlight metric if
+alerts pending against it</p>
+          
+          
+
+          
+          <div class="method-source-code" id="summary-source">
+            <pre><span class="ruby-comment"># File app/controllers/physician_controller.rb, line 47</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">summary</span>
+            <span class="ruby-ivar">@physician</span> = <span class="ruby-constant">Physician</span>.<span class="ruby-identifier">take</span>
+            <span class="ruby-ivar">@patient</span> = <span class="ruby-constant">Patient</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+            <span class="ruby-ivar">@bundle</span> = {}
+            <span class="ruby-ivar">@bundle</span>[<span class="ruby-value">:blood_oxygen</span>] = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_oxygen</span>
+<span class="ruby-ivar">@bundle</span>[<span class="ruby-value">:heart_rate</span>] = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">heart_rate</span>
+            <span class="ruby-ivar">@bundle</span>[<span class="ruby-value">:weight</span>] = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">weight</span>
+            <span class="ruby-ivar">@bundle</span>[<span class="ruby-value">:sodium</span>] = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">sodium</span>
+            <span class="ruby-ivar">@bundle</span>[<span class="ruby-value">:blood_pressure</span>] = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">blood_pressure</span>
+<span class="ruby-ivar">@exercise_log</span> = <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">activity_log</span>[<span class="ruby-value">:exercise</span>]
+
+<span class="ruby-ivar">@borders</span> = {}
+<span class="ruby-keyword">if</span> <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;blood oxygen&quot;</span>})
+  <span class="ruby-ivar">@borders</span>[<span class="ruby-value">:blood_oxygen</span>] = <span class="ruby-string">'critical'</span>
+<span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;blood oxygen&quot;</span>})
+  <span class="ruby-ivar">@borders</span>[<span class="ruby-value">:blood_oxygen</span>] = <span class="ruby-string">'warning'</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">if</span> <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;blood pressure&quot;</span>})
+  <span class="ruby-ivar">@borders</span>[<span class="ruby-value">:blood_pressure</span>] = <span class="ruby-string">'critical'</span>
+<span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;blood pressure&quot;</span>})
+  <span class="ruby-ivar">@borders</span>[<span class="ruby-value">:blood_pressure</span>] = <span class="ruby-string">'warning'</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">if</span> <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;heart rate&quot;</span>})
+  <span class="ruby-ivar">@borders</span>[<span class="ruby-value">:heart_rate</span>] = <span class="ruby-string">'critical'</span>
+<span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;heart rate&quot;</span>})
+  <span class="ruby-ivar">@borders</span>[<span class="ruby-value">:heart_rate</span>] = <span class="ruby-string">'warning'</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">if</span> <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;weight&quot;</span>})
+  <span class="ruby-ivar">@borders</span>[<span class="ruby-value">:weight</span>] = <span class="ruby-string">'critical'</span>
+<span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;weight&quot;</span>})
+  <span class="ruby-ivar">@borders</span>[<span class="ruby-value">:weight</span>] = <span class="ruby-string">'warning'</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">if</span> <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;sodium&quot;</span>})
+  <span class="ruby-ivar">@borders</span>[<span class="ruby-value">:sodium</span>] = <span class="ruby-string">'critical'</span>
+<span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@patient</span>.<span class="ruby-identifier">alerts</span>.<span class="ruby-identifier">exists?</span>({<span class="ruby-identifier">resolved_physician</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">urgent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">metric_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;sodium&quot;</span>})
+  <span class="ruby-ivar">@borders</span>[<span class="ruby-value">:sodium</span>] = <span class="ruby-string">'warning'</span>
+<span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

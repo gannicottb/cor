@@ -1,3 +1,4 @@
+#The alert model class
 class Alert < ActiveRecord::Base
 	attr_accessible :patient_id, :resolved_physician, :resolved_patient, :urgent, :reading_id, :created_date, :text, :metric_name
 	belongs_to :patient
@@ -8,10 +9,12 @@ class Alert < ActiveRecord::Base
 		exists?({resolved_physician: false, urgent: false})
 	end
 
+  #Fetch alerts which are urgent but unresolved
 	def unresolved_and_urgent
 		exists?({resolved_physician: false, urgent: true})
 	end
 
+  #Fetch default values
 	def default_values
     self.resolved_physician ||= false
     self.resolved_patient ||= false    

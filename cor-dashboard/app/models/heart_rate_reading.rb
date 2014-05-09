@@ -1,3 +1,4 @@
+#The heart rate readings model class
 class HeartRateReading < ActiveRecord::Base
   attr_accessible :patient_id, :hr_sensor_id, :heart_rate, :heart_rate_variability, :reading_time
   belongs_to :patient

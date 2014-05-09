@@ -1,3 +1,4 @@
+#The EMA model class
 class Ema < ActiveRecord::Base
 	attr_accessible :patient_id, :temperature, :sodium_level, :quality_of_sleep, :reading_time
 
